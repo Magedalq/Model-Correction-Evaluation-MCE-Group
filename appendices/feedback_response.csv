@@ -1,0 +1,55 @@
+item,feedback,response_and_status,location
+F01,Report typos/token line,Corrected 157 and garbled words in the revised pilot; no result changed.,Pilot revision
+F02,Describe the team code directly,Use the team pipeline description; include executable source.,5; code
+F03,AI-use disclosure,"Explicit tools, tasks and unresolved human review.",5
+F04,Comparison uses error flagging,Name the strategy in the revised pilot comparison.,Pilot revision
+F05,Verify documentation and cite it,Official ARC source checked; record request settings instead of assuming defaults.,2–3; [4]
+F06,Correct prior answers,Every selected case crosses both prior conditions and all strategies.,1
+F07,False correction rate,Confirmed incorrect outputs and unscorable outputs reported separately.,4
+F08,Targeted-fix feedback strength,"Label as a hint condition, not an instruction-only advantage.",1; 3
+F09,Hints equally informative,Same hint for both priors; diagnostic scope matched; team review pending.,2–3
+F10,Established benchmark,"45 sourced candidates: GSM8K 15, MATH 30; provenance and hashes supplied.",2; case JSON
+F11,Training-data contamination,Acknowledge public benchmarks and restricted numeric-answer scope.,2
+F12,Zero-shot difficulty calibration,Five runs/model/candidate; common 30–70% eligibility; live run pending.,2; calibrate/select
+F13,Natural model errors,Deferred secondary analysis; seeded errors answer the existing RQ1.,1
+F14,Moderate tier,20 candidate problems; benchmark level is not measured model difficulty.,2
+F15,Hard tier,15 MATH level-4 candidates; calibration pending.,2
+F16,Tricky tier,5 distinct GSM8K variants with irrelevant details; revalidate reference.,2
+F17,Very-hard tier,5 MATH level-5 candidates; measured difficulty pending.,2
+F18,Worked-solution seeds,45 worked pairs prepared; independent team review remains pending.,2; case JSON
+F19,Plausible near-miss errors,"Transcription, completing-square constant and off-by-one examples.",2
+F20,Vary error position/type,"45 pairs: 11 early, 21 middle, 13 final; team review pending.",2
+F21,Strong reasoning reference,DeepSeek high setting selected from documented ARC endpoints.,2
+F22,Low/no-reasoning condition,gpt-oss-120b explicitly low; not described as reasoning off.,2–3
+F23,Small 7–9B model,Qwen2.5-7B-Instruct proposed on ARC GPU; deployment not completed.,2; README
+F24,3–4 models; multiple families,"Three models from DeepSeek, OpenAI and Qwen.",2
+F25,Verify reliability and versions,Preflight supplied; exact revisions and live receipts pending.,2; preflight
+F26,Check model license,Qwen Apache-2.0 verified; other model revisions/license records need final check.,2; [5]
+F27,Identical prompts/settings,"Shared temperature, top-p and token cap; effort is model configuration.",3
+F28,One-sentence model rationale,Role and expected value described for all three.,2
+F29,Prior answer in assistant turn,System → question → assistant prior → correction user turn.,3; code
+F30,Match or model reasoning effort,Native settings are a declared configuration factor; no cross-family equivalence claim.,3
+F31,Save returned reasoning field,Raw JSON and any returned reasoning/think fields preserved.,3; code
+F32,Reasoning versus visible tokens,Use exposed usage components; unavailable stays null; no double-counting.,3–4
+F33,Log all generation metadata,"Settings, prompt version, endpoint, code/case hashes, timestamps, usage, retries.",3; manifest
+F34,Temperature and repetition,"0.4 for variability, three independent full-study repeats.",3
+F35,Same final instruction,Identical output instruction appended to every strategy.,3
+F36,Extraction separate from correctness,"Separate parsed/extracted, strict-format and correct fields.",4
+F37,Declared equivalence,Exact rational equality; decimal-only 0.00005 tolerance; percent-unit rules.,4
+F38,Explanation accuracy rubric,Correct/minor/major/unavailable; two-rater procedure supplied.,4; rubric
+F39,Error diagnosis rubric,Accurate/partial/incorrect/unavailable; fabricated-error flag on correct priors.,4; rubric
+F40,Cost measures,"Calls, input/total/reasoning/visible tokens, timing and fees; provider gaps retained.",4
+F41,Robust parser,"Bold, spaces, numeric fractions and percentages tested; no unsafe eval.",4; tests
+F42,Human parser audit of 50,Audit export implemented; 50 live human judgments not yet completed.,4; audit
+F43,30 shared ratings and kappa,"Rubric, overlapping sample and kappa command; human scores pending.",4; kappa
+F44,Mixed-effects regression,Defer saturated model until cell sizes justify it; paired contrasts primary.,4
+F45,McNemar paired comparisons,"Predeclared repeat 1 per case, exact test, Holm per model/prior.",4; analyze
+F46,RQ3 cumulative correction/CI,Original wrong-prior denominator; case bootstrap; incremental resource ratio.,4; analyze
+F47,Sample size/call budget,"45-case, three-model balanced-prior design: 4050 first rounds, max 8100 calls.",1
+F48,Read/cite Huang et al.,Intrinsic correction lacks guaranteed gains; motivates correct-prior controls.,1; [1]
+F49,Paper framing/venue,Frame repair versus damage and resources; venue selection deferred until results.,1; 5
+F50,Release prompts/code/logs,ZIP contains code and assets; actual team folder/repository link still required.,5
+F51,Phase-order checklist,Preflight → calibration → review → smoke → audit → freeze → full collection.,5; README
+F52,Current service limit claim,Do not repeat 1000/hour; current ARC docs use concurrency/output limits.,5; [4]
+F53,Contributions and team status,Proposed responsibilities separated from completed contributions.,5
+F54,Freeze and deviations,Version/hash records; date/reason/impact/approval deviation template.,5; deviations

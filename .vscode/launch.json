@@ -1,0 +1,106 @@
+{
+  // Press F5 (or Run > Start Debugging) and pick a step from the dropdown.
+  // Run them roughly top to bottom. Each live run needs a NEW output folder.
+  "version": "0.2.0",
+  "configurations": [
+    {
+      "name": "0. Run tests (no API key needed)",
+      "type": "debugpy", "request": "launch",
+      "program": "${workspaceFolder}/pipeline/test_pipeline.py",
+      "cwd": "${workspaceFolder}/pipeline",
+      "env": { "PYTHONUTF8": "1" },
+      "console": "integratedTerminal"
+    },
+    {
+      "name": "0b. Simulated smoke run (fake data, no key)",
+      "type": "debugpy", "request": "launch",
+      "program": "${workspaceFolder}/pipeline/arc_study.py",
+      "args": ["run", "--phase", "smoke", "--simulate", "--out", "${input:outDir}"],
+      "cwd": "${workspaceFolder}/pipeline",
+      "env": { "PYTHONUTF8": "1" },
+      "console": "integratedTerminal"
+    },
+    {
+      "name": "1. Preflight (3 live calls)",
+      "type": "debugpy", "request": "launch",
+      "program": "${workspaceFolder}/pipeline/arc_study.py",
+      "args": ["run", "--phase", "preflight", "--config", "${input:config}", "--out", "${input:outDir}"],
+      "cwd": "${workspaceFolder}/pipeline",
+      "envFile": "${workspaceFolder}/.env",
+      "env": { "PYTHONUTF8": "1" },
+      "console": "integratedTerminal"
+    },
+    {
+      "name": "2. Calibrate (difficulty check)",
+      "type": "debugpy", "request": "launch",
+      "program": "${workspaceFolder}/pipeline/arc_study.py",
+      "args": ["run", "--phase", "calibrate", "--config", "${input:config}", "--out", "${input:outDir}"],
+      "cwd": "${workspaceFolder}/pipeline",
+      "envFile": "${workspaceFolder}/.env",
+      "env": { "PYTHONUTF8": "1" },
+      "console": "integratedTerminal"
+    },
+    {
+      "name": "3. Select cases from calibration",
+      "type": "debugpy", "request": "launch",
+      "program": "${workspaceFolder}/pipeline/arc_study.py",
+      "args": ["select", "--log", "${input:logFile}", "--config", "${input:config}", "--out", "cases_selected.json"],
+      "cwd": "${workspaceFolder}/pipeline",
+      "env": { "PYTHONUTF8": "1" },
+      "console": "integratedTerminal"
+    },
+    {
+      "name": "4. Smoke run (live)",
+      "type": "debugpy", "request": "launch",
+      "program": "${workspaceFolder}/pipeline/arc_study.py",
+      "args": ["run", "--phase", "smoke", "--config", "${input:config}", "--out", "${input:outDir}"],
+      "cwd": "${workspaceFolder}/pipeline",
+      "envFile": "${workspaceFolder}/.env",
+      "env": { "PYTHONUTF8": "1" },
+      "console": "integratedTerminal"
+    },
+    {
+      "name": "5. Export 50-row audit sheet",
+      "type": "debugpy", "request": "launch",
+      "program": "${workspaceFolder}/pipeline/arc_study.py",
+      "args": ["audit", "--log", "${input:logFile}", "--out", "audit_50.csv"],
+      "cwd": "${workspaceFolder}/pipeline",
+      "env": { "PYTHONUTF8": "1" },
+      "console": "integratedTerminal"
+    },
+    {
+      "name": "6. Analyze a run",
+      "type": "debugpy", "request": "launch",
+      "program": "${workspaceFolder}/pipeline/arc_study.py",
+      "args": ["analyze", "--log", "${input:logFile}", "--out", "${input:analysisOut}"],
+      "cwd": "${workspaceFolder}/pipeline",
+      "env": { "PYTHONUTF8": "1" },
+      "console": "integratedTerminal"
+    },
+    {
+      "name": "7. FULL study (selected cases)",
+      "type": "debugpy", "request": "launch",
+      "program": "${workspaceFolder}/pipeline/arc_study.py",
+      "args": ["run", "--phase", "study", "--cases", "cases_selected.json", "--config", "${input:config}", "--out", "${input:outDir}"],
+      "cwd": "${workspaceFolder}/pipeline",
+      "envFile": "${workspaceFolder}/.env",
+      "env": { "PYTHONUTF8": "1" },
+      "console": "integratedTerminal"
+    }
+  ],
+  "inputs": [
+    { "id": "outDir", "type": "promptString",
+      "description": "Output folder (must be NEW each run, e.g. runs/calibration_1)",
+      "default": "runs/run_1" },
+    { "id": "logFile", "type": "promptString",
+      "description": "Path to the calls.jsonl log to read",
+      "default": "runs/calibration_1/calls.jsonl" },
+    { "id": "analysisOut", "type": "promptString",
+      "description": "Where to save the analysis JSON",
+      "default": "analysis.json" },
+    { "id": "config", "type": "pickString",
+      "description": "Which models to use",
+      "options": ["models_arc_only.json", "models.json"],
+      "default": "models_arc_only.json" }
+  ]
+}

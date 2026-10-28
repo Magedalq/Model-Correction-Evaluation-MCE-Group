@@ -1,0 +1,13 @@
+{
+  "checked_utc": "2026-10-12T01:43:26.429519+00:00",
+  "new_live_model_calls": 0,
+  "arc_key_available": false,
+  "qwen_server_available": "not configured",
+  "calibration": "not performed",
+  "human_audit": "not performed",
+  "software_fixture_calls": 180,
+  "candidate_cases": 45,
+  "worked_prior_pairs": 45,
+  "independent_team_review": "pending",
+  "original_pilot_script": "not present in supplied attachments"
+}

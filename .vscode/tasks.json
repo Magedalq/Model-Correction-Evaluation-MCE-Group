@@ -1,0 +1,14 @@
+{
+  // Ctrl+Shift+B runs the default build task (the tests), like building a C++ project.
+  "version": "2.0.0",
+  "tasks": [
+    {
+      "label": "Run tests",
+      "type": "shell",
+      "command": "python test_pipeline.py",
+      "options": { "cwd": "${workspaceFolder}/pipeline", "env": { "PYTHONUTF8": "1" } },
+      "group": { "kind": "build", "isDefault": true },
+      "problemMatcher": []
+    }
+  ]
+}

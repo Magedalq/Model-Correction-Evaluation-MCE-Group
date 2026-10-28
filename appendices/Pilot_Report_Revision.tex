@@ -1,0 +1,237 @@
+% Upload this file as main.tex in Overleaf.
+% Compiler: pdfLaTeX. No images or external bibliography files are required.
+% To add this report to an existing team document, copy the content between
+% BEGIN REPORT BODY and END REPORT BODY, and include the needed packages.
+\documentclass[11pt,letterpaper]{article}
+\usepackage[T1]{fontenc}
+\usepackage[utf8]{inputenc}
+\usepackage{mathptmx}
+\usepackage[letterpaper,left=0.8in,right=0.8in,top=0.7in,bottom=0.7in,headheight=14pt,headsep=16pt]{geometry}
+\usepackage{microtype}
+\usepackage{array,tabularx,booktabs}
+\usepackage[table]{xcolor}
+\usepackage{titlesec}
+\usepackage{fancyhdr}
+\usepackage{enumitem}
+\usepackage{url}
+\usepackage[hidelinks,pdfauthor={Yoongi Baek},pdftitle={ARC LLM API Exploration and Research Pilot}]{hyperref}
+\urlstyle{same}
+\definecolor{tablehead}{RGB}{232,237,242}
+\newcolumntype{Y}[1]{>{\hsize=#1\hsize\linewidth=\hsize\raggedright\arraybackslash}X}
+\setlength{\parindent}{0pt}
+\setlength{\parskip}{3pt}
+\linespread{1.00}
+\setlength{\emergencystretch}{2em}
+\setcounter{secnumdepth}{1}
+\titleformat{\section}{\large\bfseries}{\thesection}{0.6em}{}
+\titleformat{\subsection}{\normalsize\bfseries}{}{0pt}{}
+\titlespacing*{\section}{0pt}{8pt}{4pt}
+\titlespacing*{\subsection}{0pt}{6pt}{2pt}
+\pagestyle{fancy}
+\fancyhf{}
+\fancyhead[L]{\small ARC LLM API Exploration and Research Pilot}
+\fancyfoot[R]{\small\thepage}
+\renewcommand{\headrulewidth}{0pt}
+\renewcommand{\footrulewidth}{0pt}
+\widowpenalty=10000
+\clubpenalty=10000
+
+\begin{document}
+% BEGIN REPORT BODY
+\begin{center}
+{\LARGE\bfseries ARC LLM API Exploration\\[3pt]and Research Pilot\par}
+\vspace{5pt}
+{\large LLM Error Correction on Synthetic Reasoning Problems\par}
+\vspace{5pt}
+Yoongi Baek\enspace |\enspace Maged Al Qabany\enspace |\enspace Tavish Sheth\\[2pt]
+October 9, 2026
+\end{center}
+\vspace{3pt}
+\section{Purpose, Models and Initial API Test}
+We tested the feasibility of an LLM error-correction study using Virginia Tech's ARC API. The expanded run saved 59 API call records with no recorded errors. All 50 research-pilot responses had correct final numerical answers on manual review. However, the five easy cases produced a ceiling effect, so the pilot cannot identify a superior correction strategy.
+
+This report analyzes the expanded five-item run from October 9, 2026. All tasks and prior errors were synthetic; no human participants or final study data were collected.
+
+\subsection*{Models Explored}
+Both models accepted text chat input containing a question, an incorrect prior answer and a correction instruction. The supplied ARC documentation lists a 128k context window for each; other input modalities were not tested.
+
+{\small
+\renewcommand{\arraystretch}{1.20}
+\begin{tabularx}{\linewidth}{Y{0.60}Y{1.20}Y{1.20}}
+\toprule
+\rowcolor{tablehead}
+\textbf{Model} & \textbf{Relevance} & \textbf{Observed limitation} \\
+\midrule
+gpt-oss-120b & Numerical reasoning with lower observed request latency; suitable for repeated comparisons. & Often returned only a final answer, leaving explanation and verification unavailable. \\
+GLM-5.3 & More visible mathematical explanation, supporting inspection of error diagnosis. & Higher observed latency; correct numbers sometimes accompanied inaccurate diagnostic wording. \\
+\bottomrule
+\end{tabularx}}
+
+The documentation lists medium default reasoning effort for gpt-oss-120b and max for GLM-5.3. These service defaults were not verified from saved execution settings. Model revisions were not recorded.
+
+\subsection*{Access and Initial Test}
+ARC provides an OpenAI-compatible endpoint at \url{https://llm-api.arc.vt.edu/api/v1}. Eligible users generate their own confidential API keys. This run verifies working access for the execution, not separate access for every team member. No key is included in the report or result records.
+
+\textbf{Prompt:} ``Respond in one sentence: What is an LLM?''
+
+\textbf{Response:} ``An LLM (large language model) is an AI neural network trained on massive text data to generate, understand, and manipulate human-like language.''
+
+gpt-oss-120b returned this relevant one-sentence answer in 1.513 seconds. Its null score is expected because the connectivity test had no numerical reference answer.
+
+\subsection*{Two Model Comparison}
+Using the error-flagging strategy, both models received the same P1 question about drawing two red balls without replacement, the same incorrect prior answer of 0.36, and the instruction to check and correct it, ending with a \texttt{FINAL:} line. Both answered 0.3. gpt-oss-120b returned only \texttt{FINAL: 0.3} in 2.793 seconds; GLM-5.3 showed the conditional calculation and explained the replacement error in 7.745 seconds. Reported completion tokens were 202 and 251 respectively. This single comparison demonstrates different output styles, not a general quality ranking.
+
+\clearpage
+\section{Prompt Variation, Repetition and Pilot Design}
+\subsection*{Three Prompt Versions}
+We used gpt-oss-120b on the same P1 question and incorrect prior answer. Only the correction instructions changed; the JSON retains their exact wording.
+
+{\small
+\renewcommand{\arraystretch}{1.20}
+\begin{tabularx}{\linewidth}{Y{0.55}Y{1.15}Y{1.30}}
+\toprule
+\rowcolor{tablehead}
+\textbf{Version} & \textbf{Instruction} & \textbf{Observed response} \\
+\midrule
+Simple & ``Try again.'' & Two methods and boxed 0.30; no FINAL marker was requested. \\
+Structured & Check the answer, show the calculation and end with FINAL. & Correct conditional calculation; bold \texttt{**FINAL: 0.3**}. \\
+Research oriented & Evaluate a synthetic correction case; check assumptions and distinguish prior and corrected answers. & Correct \texttt{FINAL: 0.3}, but incorrectly described the draws as ``independent steps''. \\
+\bottomrule
+\end{tabularx}}
+
+All three numerical answers were correct. Automatic extraction failed on the simple and structured responses. These null scores indicate missing extraction, not incorrect answers. More context made correction explicit but did not improve numerical accuracy or eliminate conceptual errors. The full study should freeze prompts and score format compliance separately.
+
+\subsection*{Repeated Runs}
+Three unchanged gpt-oss-120b requests all returned exactly \texttt{FINAL: 0.3}. Times were 2.594, 1.844 and 1.777 seconds; completion tokens were 204, 157 and 154. Visible conclusions were stable on this easy case, while timing and usage varied. These were independent repetitions, not sequential repair rounds.
+
+\subsection*{Small Research Pilot}
+We crossed five tasks, five strategies and two models, with one call per combination: 50 pilot responses. Each prompt contained the task, an experimenter-supplied incorrect answer, the strategy instruction and a shared final-answer requirement. The prior errors were seeded, not collected from earlier model generations.
+
+{\small
+\renewcommand{\arraystretch}{1.20}
+\begin{tabularx}{\linewidth}{Y{0.35}Y{2.05}Y{0.80}Y{0.80}}
+\toprule
+\rowcolor{tablehead}
+\textbf{Case} & \textbf{Task} & \textbf{Seeded answer} & \textbf{Reference} \\
+\midrule
+P1 & Two red draws from 3 red and 2 blue balls, without replacement. & 0.36 & 0.3 \\
+P2 & At least one six when two fair dice are rolled. & 0.333333 & 11/36 \\
+P3 & Mean for four scores of 80 and six scores of 95. & 87.5 & 89 \\
+P4 & Posterior condition probability: 10\% prevalence, 80\% sensitivity, 20\% false-positive rate. & 0.8 & 4/13 \\
+P5 & Sample variance of [2, 4, 6], using $n-1$. & 2.666667 & 4 \\
+\bottomrule
+\end{tabularx}}
+
+The strategies were neutral retry, error flagging, targeted fix, step-by-step redo and self-check. Targeted fix provided case-specific hints about replacement, overlap, weighting, the Bayes denominator or the variance denominator. This extra information must be distinguished from instruction style.
+
+Reference answers were independently checked: P1 has three favorable pairs out of ten; P2 has eleven favorable outcomes out of thirty-six; P3 totals 890 points over ten students; P4 has 80 true positives among 260 positive tests per 1,000 hypothetical people; P5 divides a squared-deviation total of eight by two.
+
+\clearpage
+\section{Pilot Results, Storage and Methodology Changes}
+\subsection*{Results of the Expanded Run}
+The 59 calls comprised one initial test, two model-comparison calls, three prompt variations, three independent repeats and 50 pilot calls. No saved record contains an API error. Manual review confirmed all 50 pilot final numerical answers, accepting exact fractions and equivalent rounded decimals.
+
+{\small
+\renewcommand{\arraystretch}{1.20}
+\begin{tabularx}{\linewidth}{Y{1.45}Y{0.775}Y{0.775}}
+\toprule
+\rowcolor{tablehead}
+\textbf{Pilot measure} & \textbf{gpt-oss-120b} & \textbf{GLM-5.3} \\
+\midrule
+Correct final answers & 25/25 & 25/25 \\
+Mean request time in seconds & 4.351 & 11.192 \\
+Median request time in seconds & 3.778 & 10.006 \\
+Mean reported completion tokens & 248.92 & 517.44 \\
+Mean visible response characters & 159.32 & 634.04 \\
+\bottomrule
+\end{tabularx}}
+
+Every strategy corrected all five cases for each model. GLM-5.3 took about 2.57 times as long overall, but request times include queueing and network delay; the documented GLM endpoint uses fair queueing. Fixed call order also limits attribution. Completion tokens may include reasoning tokens and use different tokenizers; they do not measure comparable amounts of visible explanation.
+
+\subsection*{What the Pilot Revealed}
+gpt-oss-120b returned only a FINAL line in 20 of 25 pilot responses. Its five self-check responses showed no visible verification. GLM-5.3 usually explained its answer, but in P4 targeted fix it correctly computed 4/13 and then inaccurately described 0.8 as the numerator; 0.8 is the sensitivity, whereas the joint true-positive probability is 0.08.
+
+Two correct answers also departed from a strict final format: gpt-oss-120b P2 ended with \texttt{FINAL: 0.305555...}; GLM-5.3 P4 targeted fix ended with \texttt{FINAL: 4/13} followed by an approximation. Extraction success, numerical accuracy, conceptual accuracy and instruction adherence therefore need separate measures.
+
+The 50 responses represent only five distinct easy tasks. The pilot lacks harder cases, repetitions across all conditions and sequential repairs. It demonstrates feasibility but cannot establish strategy superiority, task-type interactions or RQ3's additional benefit.
+
+\subsection*{Systematic Storage and Reproducibility}
+Our pilot pipeline saved CSV and JSON files in \path{arc_pilot_output_5}. We used the 59-record JSON log to analyze the results. The original executed pilot script must be retained with that run; the new Part 1 pipeline is a separate version. Records retain phase, model, case, strategy label, run number, UTC timestamp, prompt, response, latency, input/output token counts, reference answer, parsed answer, automatic score and error.
+
+Missing details include generation settings, system messages, model revision, package versions, retry policy and parser tolerance. The full study should save these, plus round identifiers and conversation history. Null scores must remain distinct from incorrect answers. Technical retries should be logged separately.
+
+\subsection*{Planned Changes}
+Use harder tasks with balanced reasoning types and fixed seeded errors; freeze prompts and settings; repeat matched conditions independently; balance call order; improve extraction and declare rounding rules; and evaluate explanations separately. Add sequential repair rounds with a preset limit, resource accounting and an external reference checker that does not disclose the gold answer to the model. Human-participant research, if later added, requires the appropriate approval before collection.
+
+\clearpage
+\section{Reflection on the Research Method}
+\subsection*{1 Can ARC Support the Research}
+Yes: both text endpoints returned responses, and all 59 records have empty error fields. Verify individual operator access and model availability before full collection.
+
+\subsection*{2 Which Models Are Being Considered}
+gpt-oss-120b and GLM-5.3, both tested successfully. Record exact endpoints and available model-version metadata during collection.
+
+\subsection*{3 Why These Models}
+Both corrected all pilot cases, with different observed latency and explanation styles. The pilot provides no accuracy-based reason to prefer one.
+
+\subsection*{4 What Is One Experimental Unit or API Call}
+A call contains the task, prior answer, strategy and output requirement. Index responses by case, model, strategy, independent repeat and round; account for shared cases in analysis.
+
+\subsection*{5 How Many Calls Might the Full Study Require}
+For 50 cases, two models, five strategies and three independent repeats: 1,500 first-round calls. A three-round limit allows up to 4,500 correction calls, fewer with early success. Retries and optional baseline generations are additional.
+
+\subsection*{6 Will Models Be Compared}
+Yes. Use matched tasks and seeded errors across both models, controlling settings and balancing task difficulty and execution order.
+
+\subsection*{7 Will Prompting Strategies Be Compared}
+Yes, all five strategies. Freeze templates and each seeded error; identify the additional diagnostic information in targeted fix.
+
+\subsection*{8 Will Repeated Runs Be Necessary}
+Yes. Independent repeats estimate variability; RQ3's sequential rounds carry failed answers forward. Technical retries are separate from both experimental procedures.
+
+\subsection*{9 How Will Responses Be Evaluated}
+Use checked references and declared rounding rules. Score extraction, format, conceptual accuracy and visible verification separately with a fixed reviewer rubric. RQ3 adds cumulative correction and resource measures.
+
+\subsection*{10 What Data Must Be Saved}
+Save messages, references, seeded errors, settings, model metadata, case/repeat/round identifiers, history, timing, tokens, charges, errors, retries and scores. Exclude credentials from shared outputs.
+
+\subsection*{11 What Technical Problems Occurred}
+The completed run logged no API errors, but extraction missed two correct answers and reproducibility settings were incomplete.
+
+\subsection*{12 Did the Pilot Change the Methodology}
+Yes: use harder tasks, separate explanation scoring, and repeat matched conditions. Add sequential repair rounds and resource accounting because RQ3 remains untested.
+
+\clearpage
+\section{Updated Research Plan}
+We retain the three research questions from the previous assignment and map each to the full-study design.
+
+\textbf{RQ1:} How do five re-prompting strategies differ in first-round correction rate when the model, task, and seeded error are held constant?
+
+\textbf{RQ2:} How do the relative effects of re-prompting strategies vary across LLMs and reasoning-task types?
+
+\textbf{RQ3:} What additional correction benefit is gained from repeated repair rounds, and what additional calls, tokens, and API cost are required to obtain that benefit?
+
+{\footnotesize
+\setlength{\tabcolsep}{4pt}
+\renewcommand{\arraystretch}{1.20}
+\begin{tabularx}{\linewidth}{Y{0.60}Y{1.22}Y{0.77}Y{1.38}Y{0.88}Y{1.15}}
+\toprule
+\rowcolor{tablehead}
+\textbf{Research Question} & \textbf{Input/Data} & \textbf{Model(s)} & \textbf{Prompt/Procedure} & \textbf{Output} & \textbf{Evaluation Method} \\
+\midrule
+RQ1 & Tasks with checked answers and fixed seeded errors; matched cases across strategies. & gpt-oss-120b; GLM-5.3, analyzed within model. & Apply five strategies to the same task and error. Hold settings fixed; score round one and use independent repeats. & First-round answers and correctness labels. & Correction rate and paired strategy differences within model and task type, with uncertainty. \\
+RQ2 & Matched cases across defined reasoning types; balanced difficulty and error types. & gpt-oss-120b and GLM-5.3. & Cross strategies with models and task types using identical cases and templates; balance order. & Outcomes by strategy, model and task type. & Compare within-model strategy contrasts across models and types; assess interactions and shared-case dependence. \\
+RQ3 & Seeded-error cases plus each round's answers, history, timing and usage. & Both models. & Continue failed repairs using the same strategy and previous answer; stop at verified success or a preset limit. & Per-round and cumulative correction; added calls, input/output tokens and charges. & Gain beyond round one; incremental gain, resources per case and resources per additional corrected case. \\
+\bottomrule
+\end{tabularx}}
+
+\subsection*{Repair Rounds and Resource Evaluation}
+Independent repeats restart from the seeded error; sequential rounds use the previous repair answer. For RQ3, retain round history, set the maximum rounds in advance and keep reference answers outside prompts. Calculate cumulative correction over the original case set, the gain beyond round one and the increment between rounds. Count all added requests and input/output tokens, including history; log technical retries separately.
+
+The supplied ARC documentation reports no individual API charge, so direct fees are zero for this setup. Calls and tokens still measure resource use. If a paid endpoint is included, calculate charges using its recorded usage and applicable documented rates; no paid-service prices are assumed here.
+
+\subsection*{Pilot Coverage}
+RQ1 and RQ2 procedures were feasible, but five easy tasks cannot establish strategy differences or effects across reasoning types. RQ3 remains untested: the three repeated-run calls were independent repetitions. Sequential repair and resource logging must be added to the full study.
+
+% END REPORT BODY
+\end{document}

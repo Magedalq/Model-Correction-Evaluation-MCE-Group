@@ -1,0 +1,38 @@
+{
+  "protocol_version": "part1-2.0",
+  "models": [
+    {
+      "label": "deepseek_high",
+      "model": "DeepSeek-V4.1-Flash",
+      "base_url": "https://llm-api.arc.vt.edu/api/v1",
+      "key_env": "ARC_API_KEY",
+      "reasoning_effort": "high",
+      "revision": null,
+      "billing": "ARC-no-individual-charge",
+      "status": "documented; live preflight pending",
+      "max_tokens": 8000
+    },
+    {
+      "label": "gptoss_low",
+      "model": "gpt-oss-120b",
+      "base_url": "https://llm-api.arc.vt.edu/api/v1",
+      "key_env": "ARC_API_KEY",
+      "reasoning_effort": "low",
+      "revision": null,
+      "billing": "ARC-no-individual-charge",
+      "status": "base endpoint tested in prior pilot; low-setting preflight pending",
+      "max_tokens": 8000
+    },
+    {
+      "label": "qwen7b",
+      "model": "Qwen/Qwen2.5-7B-Instruct",
+      "base_url": "http://127.0.0.1:8000/v1",
+      "key_env": "QWEN_API_KEY",
+      "reasoning_effort": null,
+      "revision": null,
+      "billing": "ARC-self-hosted-no-individual-API-charge",
+      "status": "requires ARC GPU deployment and local tunnel; live preflight pending",
+      "max_tokens": 4096
+    }
+  ]
+}

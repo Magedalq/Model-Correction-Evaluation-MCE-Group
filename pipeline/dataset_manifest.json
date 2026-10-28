@@ -1,0 +1,43 @@
+{
+  "GSM8K": {
+    "url": "https://raw.githubusercontent.com/openai/grade-school-math/master/grade_school_math/data/test.jsonl",
+    "download_sha256": "3730d312f6e3440559ace48831e51066acaca737f6eabec99bccb9e4b3c39d14",
+    "retrieved_utc": "2026-10-12",
+    "license": "MIT"
+  },
+  "MATH": {
+    "author_repo": "https://github.com/hendrycks/math",
+    "author_linked_mirror": "https://huggingface.co/datasets/qwedsacf/competition_math",
+    "download_sha256": "2325458edc03d786939ee9e1e5795efb9e2480247b6e1ed2c51f41bea7369c6a",
+    "retrieved_utc": "2026-10-12",
+    "license": "MIT per author-linked mirror dataset card",
+    "note": "author-linked mirror has 12500 rows; original train/test labels not preserved here",
+    "license_source": "https://huggingface.co/datasets/qwedsacf/competition_math/blob/main/README.md"
+  },
+  "AIME2025": {
+    "repo": "https://github.com/GAIR-NLP/AIME-Preview",
+    "files": [
+      "eval/data/aime/test2025-I.jsonl",
+      "eval/data/aime/test2025-II.jsonl"
+    ],
+    "commit": "7011a9eae7c4b78071f27b6f77f618d65608cfb0",
+    "download_sha256": {
+      "I": "fcdf97fe9bf3768e586c4f3b3d34d98a763893847e72234aa41e1ed5c67d977a",
+      "II": "69d966f7badd83a681d30efa9b4d587b4c692e4892b6ea5dc57d11d3934bf79a"
+    },
+    "retrieved_utc": "2026-10-28",
+    "checked": "All 30 answers match the official 2025 AIME I/II answer keys.",
+    "excluded": [
+      "II-5",
+      "II-6 (point ordering depends on the original diagram)"
+    ],
+    "license": "Problems (c) Mathematical Association of America; used for non-commercial research evaluation. Repo has no explicit data license.",
+    "contamination": "Public since Feb 2025; models released later may have seen these problems."
+  },
+  "Simpson generator": {
+    "script": "generate_simpson.py",
+    "seed": 20261028,
+    "cases": 40,
+    "note": "Synthetic; regenerate with `python generate_simpson.py` and the test suite checks it reproduces cases_candidates.json exactly."
+  }
+}

@@ -1,0 +1,3716 @@
+{
+  "is_simulated": true,
+  "rates": [
+    {
+      "model": "deepseek_high",
+      "strategy": "self_check",
+      "prior": "wrong",
+      "first_round_end_to_end_accuracy": {
+        "estimate": 1.0,
+        "ci95": [
+          1.0,
+          1.0
+        ],
+        "cases": 3
+      },
+      "confirmed_wrong_rate": {
+        "estimate": 0.0,
+        "ci95": [
+          0.0,
+          0.0
+        ],
+        "cases": 3
+      },
+      "unscorable_rate": {
+        "estimate": 0.0,
+        "ci95": [
+          0.0,
+          0.0
+        ],
+        "cases": 3
+      }
+    },
+    {
+      "model": "qwen7b",
+      "strategy": "error_flagging",
+      "prior": "correct",
+      "first_round_end_to_end_accuracy": {
+        "estimate": 1.0,
+        "ci95": [
+          1.0,
+          1.0
+        ],
+        "cases": 3
+      },
+      "confirmed_wrong_rate": {
+        "estimate": 0.0,
+        "ci95": [
+          0.0,
+          0.0
+        ],
+        "cases": 3
+      },
+      "unscorable_rate": {
+        "estimate": 0.0,
+        "ci95": [
+          0.0,
+          0.0
+        ],
+        "cases": 3
+      },
+      "false_correction_upper_bound": {
+        "estimate": 0.0,
+        "ci95": [
+          0.0,
+          0.0
+        ],
+        "cases": 3
+      }
+    },
+    {
+      "model": "gptoss_low",
+      "strategy": "targeted_fix",
+      "prior": "wrong",
+      "first_round_end_to_end_accuracy": {
+        "estimate": 1.0,
+        "ci95": [
+          1.0,
+          1.0
+        ],
+        "cases": 3
+      },
+      "confirmed_wrong_rate": {
+        "estimate": 0.0,
+        "ci95": [
+          0.0,
+          0.0
+        ],
+        "cases": 3
+      },
+      "unscorable_rate": {
+        "estimate": 0.0,
+        "ci95": [
+          0.0,
+          0.0
+        ],
+        "cases": 3
+      }
+    },
+    {
+      "model": "gptoss_low",
+      "strategy": "error_flagging",
+      "prior": "wrong",
+      "first_round_end_to_end_accuracy": {
+        "estimate": 1.0,
+        "ci95": [
+          1.0,
+          1.0
+        ],
+        "cases": 3
+      },
+      "confirmed_wrong_rate": {
+        "estimate": 0.0,
+        "ci95": [
+          0.0,
+          0.0
+        ],
+        "cases": 3
+      },
+      "unscorable_rate": {
+        "estimate": 0.0,
+        "ci95": [
+          0.0,
+          0.0
+        ],
+        "cases": 3
+      }
+    },
+    {
+      "model": "qwen7b",
+      "strategy": "step_by_step_redo",
+      "prior": "wrong",
+      "first_round_end_to_end_accuracy": {
+        "estimate": 1.0,
+        "ci95": [
+          1.0,
+          1.0
+        ],
+        "cases": 3
+      },
+      "confirmed_wrong_rate": {
+        "estimate": 0.0,
+        "ci95": [
+          0.0,
+          0.0
+        ],
+        "cases": 3
+      },
+      "unscorable_rate": {
+        "estimate": 0.0,
+        "ci95": [
+          0.0,
+          0.0
+        ],
+        "cases": 3
+      }
+    },
+    {
+      "model": "qwen7b",
+      "strategy": "self_check",
+      "prior": "correct",
+      "first_round_end_to_end_accuracy": {
+        "estimate": 1.0,
+        "ci95": [
+          1.0,
+          1.0
+        ],
+        "cases": 3
+      },
+      "confirmed_wrong_rate": {
+        "estimate": 0.0,
+        "ci95": [
+          0.0,
+          0.0
+        ],
+        "cases": 3
+      },
+      "unscorable_rate": {
+        "estimate": 0.0,
+        "ci95": [
+          0.0,
+          0.0
+        ],
+        "cases": 3
+      },
+      "false_correction_upper_bound": {
+        "estimate": 0.0,
+        "ci95": [
+          0.0,
+          0.0
+        ],
+        "cases": 3
+      }
+    },
+    {
+      "model": "qwen7b",
+      "strategy": "targeted_fix",
+      "prior": "correct",
+      "first_round_end_to_end_accuracy": {
+        "estimate": 1.0,
+        "ci95": [
+          1.0,
+          1.0
+        ],
+        "cases": 3
+      },
+      "confirmed_wrong_rate": {
+        "estimate": 0.0,
+        "ci95": [
+          0.0,
+          0.0
+        ],
+        "cases": 3
+      },
+      "unscorable_rate": {
+        "estimate": 0.0,
+        "ci95": [
+          0.0,
+          0.0
+        ],
+        "cases": 3
+      },
+      "false_correction_upper_bound": {
+        "estimate": 0.0,
+        "ci95": [
+          0.0,
+          0.0
+        ],
+        "cases": 3
+      }
+    },
+    {
+      "model": "qwen7b",
+      "strategy": "neutral_retry",
+      "prior": "correct",
+      "first_round_end_to_end_accuracy": {
+        "estimate": 1.0,
+        "ci95": [
+          1.0,
+          1.0
+        ],
+        "cases": 3
+      },
+      "confirmed_wrong_rate": {
+        "estimate": 0.0,
+        "ci95": [
+          0.0,
+          0.0
+        ],
+        "cases": 3
+      },
+      "unscorable_rate": {
+        "estimate": 0.0,
+        "ci95": [
+          0.0,
+          0.0
+        ],
+        "cases": 3
+      },
+      "false_correction_upper_bound": {
+        "estimate": 0.0,
+        "ci95": [
+          0.0,
+          0.0
+        ],
+        "cases": 3
+      }
+    },
+    {
+      "model": "deepseek_high",
+      "strategy": "error_flagging",
+      "prior": "wrong",
+      "first_round_end_to_end_accuracy": {
+        "estimate": 1.0,
+        "ci95": [
+          1.0,
+          1.0
+        ],
+        "cases": 3
+      },
+      "confirmed_wrong_rate": {
+        "estimate": 0.0,
+        "ci95": [
+          0.0,
+          0.0
+        ],
+        "cases": 3
+      },
+      "unscorable_rate": {
+        "estimate": 0.0,
+        "ci95": [
+          0.0,
+          0.0
+        ],
+        "cases": 3
+      }
+    },
+    {
+      "model": "deepseek_high",
+      "strategy": "step_by_step_redo",
+      "prior": "wrong",
+      "first_round_end_to_end_accuracy": {
+        "estimate": 1.0,
+        "ci95": [
+          1.0,
+          1.0
+        ],
+        "cases": 3
+      },
+      "confirmed_wrong_rate": {
+        "estimate": 0.0,
+        "ci95": [
+          0.0,
+          0.0
+        ],
+        "cases": 3
+      },
+      "unscorable_rate": {
+        "estimate": 0.0,
+        "ci95": [
+          0.0,
+          0.0
+        ],
+        "cases": 3
+      }
+    },
+    {
+      "model": "gptoss_low",
+      "strategy": "error_flagging",
+      "prior": "correct",
+      "first_round_end_to_end_accuracy": {
+        "estimate": 1.0,
+        "ci95": [
+          1.0,
+          1.0
+        ],
+        "cases": 3
+      },
+      "confirmed_wrong_rate": {
+        "estimate": 0.0,
+        "ci95": [
+          0.0,
+          0.0
+        ],
+        "cases": 3
+      },
+      "unscorable_rate": {
+        "estimate": 0.0,
+        "ci95": [
+          0.0,
+          0.0
+        ],
+        "cases": 3
+      },
+      "false_correction_upper_bound": {
+        "estimate": 0.0,
+        "ci95": [
+          0.0,
+          0.0
+        ],
+        "cases": 3
+      }
+    },
+    {
+      "model": "qwen7b",
+      "strategy": "targeted_fix",
+      "prior": "wrong",
+      "first_round_end_to_end_accuracy": {
+        "estimate": 1.0,
+        "ci95": [
+          1.0,
+          1.0
+        ],
+        "cases": 3
+      },
+      "confirmed_wrong_rate": {
+        "estimate": 0.0,
+        "ci95": [
+          0.0,
+          0.0
+        ],
+        "cases": 3
+      },
+      "unscorable_rate": {
+        "estimate": 0.0,
+        "ci95": [
+          0.0,
+          0.0
+        ],
+        "cases": 3
+      }
+    },
+    {
+      "model": "deepseek_high",
+      "strategy": "error_flagging",
+      "prior": "correct",
+      "first_round_end_to_end_accuracy": {
+        "estimate": 1.0,
+        "ci95": [
+          1.0,
+          1.0
+        ],
+        "cases": 3
+      },
+      "confirmed_wrong_rate": {
+        "estimate": 0.0,
+        "ci95": [
+          0.0,
+          0.0
+        ],
+        "cases": 3
+      },
+      "unscorable_rate": {
+        "estimate": 0.0,
+        "ci95": [
+          0.0,
+          0.0
+        ],
+        "cases": 3
+      },
+      "false_correction_upper_bound": {
+        "estimate": 0.0,
+        "ci95": [
+          0.0,
+          0.0
+        ],
+        "cases": 3
+      }
+    },
+    {
+      "model": "deepseek_high",
+      "strategy": "step_by_step_redo",
+      "prior": "correct",
+      "first_round_end_to_end_accuracy": {
+        "estimate": 1.0,
+        "ci95": [
+          1.0,
+          1.0
+        ],
+        "cases": 3
+      },
+      "confirmed_wrong_rate": {
+        "estimate": 0.0,
+        "ci95": [
+          0.0,
+          0.0
+        ],
+        "cases": 3
+      },
+      "unscorable_rate": {
+        "estimate": 0.0,
+        "ci95": [
+          0.0,
+          0.0
+        ],
+        "cases": 3
+      },
+      "false_correction_upper_bound": {
+        "estimate": 0.0,
+        "ci95": [
+          0.0,
+          0.0
+        ],
+        "cases": 3
+      }
+    },
+    {
+      "model": "gptoss_low",
+      "strategy": "step_by_step_redo",
+      "prior": "wrong",
+      "first_round_end_to_end_accuracy": {
+        "estimate": 1.0,
+        "ci95": [
+          1.0,
+          1.0
+        ],
+        "cases": 3
+      },
+      "confirmed_wrong_rate": {
+        "estimate": 0.0,
+        "ci95": [
+          0.0,
+          0.0
+        ],
+        "cases": 3
+      },
+      "unscorable_rate": {
+        "estimate": 0.0,
+        "ci95": [
+          0.0,
+          0.0
+        ],
+        "cases": 3
+      }
+    },
+    {
+      "model": "deepseek_high",
+      "strategy": "self_check",
+      "prior": "correct",
+      "first_round_end_to_end_accuracy": {
+        "estimate": 1.0,
+        "ci95": [
+          1.0,
+          1.0
+        ],
+        "cases": 3
+      },
+      "confirmed_wrong_rate": {
+        "estimate": 0.0,
+        "ci95": [
+          0.0,
+          0.0
+        ],
+        "cases": 3
+      },
+      "unscorable_rate": {
+        "estimate": 0.0,
+        "ci95": [
+          0.0,
+          0.0
+        ],
+        "cases": 3
+      },
+      "false_correction_upper_bound": {
+        "estimate": 0.0,
+        "ci95": [
+          0.0,
+          0.0
+        ],
+        "cases": 3
+      }
+    },
+    {
+      "model": "gptoss_low",
+      "strategy": "neutral_retry",
+      "prior": "wrong",
+      "first_round_end_to_end_accuracy": {
+        "estimate": 0.0,
+        "ci95": [
+          0.0,
+          0.0
+        ],
+        "cases": 3
+      },
+      "confirmed_wrong_rate": {
+        "estimate": 1.0,
+        "ci95": [
+          1.0,
+          1.0
+        ],
+        "cases": 3
+      },
+      "unscorable_rate": {
+        "estimate": 0.0,
+        "ci95": [
+          0.0,
+          0.0
+        ],
+        "cases": 3
+      }
+    },
+    {
+      "model": "qwen7b",
+      "strategy": "error_flagging",
+      "prior": "wrong",
+      "first_round_end_to_end_accuracy": {
+        "estimate": 1.0,
+        "ci95": [
+          1.0,
+          1.0
+        ],
+        "cases": 3
+      },
+      "confirmed_wrong_rate": {
+        "estimate": 0.0,
+        "ci95": [
+          0.0,
+          0.0
+        ],
+        "cases": 3
+      },
+      "unscorable_rate": {
+        "estimate": 0.0,
+        "ci95": [
+          0.0,
+          0.0
+        ],
+        "cases": 3
+      }
+    },
+    {
+      "model": "gptoss_low",
+      "strategy": "targeted_fix",
+      "prior": "correct",
+      "first_round_end_to_end_accuracy": {
+        "estimate": 1.0,
+        "ci95": [
+          1.0,
+          1.0
+        ],
+        "cases": 3
+      },
+      "confirmed_wrong_rate": {
+        "estimate": 0.0,
+        "ci95": [
+          0.0,
+          0.0
+        ],
+        "cases": 3
+      },
+      "unscorable_rate": {
+        "estimate": 0.0,
+        "ci95": [
+          0.0,
+          0.0
+        ],
+        "cases": 3
+      },
+      "false_correction_upper_bound": {
+        "estimate": 0.0,
+        "ci95": [
+          0.0,
+          0.0
+        ],
+        "cases": 3
+      }
+    },
+    {
+      "model": "gptoss_low",
+      "strategy": "neutral_retry",
+      "prior": "correct",
+      "first_round_end_to_end_accuracy": {
+        "estimate": 1.0,
+        "ci95": [
+          1.0,
+          1.0
+        ],
+        "cases": 3
+      },
+      "confirmed_wrong_rate": {
+        "estimate": 0.0,
+        "ci95": [
+          0.0,
+          0.0
+        ],
+        "cases": 3
+      },
+      "unscorable_rate": {
+        "estimate": 0.0,
+        "ci95": [
+          0.0,
+          0.0
+        ],
+        "cases": 3
+      },
+      "false_correction_upper_bound": {
+        "estimate": 0.0,
+        "ci95": [
+          0.0,
+          0.0
+        ],
+        "cases": 3
+      }
+    },
+    {
+      "model": "gptoss_low",
+      "strategy": "self_check",
+      "prior": "correct",
+      "first_round_end_to_end_accuracy": {
+        "estimate": 1.0,
+        "ci95": [
+          1.0,
+          1.0
+        ],
+        "cases": 3
+      },
+      "confirmed_wrong_rate": {
+        "estimate": 0.0,
+        "ci95": [
+          0.0,
+          0.0
+        ],
+        "cases": 3
+      },
+      "unscorable_rate": {
+        "estimate": 0.0,
+        "ci95": [
+          0.0,
+          0.0
+        ],
+        "cases": 3
+      },
+      "false_correction_upper_bound": {
+        "estimate": 0.0,
+        "ci95": [
+          0.0,
+          0.0
+        ],
+        "cases": 3
+      }
+    },
+    {
+      "model": "deepseek_high",
+      "strategy": "neutral_retry",
+      "prior": "correct",
+      "first_round_end_to_end_accuracy": {
+        "estimate": 1.0,
+        "ci95": [
+          1.0,
+          1.0
+        ],
+        "cases": 3
+      },
+      "confirmed_wrong_rate": {
+        "estimate": 0.0,
+        "ci95": [
+          0.0,
+          0.0
+        ],
+        "cases": 3
+      },
+      "unscorable_rate": {
+        "estimate": 0.0,
+        "ci95": [
+          0.0,
+          0.0
+        ],
+        "cases": 3
+      },
+      "false_correction_upper_bound": {
+        "estimate": 0.0,
+        "ci95": [
+          0.0,
+          0.0
+        ],
+        "cases": 3
+      }
+    },
+    {
+      "model": "qwen7b",
+      "strategy": "self_check",
+      "prior": "wrong",
+      "first_round_end_to_end_accuracy": {
+        "estimate": 1.0,
+        "ci95": [
+          1.0,
+          1.0
+        ],
+        "cases": 3
+      },
+      "confirmed_wrong_rate": {
+        "estimate": 0.0,
+        "ci95": [
+          0.0,
+          0.0
+        ],
+        "cases": 3
+      },
+      "unscorable_rate": {
+        "estimate": 0.0,
+        "ci95": [
+          0.0,
+          0.0
+        ],
+        "cases": 3
+      }
+    },
+    {
+      "model": "qwen7b",
+      "strategy": "neutral_retry",
+      "prior": "wrong",
+      "first_round_end_to_end_accuracy": {
+        "estimate": 0.0,
+        "ci95": [
+          0.0,
+          0.0
+        ],
+        "cases": 3
+      },
+      "confirmed_wrong_rate": {
+        "estimate": 1.0,
+        "ci95": [
+          1.0,
+          1.0
+        ],
+        "cases": 3
+      },
+      "unscorable_rate": {
+        "estimate": 0.0,
+        "ci95": [
+          0.0,
+          0.0
+        ],
+        "cases": 3
+      }
+    },
+    {
+      "model": "gptoss_low",
+      "strategy": "step_by_step_redo",
+      "prior": "correct",
+      "first_round_end_to_end_accuracy": {
+        "estimate": 1.0,
+        "ci95": [
+          1.0,
+          1.0
+        ],
+        "cases": 3
+      },
+      "confirmed_wrong_rate": {
+        "estimate": 0.0,
+        "ci95": [
+          0.0,
+          0.0
+        ],
+        "cases": 3
+      },
+      "unscorable_rate": {
+        "estimate": 0.0,
+        "ci95": [
+          0.0,
+          0.0
+        ],
+        "cases": 3
+      },
+      "false_correction_upper_bound": {
+        "estimate": 0.0,
+        "ci95": [
+          0.0,
+          0.0
+        ],
+        "cases": 3
+      }
+    },
+    {
+      "model": "qwen7b",
+      "strategy": "step_by_step_redo",
+      "prior": "correct",
+      "first_round_end_to_end_accuracy": {
+        "estimate": 1.0,
+        "ci95": [
+          1.0,
+          1.0
+        ],
+        "cases": 3
+      },
+      "confirmed_wrong_rate": {
+        "estimate": 0.0,
+        "ci95": [
+          0.0,
+          0.0
+        ],
+        "cases": 3
+      },
+      "unscorable_rate": {
+        "estimate": 0.0,
+        "ci95": [
+          0.0,
+          0.0
+        ],
+        "cases": 3
+      },
+      "false_correction_upper_bound": {
+        "estimate": 0.0,
+        "ci95": [
+          0.0,
+          0.0
+        ],
+        "cases": 3
+      }
+    },
+    {
+      "model": "gptoss_low",
+      "strategy": "self_check",
+      "prior": "wrong",
+      "first_round_end_to_end_accuracy": {
+        "estimate": 1.0,
+        "ci95": [
+          1.0,
+          1.0
+        ],
+        "cases": 3
+      },
+      "confirmed_wrong_rate": {
+        "estimate": 0.0,
+        "ci95": [
+          0.0,
+          0.0
+        ],
+        "cases": 3
+      },
+      "unscorable_rate": {
+        "estimate": 0.0,
+        "ci95": [
+          0.0,
+          0.0
+        ],
+        "cases": 3
+      }
+    },
+    {
+      "model": "deepseek_high",
+      "strategy": "targeted_fix",
+      "prior": "wrong",
+      "first_round_end_to_end_accuracy": {
+        "estimate": 1.0,
+        "ci95": [
+          1.0,
+          1.0
+        ],
+        "cases": 3
+      },
+      "confirmed_wrong_rate": {
+        "estimate": 0.0,
+        "ci95": [
+          0.0,
+          0.0
+        ],
+        "cases": 3
+      },
+      "unscorable_rate": {
+        "estimate": 0.0,
+        "ci95": [
+          0.0,
+          0.0
+        ],
+        "cases": 3
+      }
+    },
+    {
+      "model": "deepseek_high",
+      "strategy": "targeted_fix",
+      "prior": "correct",
+      "first_round_end_to_end_accuracy": {
+        "estimate": 1.0,
+        "ci95": [
+          1.0,
+          1.0
+        ],
+        "cases": 3
+      },
+      "confirmed_wrong_rate": {
+        "estimate": 0.0,
+        "ci95": [
+          0.0,
+          0.0
+        ],
+        "cases": 3
+      },
+      "unscorable_rate": {
+        "estimate": 0.0,
+        "ci95": [
+          0.0,
+          0.0
+        ],
+        "cases": 3
+      },
+      "false_correction_upper_bound": {
+        "estimate": 0.0,
+        "ci95": [
+          0.0,
+          0.0
+        ],
+        "cases": 3
+      }
+    },
+    {
+      "model": "deepseek_high",
+      "strategy": "neutral_retry",
+      "prior": "wrong",
+      "first_round_end_to_end_accuracy": {
+        "estimate": 0.0,
+        "ci95": [
+          0.0,
+          0.0
+        ],
+        "cases": 3
+      },
+      "confirmed_wrong_rate": {
+        "estimate": 1.0,
+        "ci95": [
+          1.0,
+          1.0
+        ],
+        "cases": 3
+      },
+      "unscorable_rate": {
+        "estimate": 0.0,
+        "ci95": [
+          0.0,
+          0.0
+        ],
+        "cases": 3
+      }
+    }
+  ],
+  "paired_mcnemar_repeat1": [
+    {
+      "model": "deepseek_high",
+      "prior": "correct",
+      "a": "neutral_retry",
+      "b": "error_flagging",
+      "n01": 0,
+      "n10": 0,
+      "p_raw": 1.0,
+      "p_holm": 1
+    },
+    {
+      "model": "deepseek_high",
+      "prior": "correct",
+      "a": "neutral_retry",
+      "b": "targeted_fix",
+      "n01": 0,
+      "n10": 0,
+      "p_raw": 1.0,
+      "p_holm": 1
+    },
+    {
+      "model": "deepseek_high",
+      "prior": "correct",
+      "a": "neutral_retry",
+      "b": "step_by_step_redo",
+      "n01": 0,
+      "n10": 0,
+      "p_raw": 1.0,
+      "p_holm": 1
+    },
+    {
+      "model": "deepseek_high",
+      "prior": "correct",
+      "a": "neutral_retry",
+      "b": "self_check",
+      "n01": 0,
+      "n10": 0,
+      "p_raw": 1.0,
+      "p_holm": 1
+    },
+    {
+      "model": "deepseek_high",
+      "prior": "correct",
+      "a": "error_flagging",
+      "b": "targeted_fix",
+      "n01": 0,
+      "n10": 0,
+      "p_raw": 1.0,
+      "p_holm": 1
+    },
+    {
+      "model": "deepseek_high",
+      "prior": "correct",
+      "a": "error_flagging",
+      "b": "step_by_step_redo",
+      "n01": 0,
+      "n10": 0,
+      "p_raw": 1.0,
+      "p_holm": 1
+    },
+    {
+      "model": "deepseek_high",
+      "prior": "correct",
+      "a": "error_flagging",
+      "b": "self_check",
+      "n01": 0,
+      "n10": 0,
+      "p_raw": 1.0,
+      "p_holm": 1
+    },
+    {
+      "model": "deepseek_high",
+      "prior": "correct",
+      "a": "targeted_fix",
+      "b": "step_by_step_redo",
+      "n01": 0,
+      "n10": 0,
+      "p_raw": 1.0,
+      "p_holm": 1
+    },
+    {
+      "model": "deepseek_high",
+      "prior": "correct",
+      "a": "targeted_fix",
+      "b": "self_check",
+      "n01": 0,
+      "n10": 0,
+      "p_raw": 1.0,
+      "p_holm": 1
+    },
+    {
+      "model": "deepseek_high",
+      "prior": "correct",
+      "a": "step_by_step_redo",
+      "b": "self_check",
+      "n01": 0,
+      "n10": 0,
+      "p_raw": 1.0,
+      "p_holm": 1
+    },
+    {
+      "model": "deepseek_high",
+      "prior": "wrong",
+      "a": "neutral_retry",
+      "b": "error_flagging",
+      "n01": 3,
+      "n10": 0,
+      "p_raw": 0.25,
+      "p_holm": 1
+    },
+    {
+      "model": "deepseek_high",
+      "prior": "wrong",
+      "a": "neutral_retry",
+      "b": "targeted_fix",
+      "n01": 3,
+      "n10": 0,
+      "p_raw": 0.25,
+      "p_holm": 1
+    },
+    {
+      "model": "deepseek_high",
+      "prior": "wrong",
+      "a": "neutral_retry",
+      "b": "step_by_step_redo",
+      "n01": 3,
+      "n10": 0,
+      "p_raw": 0.25,
+      "p_holm": 1
+    },
+    {
+      "model": "deepseek_high",
+      "prior": "wrong",
+      "a": "neutral_retry",
+      "b": "self_check",
+      "n01": 3,
+      "n10": 0,
+      "p_raw": 0.25,
+      "p_holm": 1
+    },
+    {
+      "model": "deepseek_high",
+      "prior": "wrong",
+      "a": "error_flagging",
+      "b": "targeted_fix",
+      "n01": 0,
+      "n10": 0,
+      "p_raw": 1.0,
+      "p_holm": 1
+    },
+    {
+      "model": "deepseek_high",
+      "prior": "wrong",
+      "a": "error_flagging",
+      "b": "step_by_step_redo",
+      "n01": 0,
+      "n10": 0,
+      "p_raw": 1.0,
+      "p_holm": 1
+    },
+    {
+      "model": "deepseek_high",
+      "prior": "wrong",
+      "a": "error_flagging",
+      "b": "self_check",
+      "n01": 0,
+      "n10": 0,
+      "p_raw": 1.0,
+      "p_holm": 1
+    },
+    {
+      "model": "deepseek_high",
+      "prior": "wrong",
+      "a": "targeted_fix",
+      "b": "step_by_step_redo",
+      "n01": 0,
+      "n10": 0,
+      "p_raw": 1.0,
+      "p_holm": 1
+    },
+    {
+      "model": "deepseek_high",
+      "prior": "wrong",
+      "a": "targeted_fix",
+      "b": "self_check",
+      "n01": 0,
+      "n10": 0,
+      "p_raw": 1.0,
+      "p_holm": 1
+    },
+    {
+      "model": "deepseek_high",
+      "prior": "wrong",
+      "a": "step_by_step_redo",
+      "b": "self_check",
+      "n01": 0,
+      "n10": 0,
+      "p_raw": 1.0,
+      "p_holm": 1
+    },
+    {
+      "model": "gptoss_low",
+      "prior": "correct",
+      "a": "neutral_retry",
+      "b": "error_flagging",
+      "n01": 0,
+      "n10": 0,
+      "p_raw": 1.0,
+      "p_holm": 1
+    },
+    {
+      "model": "gptoss_low",
+      "prior": "correct",
+      "a": "neutral_retry",
+      "b": "targeted_fix",
+      "n01": 0,
+      "n10": 0,
+      "p_raw": 1.0,
+      "p_holm": 1
+    },
+    {
+      "model": "gptoss_low",
+      "prior": "correct",
+      "a": "neutral_retry",
+      "b": "step_by_step_redo",
+      "n01": 0,
+      "n10": 0,
+      "p_raw": 1.0,
+      "p_holm": 1
+    },
+    {
+      "model": "gptoss_low",
+      "prior": "correct",
+      "a": "neutral_retry",
+      "b": "self_check",
+      "n01": 0,
+      "n10": 0,
+      "p_raw": 1.0,
+      "p_holm": 1
+    },
+    {
+      "model": "gptoss_low",
+      "prior": "correct",
+      "a": "error_flagging",
+      "b": "targeted_fix",
+      "n01": 0,
+      "n10": 0,
+      "p_raw": 1.0,
+      "p_holm": 1
+    },
+    {
+      "model": "gptoss_low",
+      "prior": "correct",
+      "a": "error_flagging",
+      "b": "step_by_step_redo",
+      "n01": 0,
+      "n10": 0,
+      "p_raw": 1.0,
+      "p_holm": 1
+    },
+    {
+      "model": "gptoss_low",
+      "prior": "correct",
+      "a": "error_flagging",
+      "b": "self_check",
+      "n01": 0,
+      "n10": 0,
+      "p_raw": 1.0,
+      "p_holm": 1
+    },
+    {
+      "model": "gptoss_low",
+      "prior": "correct",
+      "a": "targeted_fix",
+      "b": "step_by_step_redo",
+      "n01": 0,
+      "n10": 0,
+      "p_raw": 1.0,
+      "p_holm": 1
+    },
+    {
+      "model": "gptoss_low",
+      "prior": "correct",
+      "a": "targeted_fix",
+      "b": "self_check",
+      "n01": 0,
+      "n10": 0,
+      "p_raw": 1.0,
+      "p_holm": 1
+    },
+    {
+      "model": "gptoss_low",
+      "prior": "correct",
+      "a": "step_by_step_redo",
+      "b": "self_check",
+      "n01": 0,
+      "n10": 0,
+      "p_raw": 1.0,
+      "p_holm": 1
+    },
+    {
+      "model": "gptoss_low",
+      "prior": "wrong",
+      "a": "neutral_retry",
+      "b": "error_flagging",
+      "n01": 3,
+      "n10": 0,
+      "p_raw": 0.25,
+      "p_holm": 1
+    },
+    {
+      "model": "gptoss_low",
+      "prior": "wrong",
+      "a": "neutral_retry",
+      "b": "targeted_fix",
+      "n01": 3,
+      "n10": 0,
+      "p_raw": 0.25,
+      "p_holm": 1
+    },
+    {
+      "model": "gptoss_low",
+      "prior": "wrong",
+      "a": "neutral_retry",
+      "b": "step_by_step_redo",
+      "n01": 3,
+      "n10": 0,
+      "p_raw": 0.25,
+      "p_holm": 1
+    },
+    {
+      "model": "gptoss_low",
+      "prior": "wrong",
+      "a": "neutral_retry",
+      "b": "self_check",
+      "n01": 3,
+      "n10": 0,
+      "p_raw": 0.25,
+      "p_holm": 1
+    },
+    {
+      "model": "gptoss_low",
+      "prior": "wrong",
+      "a": "error_flagging",
+      "b": "targeted_fix",
+      "n01": 0,
+      "n10": 0,
+      "p_raw": 1.0,
+      "p_holm": 1
+    },
+    {
+      "model": "gptoss_low",
+      "prior": "wrong",
+      "a": "error_flagging",
+      "b": "step_by_step_redo",
+      "n01": 0,
+      "n10": 0,
+      "p_raw": 1.0,
+      "p_holm": 1
+    },
+    {
+      "model": "gptoss_low",
+      "prior": "wrong",
+      "a": "error_flagging",
+      "b": "self_check",
+      "n01": 0,
+      "n10": 0,
+      "p_raw": 1.0,
+      "p_holm": 1
+    },
+    {
+      "model": "gptoss_low",
+      "prior": "wrong",
+      "a": "targeted_fix",
+      "b": "step_by_step_redo",
+      "n01": 0,
+      "n10": 0,
+      "p_raw": 1.0,
+      "p_holm": 1
+    },
+    {
+      "model": "gptoss_low",
+      "prior": "wrong",
+      "a": "targeted_fix",
+      "b": "self_check",
+      "n01": 0,
+      "n10": 0,
+      "p_raw": 1.0,
+      "p_holm": 1
+    },
+    {
+      "model": "gptoss_low",
+      "prior": "wrong",
+      "a": "step_by_step_redo",
+      "b": "self_check",
+      "n01": 0,
+      "n10": 0,
+      "p_raw": 1.0,
+      "p_holm": 1
+    },
+    {
+      "model": "qwen7b",
+      "prior": "correct",
+      "a": "neutral_retry",
+      "b": "error_flagging",
+      "n01": 0,
+      "n10": 0,
+      "p_raw": 1.0,
+      "p_holm": 1
+    },
+    {
+      "model": "qwen7b",
+      "prior": "correct",
+      "a": "neutral_retry",
+      "b": "targeted_fix",
+      "n01": 0,
+      "n10": 0,
+      "p_raw": 1.0,
+      "p_holm": 1
+    },
+    {
+      "model": "qwen7b",
+      "prior": "correct",
+      "a": "neutral_retry",
+      "b": "step_by_step_redo",
+      "n01": 0,
+      "n10": 0,
+      "p_raw": 1.0,
+      "p_holm": 1
+    },
+    {
+      "model": "qwen7b",
+      "prior": "correct",
+      "a": "neutral_retry",
+      "b": "self_check",
+      "n01": 0,
+      "n10": 0,
+      "p_raw": 1.0,
+      "p_holm": 1
+    },
+    {
+      "model": "qwen7b",
+      "prior": "correct",
+      "a": "error_flagging",
+      "b": "targeted_fix",
+      "n01": 0,
+      "n10": 0,
+      "p_raw": 1.0,
+      "p_holm": 1
+    },
+    {
+      "model": "qwen7b",
+      "prior": "correct",
+      "a": "error_flagging",
+      "b": "step_by_step_redo",
+      "n01": 0,
+      "n10": 0,
+      "p_raw": 1.0,
+      "p_holm": 1
+    },
+    {
+      "model": "qwen7b",
+      "prior": "correct",
+      "a": "error_flagging",
+      "b": "self_check",
+      "n01": 0,
+      "n10": 0,
+      "p_raw": 1.0,
+      "p_holm": 1
+    },
+    {
+      "model": "qwen7b",
+      "prior": "correct",
+      "a": "targeted_fix",
+      "b": "step_by_step_redo",
+      "n01": 0,
+      "n10": 0,
+      "p_raw": 1.0,
+      "p_holm": 1
+    },
+    {
+      "model": "qwen7b",
+      "prior": "correct",
+      "a": "targeted_fix",
+      "b": "self_check",
+      "n01": 0,
+      "n10": 0,
+      "p_raw": 1.0,
+      "p_holm": 1
+    },
+    {
+      "model": "qwen7b",
+      "prior": "correct",
+      "a": "step_by_step_redo",
+      "b": "self_check",
+      "n01": 0,
+      "n10": 0,
+      "p_raw": 1.0,
+      "p_holm": 1
+    },
+    {
+      "model": "qwen7b",
+      "prior": "wrong",
+      "a": "neutral_retry",
+      "b": "error_flagging",
+      "n01": 3,
+      "n10": 0,
+      "p_raw": 0.25,
+      "p_holm": 1
+    },
+    {
+      "model": "qwen7b",
+      "prior": "wrong",
+      "a": "neutral_retry",
+      "b": "targeted_fix",
+      "n01": 3,
+      "n10": 0,
+      "p_raw": 0.25,
+      "p_holm": 1
+    },
+    {
+      "model": "qwen7b",
+      "prior": "wrong",
+      "a": "neutral_retry",
+      "b": "step_by_step_redo",
+      "n01": 3,
+      "n10": 0,
+      "p_raw": 0.25,
+      "p_holm": 1
+    },
+    {
+      "model": "qwen7b",
+      "prior": "wrong",
+      "a": "neutral_retry",
+      "b": "self_check",
+      "n01": 3,
+      "n10": 0,
+      "p_raw": 0.25,
+      "p_holm": 1
+    },
+    {
+      "model": "qwen7b",
+      "prior": "wrong",
+      "a": "error_flagging",
+      "b": "targeted_fix",
+      "n01": 0,
+      "n10": 0,
+      "p_raw": 1.0,
+      "p_holm": 1
+    },
+    {
+      "model": "qwen7b",
+      "prior": "wrong",
+      "a": "error_flagging",
+      "b": "step_by_step_redo",
+      "n01": 0,
+      "n10": 0,
+      "p_raw": 1.0,
+      "p_holm": 1
+    },
+    {
+      "model": "qwen7b",
+      "prior": "wrong",
+      "a": "error_flagging",
+      "b": "self_check",
+      "n01": 0,
+      "n10": 0,
+      "p_raw": 1.0,
+      "p_holm": 1
+    },
+    {
+      "model": "qwen7b",
+      "prior": "wrong",
+      "a": "targeted_fix",
+      "b": "step_by_step_redo",
+      "n01": 0,
+      "n10": 0,
+      "p_raw": 1.0,
+      "p_holm": 1
+    },
+    {
+      "model": "qwen7b",
+      "prior": "wrong",
+      "a": "targeted_fix",
+      "b": "self_check",
+      "n01": 0,
+      "n10": 0,
+      "p_raw": 1.0,
+      "p_holm": 1
+    },
+    {
+      "model": "qwen7b",
+      "prior": "wrong",
+      "a": "step_by_step_redo",
+      "b": "self_check",
+      "n01": 0,
+      "n10": 0,
+      "p_raw": 1.0,
+      "p_holm": 1
+    }
+  ],
+  "rounds": [
+    {
+      "model": "deepseek_high",
+      "strategy": "error_flagging",
+      "round": 1,
+      "cumulative_correction": {
+        "estimate": 1.0,
+        "ci95": [
+          1.0,
+          1.0
+        ],
+        "cases": 3
+      },
+      "cumulative_calls": 3,
+      "cumulative_total_tokens": 420,
+      "additional_calls": 3,
+      "additional_tokens": 420,
+      "tokens_per_additional_corrected_chain": 140.0,
+      "additional_corrected_chains_since_previous_round": 3
+    },
+    {
+      "model": "deepseek_high",
+      "strategy": "error_flagging",
+      "round": 2,
+      "cumulative_correction": {
+        "estimate": 1.0,
+        "ci95": [
+          1.0,
+          1.0
+        ],
+        "cases": 3
+      },
+      "cumulative_calls": 6,
+      "cumulative_total_tokens": 840,
+      "additional_calls": 3,
+      "additional_tokens": 420,
+      "tokens_per_additional_corrected_chain": null,
+      "additional_corrected_chains_since_previous_round": 0
+    },
+    {
+      "model": "deepseek_high",
+      "strategy": "error_flagging",
+      "round": 3,
+      "cumulative_correction": {
+        "estimate": 1.0,
+        "ci95": [
+          1.0,
+          1.0
+        ],
+        "cases": 3
+      },
+      "cumulative_calls": 6,
+      "cumulative_total_tokens": 840,
+      "additional_calls": 0,
+      "additional_tokens": 0,
+      "tokens_per_additional_corrected_chain": null,
+      "additional_corrected_chains_since_previous_round": 0
+    },
+    {
+      "model": "deepseek_high",
+      "strategy": "neutral_retry",
+      "round": 1,
+      "cumulative_correction": {
+        "estimate": 0.0,
+        "ci95": [
+          0.0,
+          0.0
+        ],
+        "cases": 3
+      },
+      "cumulative_calls": 3,
+      "cumulative_total_tokens": 420,
+      "additional_calls": 3,
+      "additional_tokens": 420,
+      "tokens_per_additional_corrected_chain": null,
+      "additional_corrected_chains_since_previous_round": 0
+    },
+    {
+      "model": "deepseek_high",
+      "strategy": "neutral_retry",
+      "round": 2,
+      "cumulative_correction": {
+        "estimate": 1.0,
+        "ci95": [
+          1.0,
+          1.0
+        ],
+        "cases": 3
+      },
+      "cumulative_calls": 6,
+      "cumulative_total_tokens": 840,
+      "additional_calls": 3,
+      "additional_tokens": 420,
+      "tokens_per_additional_corrected_chain": 140.0,
+      "additional_corrected_chains_since_previous_round": 3
+    },
+    {
+      "model": "deepseek_high",
+      "strategy": "neutral_retry",
+      "round": 3,
+      "cumulative_correction": {
+        "estimate": 1.0,
+        "ci95": [
+          1.0,
+          1.0
+        ],
+        "cases": 3
+      },
+      "cumulative_calls": 6,
+      "cumulative_total_tokens": 840,
+      "additional_calls": 0,
+      "additional_tokens": 0,
+      "tokens_per_additional_corrected_chain": null,
+      "additional_corrected_chains_since_previous_round": 0
+    },
+    {
+      "model": "deepseek_high",
+      "strategy": "self_check",
+      "round": 1,
+      "cumulative_correction": {
+        "estimate": 1.0,
+        "ci95": [
+          1.0,
+          1.0
+        ],
+        "cases": 3
+      },
+      "cumulative_calls": 3,
+      "cumulative_total_tokens": 420,
+      "additional_calls": 3,
+      "additional_tokens": 420,
+      "tokens_per_additional_corrected_chain": 140.0,
+      "additional_corrected_chains_since_previous_round": 3
+    },
+    {
+      "model": "deepseek_high",
+      "strategy": "self_check",
+      "round": 2,
+      "cumulative_correction": {
+        "estimate": 1.0,
+        "ci95": [
+          1.0,
+          1.0
+        ],
+        "cases": 3
+      },
+      "cumulative_calls": 6,
+      "cumulative_total_tokens": 840,
+      "additional_calls": 3,
+      "additional_tokens": 420,
+      "tokens_per_additional_corrected_chain": null,
+      "additional_corrected_chains_since_previous_round": 0
+    },
+    {
+      "model": "deepseek_high",
+      "strategy": "self_check",
+      "round": 3,
+      "cumulative_correction": {
+        "estimate": 1.0,
+        "ci95": [
+          1.0,
+          1.0
+        ],
+        "cases": 3
+      },
+      "cumulative_calls": 6,
+      "cumulative_total_tokens": 840,
+      "additional_calls": 0,
+      "additional_tokens": 0,
+      "tokens_per_additional_corrected_chain": null,
+      "additional_corrected_chains_since_previous_round": 0
+    },
+    {
+      "model": "deepseek_high",
+      "strategy": "step_by_step_redo",
+      "round": 1,
+      "cumulative_correction": {
+        "estimate": 1.0,
+        "ci95": [
+          1.0,
+          1.0
+        ],
+        "cases": 3
+      },
+      "cumulative_calls": 3,
+      "cumulative_total_tokens": 420,
+      "additional_calls": 3,
+      "additional_tokens": 420,
+      "tokens_per_additional_corrected_chain": 140.0,
+      "additional_corrected_chains_since_previous_round": 3
+    },
+    {
+      "model": "deepseek_high",
+      "strategy": "step_by_step_redo",
+      "round": 2,
+      "cumulative_correction": {
+        "estimate": 1.0,
+        "ci95": [
+          1.0,
+          1.0
+        ],
+        "cases": 3
+      },
+      "cumulative_calls": 6,
+      "cumulative_total_tokens": 840,
+      "additional_calls": 3,
+      "additional_tokens": 420,
+      "tokens_per_additional_corrected_chain": null,
+      "additional_corrected_chains_since_previous_round": 0
+    },
+    {
+      "model": "deepseek_high",
+      "strategy": "step_by_step_redo",
+      "round": 3,
+      "cumulative_correction": {
+        "estimate": 1.0,
+        "ci95": [
+          1.0,
+          1.0
+        ],
+        "cases": 3
+      },
+      "cumulative_calls": 6,
+      "cumulative_total_tokens": 840,
+      "additional_calls": 0,
+      "additional_tokens": 0,
+      "tokens_per_additional_corrected_chain": null,
+      "additional_corrected_chains_since_previous_round": 0
+    },
+    {
+      "model": "deepseek_high",
+      "strategy": "targeted_fix",
+      "round": 1,
+      "cumulative_correction": {
+        "estimate": 1.0,
+        "ci95": [
+          1.0,
+          1.0
+        ],
+        "cases": 3
+      },
+      "cumulative_calls": 3,
+      "cumulative_total_tokens": 420,
+      "additional_calls": 3,
+      "additional_tokens": 420,
+      "tokens_per_additional_corrected_chain": 140.0,
+      "additional_corrected_chains_since_previous_round": 3
+    },
+    {
+      "model": "deepseek_high",
+      "strategy": "targeted_fix",
+      "round": 2,
+      "cumulative_correction": {
+        "estimate": 1.0,
+        "ci95": [
+          1.0,
+          1.0
+        ],
+        "cases": 3
+      },
+      "cumulative_calls": 6,
+      "cumulative_total_tokens": 840,
+      "additional_calls": 3,
+      "additional_tokens": 420,
+      "tokens_per_additional_corrected_chain": null,
+      "additional_corrected_chains_since_previous_round": 0
+    },
+    {
+      "model": "deepseek_high",
+      "strategy": "targeted_fix",
+      "round": 3,
+      "cumulative_correction": {
+        "estimate": 1.0,
+        "ci95": [
+          1.0,
+          1.0
+        ],
+        "cases": 3
+      },
+      "cumulative_calls": 6,
+      "cumulative_total_tokens": 840,
+      "additional_calls": 0,
+      "additional_tokens": 0,
+      "tokens_per_additional_corrected_chain": null,
+      "additional_corrected_chains_since_previous_round": 0
+    },
+    {
+      "model": "gptoss_low",
+      "strategy": "error_flagging",
+      "round": 1,
+      "cumulative_correction": {
+        "estimate": 1.0,
+        "ci95": [
+          1.0,
+          1.0
+        ],
+        "cases": 3
+      },
+      "cumulative_calls": 3,
+      "cumulative_total_tokens": 420,
+      "additional_calls": 3,
+      "additional_tokens": 420,
+      "tokens_per_additional_corrected_chain": 140.0,
+      "additional_corrected_chains_since_previous_round": 3
+    },
+    {
+      "model": "gptoss_low",
+      "strategy": "error_flagging",
+      "round": 2,
+      "cumulative_correction": {
+        "estimate": 1.0,
+        "ci95": [
+          1.0,
+          1.0
+        ],
+        "cases": 3
+      },
+      "cumulative_calls": 6,
+      "cumulative_total_tokens": 840,
+      "additional_calls": 3,
+      "additional_tokens": 420,
+      "tokens_per_additional_corrected_chain": null,
+      "additional_corrected_chains_since_previous_round": 0
+    },
+    {
+      "model": "gptoss_low",
+      "strategy": "error_flagging",
+      "round": 3,
+      "cumulative_correction": {
+        "estimate": 1.0,
+        "ci95": [
+          1.0,
+          1.0
+        ],
+        "cases": 3
+      },
+      "cumulative_calls": 6,
+      "cumulative_total_tokens": 840,
+      "additional_calls": 0,
+      "additional_tokens": 0,
+      "tokens_per_additional_corrected_chain": null,
+      "additional_corrected_chains_since_previous_round": 0
+    },
+    {
+      "model": "gptoss_low",
+      "strategy": "neutral_retry",
+      "round": 1,
+      "cumulative_correction": {
+        "estimate": 0.0,
+        "ci95": [
+          0.0,
+          0.0
+        ],
+        "cases": 3
+      },
+      "cumulative_calls": 3,
+      "cumulative_total_tokens": 420,
+      "additional_calls": 3,
+      "additional_tokens": 420,
+      "tokens_per_additional_corrected_chain": null,
+      "additional_corrected_chains_since_previous_round": 0
+    },
+    {
+      "model": "gptoss_low",
+      "strategy": "neutral_retry",
+      "round": 2,
+      "cumulative_correction": {
+        "estimate": 1.0,
+        "ci95": [
+          1.0,
+          1.0
+        ],
+        "cases": 3
+      },
+      "cumulative_calls": 6,
+      "cumulative_total_tokens": 840,
+      "additional_calls": 3,
+      "additional_tokens": 420,
+      "tokens_per_additional_corrected_chain": 140.0,
+      "additional_corrected_chains_since_previous_round": 3
+    },
+    {
+      "model": "gptoss_low",
+      "strategy": "neutral_retry",
+      "round": 3,
+      "cumulative_correction": {
+        "estimate": 1.0,
+        "ci95": [
+          1.0,
+          1.0
+        ],
+        "cases": 3
+      },
+      "cumulative_calls": 6,
+      "cumulative_total_tokens": 840,
+      "additional_calls": 0,
+      "additional_tokens": 0,
+      "tokens_per_additional_corrected_chain": null,
+      "additional_corrected_chains_since_previous_round": 0
+    },
+    {
+      "model": "gptoss_low",
+      "strategy": "self_check",
+      "round": 1,
+      "cumulative_correction": {
+        "estimate": 1.0,
+        "ci95": [
+          1.0,
+          1.0
+        ],
+        "cases": 3
+      },
+      "cumulative_calls": 3,
+      "cumulative_total_tokens": 420,
+      "additional_calls": 3,
+      "additional_tokens": 420,
+      "tokens_per_additional_corrected_chain": 140.0,
+      "additional_corrected_chains_since_previous_round": 3
+    },
+    {
+      "model": "gptoss_low",
+      "strategy": "self_check",
+      "round": 2,
+      "cumulative_correction": {
+        "estimate": 1.0,
+        "ci95": [
+          1.0,
+          1.0
+        ],
+        "cases": 3
+      },
+      "cumulative_calls": 6,
+      "cumulative_total_tokens": 840,
+      "additional_calls": 3,
+      "additional_tokens": 420,
+      "tokens_per_additional_corrected_chain": null,
+      "additional_corrected_chains_since_previous_round": 0
+    },
+    {
+      "model": "gptoss_low",
+      "strategy": "self_check",
+      "round": 3,
+      "cumulative_correction": {
+        "estimate": 1.0,
+        "ci95": [
+          1.0,
+          1.0
+        ],
+        "cases": 3
+      },
+      "cumulative_calls": 6,
+      "cumulative_total_tokens": 840,
+      "additional_calls": 0,
+      "additional_tokens": 0,
+      "tokens_per_additional_corrected_chain": null,
+      "additional_corrected_chains_since_previous_round": 0
+    },
+    {
+      "model": "gptoss_low",
+      "strategy": "step_by_step_redo",
+      "round": 1,
+      "cumulative_correction": {
+        "estimate": 1.0,
+        "ci95": [
+          1.0,
+          1.0
+        ],
+        "cases": 3
+      },
+      "cumulative_calls": 3,
+      "cumulative_total_tokens": 420,
+      "additional_calls": 3,
+      "additional_tokens": 420,
+      "tokens_per_additional_corrected_chain": 140.0,
+      "additional_corrected_chains_since_previous_round": 3
+    },
+    {
+      "model": "gptoss_low",
+      "strategy": "step_by_step_redo",
+      "round": 2,
+      "cumulative_correction": {
+        "estimate": 1.0,
+        "ci95": [
+          1.0,
+          1.0
+        ],
+        "cases": 3
+      },
+      "cumulative_calls": 6,
+      "cumulative_total_tokens": 840,
+      "additional_calls": 3,
+      "additional_tokens": 420,
+      "tokens_per_additional_corrected_chain": null,
+      "additional_corrected_chains_since_previous_round": 0
+    },
+    {
+      "model": "gptoss_low",
+      "strategy": "step_by_step_redo",
+      "round": 3,
+      "cumulative_correction": {
+        "estimate": 1.0,
+        "ci95": [
+          1.0,
+          1.0
+        ],
+        "cases": 3
+      },
+      "cumulative_calls": 6,
+      "cumulative_total_tokens": 840,
+      "additional_calls": 0,
+      "additional_tokens": 0,
+      "tokens_per_additional_corrected_chain": null,
+      "additional_corrected_chains_since_previous_round": 0
+    },
+    {
+      "model": "gptoss_low",
+      "strategy": "targeted_fix",
+      "round": 1,
+      "cumulative_correction": {
+        "estimate": 1.0,
+        "ci95": [
+          1.0,
+          1.0
+        ],
+        "cases": 3
+      },
+      "cumulative_calls": 3,
+      "cumulative_total_tokens": 420,
+      "additional_calls": 3,
+      "additional_tokens": 420,
+      "tokens_per_additional_corrected_chain": 140.0,
+      "additional_corrected_chains_since_previous_round": 3
+    },
+    {
+      "model": "gptoss_low",
+      "strategy": "targeted_fix",
+      "round": 2,
+      "cumulative_correction": {
+        "estimate": 1.0,
+        "ci95": [
+          1.0,
+          1.0
+        ],
+        "cases": 3
+      },
+      "cumulative_calls": 6,
+      "cumulative_total_tokens": 840,
+      "additional_calls": 3,
+      "additional_tokens": 420,
+      "tokens_per_additional_corrected_chain": null,
+      "additional_corrected_chains_since_previous_round": 0
+    },
+    {
+      "model": "gptoss_low",
+      "strategy": "targeted_fix",
+      "round": 3,
+      "cumulative_correction": {
+        "estimate": 1.0,
+        "ci95": [
+          1.0,
+          1.0
+        ],
+        "cases": 3
+      },
+      "cumulative_calls": 6,
+      "cumulative_total_tokens": 840,
+      "additional_calls": 0,
+      "additional_tokens": 0,
+      "tokens_per_additional_corrected_chain": null,
+      "additional_corrected_chains_since_previous_round": 0
+    },
+    {
+      "model": "qwen7b",
+      "strategy": "error_flagging",
+      "round": 1,
+      "cumulative_correction": {
+        "estimate": 1.0,
+        "ci95": [
+          1.0,
+          1.0
+        ],
+        "cases": 3
+      },
+      "cumulative_calls": 3,
+      "cumulative_total_tokens": 420,
+      "additional_calls": 3,
+      "additional_tokens": 420,
+      "tokens_per_additional_corrected_chain": 140.0,
+      "additional_corrected_chains_since_previous_round": 3
+    },
+    {
+      "model": "qwen7b",
+      "strategy": "error_flagging",
+      "round": 2,
+      "cumulative_correction": {
+        "estimate": 1.0,
+        "ci95": [
+          1.0,
+          1.0
+        ],
+        "cases": 3
+      },
+      "cumulative_calls": 6,
+      "cumulative_total_tokens": 840,
+      "additional_calls": 3,
+      "additional_tokens": 420,
+      "tokens_per_additional_corrected_chain": null,
+      "additional_corrected_chains_since_previous_round": 0
+    },
+    {
+      "model": "qwen7b",
+      "strategy": "error_flagging",
+      "round": 3,
+      "cumulative_correction": {
+        "estimate": 1.0,
+        "ci95": [
+          1.0,
+          1.0
+        ],
+        "cases": 3
+      },
+      "cumulative_calls": 6,
+      "cumulative_total_tokens": 840,
+      "additional_calls": 0,
+      "additional_tokens": 0,
+      "tokens_per_additional_corrected_chain": null,
+      "additional_corrected_chains_since_previous_round": 0
+    },
+    {
+      "model": "qwen7b",
+      "strategy": "neutral_retry",
+      "round": 1,
+      "cumulative_correction": {
+        "estimate": 0.0,
+        "ci95": [
+          0.0,
+          0.0
+        ],
+        "cases": 3
+      },
+      "cumulative_calls": 3,
+      "cumulative_total_tokens": 420,
+      "additional_calls": 3,
+      "additional_tokens": 420,
+      "tokens_per_additional_corrected_chain": null,
+      "additional_corrected_chains_since_previous_round": 0
+    },
+    {
+      "model": "qwen7b",
+      "strategy": "neutral_retry",
+      "round": 2,
+      "cumulative_correction": {
+        "estimate": 1.0,
+        "ci95": [
+          1.0,
+          1.0
+        ],
+        "cases": 3
+      },
+      "cumulative_calls": 6,
+      "cumulative_total_tokens": 840,
+      "additional_calls": 3,
+      "additional_tokens": 420,
+      "tokens_per_additional_corrected_chain": 140.0,
+      "additional_corrected_chains_since_previous_round": 3
+    },
+    {
+      "model": "qwen7b",
+      "strategy": "neutral_retry",
+      "round": 3,
+      "cumulative_correction": {
+        "estimate": 1.0,
+        "ci95": [
+          1.0,
+          1.0
+        ],
+        "cases": 3
+      },
+      "cumulative_calls": 6,
+      "cumulative_total_tokens": 840,
+      "additional_calls": 0,
+      "additional_tokens": 0,
+      "tokens_per_additional_corrected_chain": null,
+      "additional_corrected_chains_since_previous_round": 0
+    },
+    {
+      "model": "qwen7b",
+      "strategy": "self_check",
+      "round": 1,
+      "cumulative_correction": {
+        "estimate": 1.0,
+        "ci95": [
+          1.0,
+          1.0
+        ],
+        "cases": 3
+      },
+      "cumulative_calls": 3,
+      "cumulative_total_tokens": 420,
+      "additional_calls": 3,
+      "additional_tokens": 420,
+      "tokens_per_additional_corrected_chain": 140.0,
+      "additional_corrected_chains_since_previous_round": 3
+    },
+    {
+      "model": "qwen7b",
+      "strategy": "self_check",
+      "round": 2,
+      "cumulative_correction": {
+        "estimate": 1.0,
+        "ci95": [
+          1.0,
+          1.0
+        ],
+        "cases": 3
+      },
+      "cumulative_calls": 6,
+      "cumulative_total_tokens": 840,
+      "additional_calls": 3,
+      "additional_tokens": 420,
+      "tokens_per_additional_corrected_chain": null,
+      "additional_corrected_chains_since_previous_round": 0
+    },
+    {
+      "model": "qwen7b",
+      "strategy": "self_check",
+      "round": 3,
+      "cumulative_correction": {
+        "estimate": 1.0,
+        "ci95": [
+          1.0,
+          1.0
+        ],
+        "cases": 3
+      },
+      "cumulative_calls": 6,
+      "cumulative_total_tokens": 840,
+      "additional_calls": 0,
+      "additional_tokens": 0,
+      "tokens_per_additional_corrected_chain": null,
+      "additional_corrected_chains_since_previous_round": 0
+    },
+    {
+      "model": "qwen7b",
+      "strategy": "step_by_step_redo",
+      "round": 1,
+      "cumulative_correction": {
+        "estimate": 1.0,
+        "ci95": [
+          1.0,
+          1.0
+        ],
+        "cases": 3
+      },
+      "cumulative_calls": 3,
+      "cumulative_total_tokens": 420,
+      "additional_calls": 3,
+      "additional_tokens": 420,
+      "tokens_per_additional_corrected_chain": 140.0,
+      "additional_corrected_chains_since_previous_round": 3
+    },
+    {
+      "model": "qwen7b",
+      "strategy": "step_by_step_redo",
+      "round": 2,
+      "cumulative_correction": {
+        "estimate": 1.0,
+        "ci95": [
+          1.0,
+          1.0
+        ],
+        "cases": 3
+      },
+      "cumulative_calls": 6,
+      "cumulative_total_tokens": 840,
+      "additional_calls": 3,
+      "additional_tokens": 420,
+      "tokens_per_additional_corrected_chain": null,
+      "additional_corrected_chains_since_previous_round": 0
+    },
+    {
+      "model": "qwen7b",
+      "strategy": "step_by_step_redo",
+      "round": 3,
+      "cumulative_correction": {
+        "estimate": 1.0,
+        "ci95": [
+          1.0,
+          1.0
+        ],
+        "cases": 3
+      },
+      "cumulative_calls": 6,
+      "cumulative_total_tokens": 840,
+      "additional_calls": 0,
+      "additional_tokens": 0,
+      "tokens_per_additional_corrected_chain": null,
+      "additional_corrected_chains_since_previous_round": 0
+    },
+    {
+      "model": "qwen7b",
+      "strategy": "targeted_fix",
+      "round": 1,
+      "cumulative_correction": {
+        "estimate": 1.0,
+        "ci95": [
+          1.0,
+          1.0
+        ],
+        "cases": 3
+      },
+      "cumulative_calls": 3,
+      "cumulative_total_tokens": 420,
+      "additional_calls": 3,
+      "additional_tokens": 420,
+      "tokens_per_additional_corrected_chain": 140.0,
+      "additional_corrected_chains_since_previous_round": 3
+    },
+    {
+      "model": "qwen7b",
+      "strategy": "targeted_fix",
+      "round": 2,
+      "cumulative_correction": {
+        "estimate": 1.0,
+        "ci95": [
+          1.0,
+          1.0
+        ],
+        "cases": 3
+      },
+      "cumulative_calls": 6,
+      "cumulative_total_tokens": 840,
+      "additional_calls": 3,
+      "additional_tokens": 420,
+      "tokens_per_additional_corrected_chain": null,
+      "additional_corrected_chains_since_previous_round": 0
+    },
+    {
+      "model": "qwen7b",
+      "strategy": "targeted_fix",
+      "round": 3,
+      "cumulative_correction": {
+        "estimate": 1.0,
+        "ci95": [
+          1.0,
+          1.0
+        ],
+        "cases": 3
+      },
+      "cumulative_calls": 6,
+      "cumulative_total_tokens": 840,
+      "additional_calls": 0,
+      "additional_tokens": 0,
+      "tokens_per_additional_corrected_chain": null,
+      "additional_corrected_chains_since_previous_round": 0
+    }
+  ],
+  "task_type_rates": [
+    {
+      "model": "deepseek_high",
+      "strategy": "self_check",
+      "prior": "wrong",
+      "task_type": "Counting & Probability",
+      "accuracy": {
+        "estimate": 1.0,
+        "ci95": [
+          1.0,
+          1.0
+        ],
+        "cases": 1
+      }
+    },
+    {
+      "model": "qwen7b",
+      "strategy": "error_flagging",
+      "prior": "correct",
+      "task_type": "Counting & Probability",
+      "accuracy": {
+        "estimate": 1.0,
+        "ci95": [
+          1.0,
+          1.0
+        ],
+        "cases": 1
+      }
+    },
+    {
+      "model": "gptoss_low",
+      "strategy": "targeted_fix",
+      "prior": "wrong",
+      "task_type": "Counting & Probability",
+      "accuracy": {
+        "estimate": 1.0,
+        "ci95": [
+          1.0,
+          1.0
+        ],
+        "cases": 1
+      }
+    },
+    {
+      "model": "gptoss_low",
+      "strategy": "targeted_fix",
+      "prior": "wrong",
+      "task_type": "Algebra",
+      "accuracy": {
+        "estimate": 1.0,
+        "ci95": [
+          1.0,
+          1.0
+        ],
+        "cases": 1
+      }
+    },
+    {
+      "model": "gptoss_low",
+      "strategy": "error_flagging",
+      "prior": "wrong",
+      "task_type": "Algebra",
+      "accuracy": {
+        "estimate": 1.0,
+        "ci95": [
+          1.0,
+          1.0
+        ],
+        "cases": 1
+      }
+    },
+    {
+      "model": "qwen7b",
+      "strategy": "step_by_step_redo",
+      "prior": "wrong",
+      "task_type": "Algebra",
+      "accuracy": {
+        "estimate": 1.0,
+        "ci95": [
+          1.0,
+          1.0
+        ],
+        "cases": 1
+      }
+    },
+    {
+      "model": "qwen7b",
+      "strategy": "self_check",
+      "prior": "correct",
+      "task_type": "Counting & Probability",
+      "accuracy": {
+        "estimate": 1.0,
+        "ci95": [
+          1.0,
+          1.0
+        ],
+        "cases": 1
+      }
+    },
+    {
+      "model": "qwen7b",
+      "strategy": "targeted_fix",
+      "prior": "correct",
+      "task_type": "Algebra",
+      "accuracy": {
+        "estimate": 1.0,
+        "ci95": [
+          1.0,
+          1.0
+        ],
+        "cases": 1
+      }
+    },
+    {
+      "model": "qwen7b",
+      "strategy": "neutral_retry",
+      "prior": "correct",
+      "task_type": "Algebra",
+      "accuracy": {
+        "estimate": 1.0,
+        "ci95": [
+          1.0,
+          1.0
+        ],
+        "cases": 1
+      }
+    },
+    {
+      "model": "deepseek_high",
+      "strategy": "error_flagging",
+      "prior": "wrong",
+      "task_type": "Algebra",
+      "accuracy": {
+        "estimate": 1.0,
+        "ci95": [
+          1.0,
+          1.0
+        ],
+        "cases": 1
+      }
+    },
+    {
+      "model": "deepseek_high",
+      "strategy": "step_by_step_redo",
+      "prior": "wrong",
+      "task_type": "Algebra",
+      "accuracy": {
+        "estimate": 1.0,
+        "ci95": [
+          1.0,
+          1.0
+        ],
+        "cases": 1
+      }
+    },
+    {
+      "model": "qwen7b",
+      "strategy": "neutral_retry",
+      "prior": "correct",
+      "task_type": "Counting & Probability",
+      "accuracy": {
+        "estimate": 1.0,
+        "ci95": [
+          1.0,
+          1.0
+        ],
+        "cases": 1
+      }
+    },
+    {
+      "model": "gptoss_low",
+      "strategy": "error_flagging",
+      "prior": "correct",
+      "task_type": "Counting & Probability",
+      "accuracy": {
+        "estimate": 1.0,
+        "ci95": [
+          1.0,
+          1.0
+        ],
+        "cases": 1
+      }
+    },
+    {
+      "model": "qwen7b",
+      "strategy": "neutral_retry",
+      "prior": "correct",
+      "task_type": "arithmetic_word",
+      "accuracy": {
+        "estimate": 1.0,
+        "ci95": [
+          1.0,
+          1.0
+        ],
+        "cases": 1
+      }
+    },
+    {
+      "model": "qwen7b",
+      "strategy": "targeted_fix",
+      "prior": "wrong",
+      "task_type": "Algebra",
+      "accuracy": {
+        "estimate": 1.0,
+        "ci95": [
+          1.0,
+          1.0
+        ],
+        "cases": 1
+      }
+    },
+    {
+      "model": "deepseek_high",
+      "strategy": "error_flagging",
+      "prior": "correct",
+      "task_type": "Algebra",
+      "accuracy": {
+        "estimate": 1.0,
+        "ci95": [
+          1.0,
+          1.0
+        ],
+        "cases": 1
+      }
+    },
+    {
+      "model": "deepseek_high",
+      "strategy": "step_by_step_redo",
+      "prior": "correct",
+      "task_type": "Counting & Probability",
+      "accuracy": {
+        "estimate": 1.0,
+        "ci95": [
+          1.0,
+          1.0
+        ],
+        "cases": 1
+      }
+    },
+    {
+      "model": "gptoss_low",
+      "strategy": "step_by_step_redo",
+      "prior": "wrong",
+      "task_type": "arithmetic_word",
+      "accuracy": {
+        "estimate": 1.0,
+        "ci95": [
+          1.0,
+          1.0
+        ],
+        "cases": 1
+      }
+    },
+    {
+      "model": "deepseek_high",
+      "strategy": "self_check",
+      "prior": "correct",
+      "task_type": "Algebra",
+      "accuracy": {
+        "estimate": 1.0,
+        "ci95": [
+          1.0,
+          1.0
+        ],
+        "cases": 1
+      }
+    },
+    {
+      "model": "qwen7b",
+      "strategy": "targeted_fix",
+      "prior": "wrong",
+      "task_type": "Counting & Probability",
+      "accuracy": {
+        "estimate": 1.0,
+        "ci95": [
+          1.0,
+          1.0
+        ],
+        "cases": 1
+      }
+    },
+    {
+      "model": "gptoss_low",
+      "strategy": "neutral_retry",
+      "prior": "wrong",
+      "task_type": "Algebra",
+      "accuracy": {
+        "estimate": 0.0,
+        "ci95": [
+          0.0,
+          0.0
+        ],
+        "cases": 1
+      }
+    },
+    {
+      "model": "qwen7b",
+      "strategy": "error_flagging",
+      "prior": "wrong",
+      "task_type": "Algebra",
+      "accuracy": {
+        "estimate": 1.0,
+        "ci95": [
+          1.0,
+          1.0
+        ],
+        "cases": 1
+      }
+    },
+    {
+      "model": "deepseek_high",
+      "strategy": "error_flagging",
+      "prior": "correct",
+      "task_type": "Counting & Probability",
+      "accuracy": {
+        "estimate": 1.0,
+        "ci95": [
+          1.0,
+          1.0
+        ],
+        "cases": 1
+      }
+    },
+    {
+      "model": "qwen7b",
+      "strategy": "targeted_fix",
+      "prior": "correct",
+      "task_type": "Counting & Probability",
+      "accuracy": {
+        "estimate": 1.0,
+        "ci95": [
+          1.0,
+          1.0
+        ],
+        "cases": 1
+      }
+    },
+    {
+      "model": "deepseek_high",
+      "strategy": "step_by_step_redo",
+      "prior": "correct",
+      "task_type": "arithmetic_word",
+      "accuracy": {
+        "estimate": 1.0,
+        "ci95": [
+          1.0,
+          1.0
+        ],
+        "cases": 1
+      }
+    },
+    {
+      "model": "qwen7b",
+      "strategy": "error_flagging",
+      "prior": "wrong",
+      "task_type": "Counting & Probability",
+      "accuracy": {
+        "estimate": 1.0,
+        "ci95": [
+          1.0,
+          1.0
+        ],
+        "cases": 1
+      }
+    },
+    {
+      "model": "deepseek_high",
+      "strategy": "self_check",
+      "prior": "correct",
+      "task_type": "arithmetic_word",
+      "accuracy": {
+        "estimate": 1.0,
+        "ci95": [
+          1.0,
+          1.0
+        ],
+        "cases": 1
+      }
+    },
+    {
+      "model": "gptoss_low",
+      "strategy": "error_flagging",
+      "prior": "wrong",
+      "task_type": "arithmetic_word",
+      "accuracy": {
+        "estimate": 1.0,
+        "ci95": [
+          1.0,
+          1.0
+        ],
+        "cases": 1
+      }
+    },
+    {
+      "model": "qwen7b",
+      "strategy": "step_by_step_redo",
+      "prior": "wrong",
+      "task_type": "Counting & Probability",
+      "accuracy": {
+        "estimate": 1.0,
+        "ci95": [
+          1.0,
+          1.0
+        ],
+        "cases": 1
+      }
+    },
+    {
+      "model": "gptoss_low",
+      "strategy": "targeted_fix",
+      "prior": "correct",
+      "task_type": "Counting & Probability",
+      "accuracy": {
+        "estimate": 1.0,
+        "ci95": [
+          1.0,
+          1.0
+        ],
+        "cases": 1
+      }
+    },
+    {
+      "model": "qwen7b",
+      "strategy": "error_flagging",
+      "prior": "correct",
+      "task_type": "Algebra",
+      "accuracy": {
+        "estimate": 1.0,
+        "ci95": [
+          1.0,
+          1.0
+        ],
+        "cases": 1
+      }
+    },
+    {
+      "model": "gptoss_low",
+      "strategy": "neutral_retry",
+      "prior": "correct",
+      "task_type": "arithmetic_word",
+      "accuracy": {
+        "estimate": 1.0,
+        "ci95": [
+          1.0,
+          1.0
+        ],
+        "cases": 1
+      }
+    },
+    {
+      "model": "gptoss_low",
+      "strategy": "self_check",
+      "prior": "correct",
+      "task_type": "Counting & Probability",
+      "accuracy": {
+        "estimate": 1.0,
+        "ci95": [
+          1.0,
+          1.0
+        ],
+        "cases": 1
+      }
+    },
+    {
+      "model": "deepseek_high",
+      "strategy": "neutral_retry",
+      "prior": "correct",
+      "task_type": "Counting & Probability",
+      "accuracy": {
+        "estimate": 1.0,
+        "ci95": [
+          1.0,
+          1.0
+        ],
+        "cases": 1
+      }
+    },
+    {
+      "model": "deepseek_high",
+      "strategy": "self_check",
+      "prior": "wrong",
+      "task_type": "Algebra",
+      "accuracy": {
+        "estimate": 1.0,
+        "ci95": [
+          1.0,
+          1.0
+        ],
+        "cases": 1
+      }
+    },
+    {
+      "model": "qwen7b",
+      "strategy": "self_check",
+      "prior": "wrong",
+      "task_type": "Counting & Probability",
+      "accuracy": {
+        "estimate": 1.0,
+        "ci95": [
+          1.0,
+          1.0
+        ],
+        "cases": 1
+      }
+    },
+    {
+      "model": "gptoss_low",
+      "strategy": "step_by_step_redo",
+      "prior": "wrong",
+      "task_type": "Counting & Probability",
+      "accuracy": {
+        "estimate": 1.0,
+        "ci95": [
+          1.0,
+          1.0
+        ],
+        "cases": 1
+      }
+    },
+    {
+      "model": "deepseek_high",
+      "strategy": "step_by_step_redo",
+      "prior": "correct",
+      "task_type": "Algebra",
+      "accuracy": {
+        "estimate": 1.0,
+        "ci95": [
+          1.0,
+          1.0
+        ],
+        "cases": 1
+      }
+    },
+    {
+      "model": "qwen7b",
+      "strategy": "self_check",
+      "prior": "wrong",
+      "task_type": "Algebra",
+      "accuracy": {
+        "estimate": 1.0,
+        "ci95": [
+          1.0,
+          1.0
+        ],
+        "cases": 1
+      }
+    },
+    {
+      "model": "gptoss_low",
+      "strategy": "error_flagging",
+      "prior": "wrong",
+      "task_type": "Counting & Probability",
+      "accuracy": {
+        "estimate": 1.0,
+        "ci95": [
+          1.0,
+          1.0
+        ],
+        "cases": 1
+      }
+    },
+    {
+      "model": "qwen7b",
+      "strategy": "neutral_retry",
+      "prior": "wrong",
+      "task_type": "arithmetic_word",
+      "accuracy": {
+        "estimate": 0.0,
+        "ci95": [
+          0.0,
+          0.0
+        ],
+        "cases": 1
+      }
+    },
+    {
+      "model": "gptoss_low",
+      "strategy": "step_by_step_redo",
+      "prior": "correct",
+      "task_type": "arithmetic_word",
+      "accuracy": {
+        "estimate": 1.0,
+        "ci95": [
+          1.0,
+          1.0
+        ],
+        "cases": 1
+      }
+    },
+    {
+      "model": "qwen7b",
+      "strategy": "step_by_step_redo",
+      "prior": "wrong",
+      "task_type": "arithmetic_word",
+      "accuracy": {
+        "estimate": 1.0,
+        "ci95": [
+          1.0,
+          1.0
+        ],
+        "cases": 1
+      }
+    },
+    {
+      "model": "gptoss_low",
+      "strategy": "step_by_step_redo",
+      "prior": "correct",
+      "task_type": "Algebra",
+      "accuracy": {
+        "estimate": 1.0,
+        "ci95": [
+          1.0,
+          1.0
+        ],
+        "cases": 1
+      }
+    },
+    {
+      "model": "qwen7b",
+      "strategy": "error_flagging",
+      "prior": "wrong",
+      "task_type": "arithmetic_word",
+      "accuracy": {
+        "estimate": 1.0,
+        "ci95": [
+          1.0,
+          1.0
+        ],
+        "cases": 1
+      }
+    },
+    {
+      "model": "gptoss_low",
+      "strategy": "neutral_retry",
+      "prior": "wrong",
+      "task_type": "Counting & Probability",
+      "accuracy": {
+        "estimate": 0.0,
+        "ci95": [
+          0.0,
+          0.0
+        ],
+        "cases": 1
+      }
+    },
+    {
+      "model": "qwen7b",
+      "strategy": "neutral_retry",
+      "prior": "wrong",
+      "task_type": "Counting & Probability",
+      "accuracy": {
+        "estimate": 0.0,
+        "ci95": [
+          0.0,
+          0.0
+        ],
+        "cases": 1
+      }
+    },
+    {
+      "model": "qwen7b",
+      "strategy": "step_by_step_redo",
+      "prior": "correct",
+      "task_type": "arithmetic_word",
+      "accuracy": {
+        "estimate": 1.0,
+        "ci95": [
+          1.0,
+          1.0
+        ],
+        "cases": 1
+      }
+    },
+    {
+      "model": "qwen7b",
+      "strategy": "neutral_retry",
+      "prior": "wrong",
+      "task_type": "Algebra",
+      "accuracy": {
+        "estimate": 0.0,
+        "ci95": [
+          0.0,
+          0.0
+        ],
+        "cases": 1
+      }
+    },
+    {
+      "model": "gptoss_low",
+      "strategy": "neutral_retry",
+      "prior": "wrong",
+      "task_type": "arithmetic_word",
+      "accuracy": {
+        "estimate": 0.0,
+        "ci95": [
+          0.0,
+          0.0
+        ],
+        "cases": 1
+      }
+    },
+    {
+      "model": "gptoss_low",
+      "strategy": "self_check",
+      "prior": "wrong",
+      "task_type": "Counting & Probability",
+      "accuracy": {
+        "estimate": 1.0,
+        "ci95": [
+          1.0,
+          1.0
+        ],
+        "cases": 1
+      }
+    },
+    {
+      "model": "deepseek_high",
+      "strategy": "error_flagging",
+      "prior": "correct",
+      "task_type": "arithmetic_word",
+      "accuracy": {
+        "estimate": 1.0,
+        "ci95": [
+          1.0,
+          1.0
+        ],
+        "cases": 1
+      }
+    },
+    {
+      "model": "deepseek_high",
+      "strategy": "targeted_fix",
+      "prior": "wrong",
+      "task_type": "Algebra",
+      "accuracy": {
+        "estimate": 1.0,
+        "ci95": [
+          1.0,
+          1.0
+        ],
+        "cases": 1
+      }
+    },
+    {
+      "model": "qwen7b",
+      "strategy": "self_check",
+      "prior": "correct",
+      "task_type": "Algebra",
+      "accuracy": {
+        "estimate": 1.0,
+        "ci95": [
+          1.0,
+          1.0
+        ],
+        "cases": 1
+      }
+    },
+    {
+      "model": "gptoss_low",
+      "strategy": "self_check",
+      "prior": "wrong",
+      "task_type": "arithmetic_word",
+      "accuracy": {
+        "estimate": 1.0,
+        "ci95": [
+          1.0,
+          1.0
+        ],
+        "cases": 1
+      }
+    },
+    {
+      "model": "deepseek_high",
+      "strategy": "self_check",
+      "prior": "correct",
+      "task_type": "Counting & Probability",
+      "accuracy": {
+        "estimate": 1.0,
+        "ci95": [
+          1.0,
+          1.0
+        ],
+        "cases": 1
+      }
+    },
+    {
+      "model": "gptoss_low",
+      "strategy": "targeted_fix",
+      "prior": "wrong",
+      "task_type": "arithmetic_word",
+      "accuracy": {
+        "estimate": 1.0,
+        "ci95": [
+          1.0,
+          1.0
+        ],
+        "cases": 1
+      }
+    },
+    {
+      "model": "gptoss_low",
+      "strategy": "error_flagging",
+      "prior": "correct",
+      "task_type": "Algebra",
+      "accuracy": {
+        "estimate": 1.0,
+        "ci95": [
+          1.0,
+          1.0
+        ],
+        "cases": 1
+      }
+    },
+    {
+      "model": "gptoss_low",
+      "strategy": "self_check",
+      "prior": "correct",
+      "task_type": "Algebra",
+      "accuracy": {
+        "estimate": 1.0,
+        "ci95": [
+          1.0,
+          1.0
+        ],
+        "cases": 1
+      }
+    },
+    {
+      "model": "qwen7b",
+      "strategy": "targeted_fix",
+      "prior": "wrong",
+      "task_type": "arithmetic_word",
+      "accuracy": {
+        "estimate": 1.0,
+        "ci95": [
+          1.0,
+          1.0
+        ],
+        "cases": 1
+      }
+    },
+    {
+      "model": "gptoss_low",
+      "strategy": "step_by_step_redo",
+      "prior": "correct",
+      "task_type": "Counting & Probability",
+      "accuracy": {
+        "estimate": 1.0,
+        "ci95": [
+          1.0,
+          1.0
+        ],
+        "cases": 1
+      }
+    },
+    {
+      "model": "qwen7b",
+      "strategy": "error_flagging",
+      "prior": "correct",
+      "task_type": "arithmetic_word",
+      "accuracy": {
+        "estimate": 1.0,
+        "ci95": [
+          1.0,
+          1.0
+        ],
+        "cases": 1
+      }
+    },
+    {
+      "model": "gptoss_low",
+      "strategy": "neutral_retry",
+      "prior": "correct",
+      "task_type": "Counting & Probability",
+      "accuracy": {
+        "estimate": 1.0,
+        "ci95": [
+          1.0,
+          1.0
+        ],
+        "cases": 1
+      }
+    },
+    {
+      "model": "gptoss_low",
+      "strategy": "targeted_fix",
+      "prior": "correct",
+      "task_type": "arithmetic_word",
+      "accuracy": {
+        "estimate": 1.0,
+        "ci95": [
+          1.0,
+          1.0
+        ],
+        "cases": 1
+      }
+    },
+    {
+      "model": "deepseek_high",
+      "strategy": "targeted_fix",
+      "prior": "wrong",
+      "task_type": "arithmetic_word",
+      "accuracy": {
+        "estimate": 1.0,
+        "ci95": [
+          1.0,
+          1.0
+        ],
+        "cases": 1
+      }
+    },
+    {
+      "model": "deepseek_high",
+      "strategy": "targeted_fix",
+      "prior": "correct",
+      "task_type": "Algebra",
+      "accuracy": {
+        "estimate": 1.0,
+        "ci95": [
+          1.0,
+          1.0
+        ],
+        "cases": 1
+      }
+    },
+    {
+      "model": "qwen7b",
+      "strategy": "step_by_step_redo",
+      "prior": "correct",
+      "task_type": "Algebra",
+      "accuracy": {
+        "estimate": 1.0,
+        "ci95": [
+          1.0,
+          1.0
+        ],
+        "cases": 1
+      }
+    },
+    {
+      "model": "gptoss_low",
+      "strategy": "targeted_fix",
+      "prior": "correct",
+      "task_type": "Algebra",
+      "accuracy": {
+        "estimate": 1.0,
+        "ci95": [
+          1.0,
+          1.0
+        ],
+        "cases": 1
+      }
+    },
+    {
+      "model": "qwen7b",
+      "strategy": "self_check",
+      "prior": "wrong",
+      "task_type": "arithmetic_word",
+      "accuracy": {
+        "estimate": 1.0,
+        "ci95": [
+          1.0,
+          1.0
+        ],
+        "cases": 1
+      }
+    },
+    {
+      "model": "gptoss_low",
+      "strategy": "self_check",
+      "prior": "correct",
+      "task_type": "arithmetic_word",
+      "accuracy": {
+        "estimate": 1.0,
+        "ci95": [
+          1.0,
+          1.0
+        ],
+        "cases": 1
+      }
+    },
+    {
+      "model": "deepseek_high",
+      "strategy": "neutral_retry",
+      "prior": "wrong",
+      "task_type": "Algebra",
+      "accuracy": {
+        "estimate": 0.0,
+        "ci95": [
+          0.0,
+          0.0
+        ],
+        "cases": 1
+      }
+    },
+    {
+      "model": "qwen7b",
+      "strategy": "self_check",
+      "prior": "correct",
+      "task_type": "arithmetic_word",
+      "accuracy": {
+        "estimate": 1.0,
+        "ci95": [
+          1.0,
+          1.0
+        ],
+        "cases": 1
+      }
+    },
+    {
+      "model": "deepseek_high",
+      "strategy": "neutral_retry",
+      "prior": "wrong",
+      "task_type": "arithmetic_word",
+      "accuracy": {
+        "estimate": 0.0,
+        "ci95": [
+          0.0,
+          0.0
+        ],
+        "cases": 1
+      }
+    },
+    {
+      "model": "deepseek_high",
+      "strategy": "step_by_step_redo",
+      "prior": "wrong",
+      "task_type": "arithmetic_word",
+      "accuracy": {
+        "estimate": 1.0,
+        "ci95": [
+          1.0,
+          1.0
+        ],
+        "cases": 1
+      }
+    },
+    {
+      "model": "deepseek_high",
+      "strategy": "neutral_retry",
+      "prior": "wrong",
+      "task_type": "Counting & Probability",
+      "accuracy": {
+        "estimate": 0.0,
+        "ci95": [
+          0.0,
+          0.0
+        ],
+        "cases": 1
+      }
+    },
+    {
+      "model": "gptoss_low",
+      "strategy": "error_flagging",
+      "prior": "correct",
+      "task_type": "arithmetic_word",
+      "accuracy": {
+        "estimate": 1.0,
+        "ci95": [
+          1.0,
+          1.0
+        ],
+        "cases": 1
+      }
+    },
+    {
+      "model": "deepseek_high",
+      "strategy": "targeted_fix",
+      "prior": "correct",
+      "task_type": "Counting & Probability",
+      "accuracy": {
+        "estimate": 1.0,
+        "ci95": [
+          1.0,
+          1.0
+        ],
+        "cases": 1
+      }
+    },
+    {
+      "model": "qwen7b",
+      "strategy": "targeted_fix",
+      "prior": "correct",
+      "task_type": "arithmetic_word",
+      "accuracy": {
+        "estimate": 1.0,
+        "ci95": [
+          1.0,
+          1.0
+        ],
+        "cases": 1
+      }
+    },
+    {
+      "model": "qwen7b",
+      "strategy": "step_by_step_redo",
+      "prior": "correct",
+      "task_type": "Counting & Probability",
+      "accuracy": {
+        "estimate": 1.0,
+        "ci95": [
+          1.0,
+          1.0
+        ],
+        "cases": 1
+      }
+    },
+    {
+      "model": "deepseek_high",
+      "strategy": "error_flagging",
+      "prior": "wrong",
+      "task_type": "arithmetic_word",
+      "accuracy": {
+        "estimate": 1.0,
+        "ci95": [
+          1.0,
+          1.0
+        ],
+        "cases": 1
+      }
+    },
+    {
+      "model": "deepseek_high",
+      "strategy": "self_check",
+      "prior": "wrong",
+      "task_type": "arithmetic_word",
+      "accuracy": {
+        "estimate": 1.0,
+        "ci95": [
+          1.0,
+          1.0
+        ],
+        "cases": 1
+      }
+    },
+    {
+      "model": "deepseek_high",
+      "strategy": "error_flagging",
+      "prior": "wrong",
+      "task_type": "Counting & Probability",
+      "accuracy": {
+        "estimate": 1.0,
+        "ci95": [
+          1.0,
+          1.0
+        ],
+        "cases": 1
+      }
+    },
+    {
+      "model": "gptoss_low",
+      "strategy": "neutral_retry",
+      "prior": "correct",
+      "task_type": "Algebra",
+      "accuracy": {
+        "estimate": 1.0,
+        "ci95": [
+          1.0,
+          1.0
+        ],
+        "cases": 1
+      }
+    },
+    {
+      "model": "deepseek_high",
+      "strategy": "neutral_retry",
+      "prior": "correct",
+      "task_type": "arithmetic_word",
+      "accuracy": {
+        "estimate": 1.0,
+        "ci95": [
+          1.0,
+          1.0
+        ],
+        "cases": 1
+      }
+    },
+    {
+      "model": "deepseek_high",
+      "strategy": "targeted_fix",
+      "prior": "correct",
+      "task_type": "arithmetic_word",
+      "accuracy": {
+        "estimate": 1.0,
+        "ci95": [
+          1.0,
+          1.0
+        ],
+        "cases": 1
+      }
+    },
+    {
+      "model": "deepseek_high",
+      "strategy": "neutral_retry",
+      "prior": "correct",
+      "task_type": "Algebra",
+      "accuracy": {
+        "estimate": 1.0,
+        "ci95": [
+          1.0,
+          1.0
+        ],
+        "cases": 1
+      }
+    },
+    {
+      "model": "gptoss_low",
+      "strategy": "step_by_step_redo",
+      "prior": "wrong",
+      "task_type": "Algebra",
+      "accuracy": {
+        "estimate": 1.0,
+        "ci95": [
+          1.0,
+          1.0
+        ],
+        "cases": 1
+      }
+    },
+    {
+      "model": "deepseek_high",
+      "strategy": "step_by_step_redo",
+      "prior": "wrong",
+      "task_type": "Counting & Probability",
+      "accuracy": {
+        "estimate": 1.0,
+        "ci95": [
+          1.0,
+          1.0
+        ],
+        "cases": 1
+      }
+    },
+    {
+      "model": "gptoss_low",
+      "strategy": "self_check",
+      "prior": "wrong",
+      "task_type": "Algebra",
+      "accuracy": {
+        "estimate": 1.0,
+        "ci95": [
+          1.0,
+          1.0
+        ],
+        "cases": 1
+      }
+    },
+    {
+      "model": "deepseek_high",
+      "strategy": "targeted_fix",
+      "prior": "wrong",
+      "task_type": "Counting & Probability",
+      "accuracy": {
+        "estimate": 1.0,
+        "ci95": [
+          1.0,
+          1.0
+        ],
+        "cases": 1
+      }
+    }
+  ]
+}
