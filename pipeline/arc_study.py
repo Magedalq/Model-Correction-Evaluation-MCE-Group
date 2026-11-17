@@ -76,6 +76,9 @@ def scalar(text, unit='number'):
 
 def score(text, case):
  hits=re.findall(r'(?im)^\s*(?:\*\*)?FINAL\s*:\s*(.+?)\s*$',text)
+ if not hits:   # permissive: 'FINAL: x' tacked onto the end of the last line (strict_format stays False)
+  last=[l for l in text.strip().splitlines() if l.strip()][-1:] or ['']
+  hits=re.findall(r'FINAL\s*:\s*([^\n]+?)\s*$',last[0])[-1:]
  result={'extracted':False,'strict_format':False,'correct':None,'parsed_final':None,'ambiguous':len(hits)>1}
  if not hits or len(hits)>1:return result
  candidate=hits[-1].strip().strip('*').strip()
@@ -141,7 +144,9 @@ class Client:
  def call(self,msgs,meta,case=None):
   key=os.environ.get(self.m['key_env'],'')
   if not self.simulate and not key:raise RuntimeError('Missing '+self.m['key_env']+'; set it locally, do not share it.')
-  payload={'model':self.m['model'],'messages':msgs,'temperature':0.4,'top_p':1.0,'max_tokens':self.m.get('max_tokens',4096),'stream':False}
+  stream=bool(self.m.get('stream'))
+  payload={'model':self.m['model'],'messages':msgs,'temperature':0.4,'top_p':1.0,'max_tokens':self.m.get('max_tokens',4096),'stream':stream}
+  if stream:payload['stream_options']={'include_usage':True}
   if self.m.get('reasoning_effort') is not None:payload['reasoning_effort']=self.m['reasoning_effort']
   logical=digest([self.context,meta,self.m['label']])
   for attempt in range(1,6):
@@ -163,8 +168,10 @@ class Client:
     else:
      req=urllib.request.Request(self.m['base_url'].rstrip('/')+'/chat/completions',data=json.dumps(payload).encode(),
       headers={'Authorization':'Bearer '+key,'Content-Type':'application/json'})
-     with urllib.request.urlopen(req,timeout=1800) as resp:body=resp.read();status=resp.status
-     raw=json.loads(body)
+     with urllib.request.urlopen(req,timeout=1800) as resp:
+      status=resp.status
+      if stream:raw,body=read_stream(resp)
+      else:body=resp.read();raw=json.loads(body)
     choice=raw['choices'][0];message=choice['message'];content=message.get('content') or ''
     if not isinstance(content,str):raise ValueError('Non-text content; inspect raw response')
     usage=raw.get('usage') or {};details=usage.get('completion_tokens_details') or {}
@@ -180,16 +187,46 @@ class Client:
     record['latency_seconds']=time.monotonic()-start;append(self.out,record);return record
    except (urllib.error.HTTPError,urllib.error.URLError,TimeoutError,ConnectionError,ValueError,KeyError,TypeError) as e:
     if isinstance(e,urllib.error.HTTPError):status=e.code;body=e.read()
+    elif isinstance(e,urllib.error.URLError):body=('connection failed: '+str(e.reason)).encode()   # e.g. DNS failure, VPN down
     record.update(status='error',http_status=status,error_type=type(e).__name__,
      # Credentials are never in the request URL, body or recorded headers.
      error_body=body.decode(errors='replace'),latency_seconds=time.monotonic()-start)
     append(self.out,record)
-    transient=status in (429,500,502,503,504) or (status is None and isinstance(e,(urllib.error.URLError,TimeoutError,ConnectionError)))
+    # A stream can die after the server already answered 200, so dropped connections are retried either way.
+    transient=status in (429,500,502,503,504) or isinstance(e,(TimeoutError,ConnectionError)) or (status is None and isinstance(e,urllib.error.URLError))
     if not transient or attempt==5:
-     hint=' (check the model name in your config)' if status==404 else (' (check ARC_API_KEY in .env)' if status in (401,403) else '')
+     hint=' (check the model name in your config)' if status==404 else (' (check ARC_API_KEY in .env, and that the VT VPN is on)' if status in (401,403) else '')
+     if status is None:
+      reason=body.decode(errors='replace')
+      hint=(' (certificate check failed: run  pip install truststore  then re-run)' if 'CERTIFICATE_VERIFY_FAILED' in reason
+            else ' ('+reason[:120]+'; is the VT VPN connected?)')
      raise RuntimeError(f"Request failed for {self.m['label']}: HTTP {status} {type(e).__name__}{hint}. "
                         f"Details in the log. Re-run the same command with the same output folder to resume.") from None
     time.sleep(min(2**attempt,30))
+
+def read_stream(resp):
+ """Read a streamed (server-sent events) chat completion and rebuild it in the normal response shape.
+ ARC only allows max_tokens above 8000 when the response is streamed."""
+ lines=[];content=[];reasoning=[];finish=None;usage=None;model=None;rid=None
+ for raw_line in resp:
+  line=raw_line.decode('utf-8',errors='replace').rstrip('\r\n');lines.append(line)
+  if not line.startswith('data:'):continue
+  data=line[5:].strip()
+  if data=='[DONE]':break
+  chunk=json.loads(data)
+  model=chunk.get('model') or model;rid=chunk.get('id') or rid
+  if chunk.get('usage'):usage=chunk['usage']
+  for ch in chunk.get('choices') or []:
+   delta=ch.get('delta') or {}
+   if delta.get('content'):content.append(delta['content'])
+   r=delta.get('reasoning_content') or delta.get('reasoning')
+   if isinstance(r,str):reasoning.append(r)
+   if ch.get('finish_reason'):finish=ch['finish_reason']
+ if finish is None:raise ConnectionError('Stream ended before the model finished')
+ message={'role':'assistant','content':''.join(content)}
+ if reasoning:message['reasoning_content']=''.join(reasoning)
+ raw={'id':rid,'model':model,'streamed':True,'choices':[{'message':message,'finish_reason':finish}],'usage':usage}
+ return raw,'\n'.join(lines).encode()
 
 def chain_key(phase,case_id,label,prior,strategy,repeat): return (phase,case_id,label,prior,strategy,repeat)
 
@@ -301,7 +338,8 @@ def export_audits(args):
  print('Exported',min(50,len(records)),'audit rows; human scores left blank')
 
 def calibrate_select(args):
- records=read_log(args.log)
+ logs=args.log if isinstance(args.log,list) else [args.log]
+ records=[r for p in logs for r in read_log(p)]
  if any(r.get('is_simulated') for r in records):raise ValueError('Cannot select final cases using simulated calibration')
  lo,hi=args.band
  groups=defaultdict(dict)
@@ -309,6 +347,8 @@ def calibrate_select(args):
   if r['status']=='success' and r.get('phase')=='calibrate':groups[(r['case_id'],r['model_label'])][r['repeat']]=r
  models=[m['label'] for m in load(args.config)['models']];cases=load(args.cases);report=[]
  eligible=defaultdict(list);changed_scores=0
+ excluded=[c['case_id'] for c in cases if c.get('exclude_reason')]
+ cases=[c for c in cases if not c.get('exclude_reason')]   # e.g. an ambiguous answer key; reason kept in the case
  for c in cases:
   rates={};nat={}
   for m in models:
@@ -340,7 +380,7 @@ def calibrate_select(args):
    selected.append(c)
  for row in report:row['eligible_models']=[m for m in models if row['case_id'] in eligible[m]]
  summary={'band':[lo,hi],'per_model_eligible':{m:len(eligible[m]) for m in models},'capped_from':capped,
-  'responses_rescored_differently_from_log':changed_scores,
+  'responses_rescored_differently_from_log':changed_scores,'excluded_cases':excluded,
   'eligible_for_all_models':sum(1 for r in report if len(r['eligible_models'])==len(models)),
   'mean_accuracy_by_source':{m:{s:round(sum(v)/len(v),3) for s,v in _by(report,m).items()} for m in models}}
  save(args.out,selected);save(str(args.out)+'.calibration.json',{'summary':summary,'cases':report})
@@ -434,13 +474,33 @@ def kappa(args):
   out[field]={'n':n,'agreement':po,'kappa':(po-pe)/(1-pe) if pe<1 else None}
  save(args.out,out);print(out)
 
+def load_dotenv():
+ """Read KEY=VALUE lines from .env (this folder or its parent) without overriding real env vars."""
+ for p in (Path.cwd()/'.env',Path(__file__).resolve().parent/'.env',Path(__file__).resolve().parent.parent/'.env'):
+  if p.is_file():
+   for line in p.read_text(encoding='utf-8').splitlines():
+    line=line.strip()
+    if line and not line.startswith('#') and '=' in line:
+     k,v=line.split('=',1);k=k.strip();v=v.strip().strip('"').strip("'")
+     if k and v and not os.environ.get(k):os.environ[k]=v
+   return
+
+def use_system_certificates():
+ """Verify HTTPS with the operating system's certificate store (same as the browser) when the
+ optional `truststore` package is installed. Fixes CERTIFICATE_VERIFY_FAILED behind VPNs or when a
+ server's intermediate certificate is missing. Verification is never turned off."""
+ try:
+  import truststore;truststore.inject_into_ssl();return True
+ except ImportError:return False
+
 def main():
+ load_dotenv();use_system_certificates()
  ap=argparse.ArgumentParser();sub=ap.add_subparsers(dest='command',required=True)
  p=sub.add_parser('run');p.add_argument('--phase',choices=['preflight','calibrate','smoke','study'],required=True)
  p.add_argument('--config',default='models.json');p.add_argument('--cases',default='cases_candidates.json');p.add_argument('--out',required=True);p.add_argument('--simulate',action='store_true')
  p.add_argument('--workers',type=int,default=4,help='parallel requests (lower it if ARC returns many 429s)');p.set_defaults(fn=run)
- p=sub.add_parser('select');p.add_argument('--log',required=True);p.add_argument('--cases',default='cases_candidates.json');p.add_argument('--config',default='models.json');p.add_argument('--out',required=True)
- p.add_argument('--band',type=float,nargs=2,default=[0.3,0.7],metavar=('LOW','HIGH'));p.add_argument('--max-per-model',type=int,default=50);p.set_defaults(fn=calibrate_select)
+ p=sub.add_parser('select');p.add_argument('--log',required=True,nargs='+',help='one or more calibration calls.jsonl files');p.add_argument('--cases',default='cases_candidates.json');p.add_argument('--config',default='models.json');p.add_argument('--out',required=True)
+ p.add_argument('--band',type=float,nargs=2,default=[0.2,0.8],metavar=('LOW','HIGH'),help='keep questions a model got right on this share of its 5 cold tries (0.2-0.8 = right 1-4 times)');p.add_argument('--max-per-model',type=int,default=50);p.set_defaults(fn=calibrate_select)
  p=sub.add_parser('audit');p.add_argument('--log',required=True);p.add_argument('--out',required=True);p.set_defaults(fn=export_audits)
  p=sub.add_parser('analyze');p.add_argument('--log',required=True);p.add_argument('--out',required=True);p.add_argument('--allow-simulated',action='store_true')
  p.add_argument('--cases',default='cases_candidates.json',help='used to rescore responses with the current scoring rules');p.set_defaults(fn=analyze)

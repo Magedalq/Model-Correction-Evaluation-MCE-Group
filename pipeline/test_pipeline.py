@@ -136,4 +136,56 @@ class Tests(unittest.TestCase):
    arc_study.append(Path(tmp)/'x.jsonl',{'a':1})
   self.assertEqual(calls[0],4)
 
+ def test_dotenv_and_multi_log_select(self):
+  import arc_study
+  with tempfile.TemporaryDirectory() as tmp, patch.dict(os.environ,{},clear=False):
+   os.environ.pop('ZZ_TEST_KEY',None)
+   (Path(tmp)/'.env').write_text('# comment\nZZ_TEST_KEY="abc123"\nEMPTY=\n',encoding='utf-8')
+   cwd=os.getcwd();os.chdir(tmp)
+   try:arc_study.load_dotenv()
+   finally:os.chdir(cwd)
+   self.assertEqual(os.environ.get('ZZ_TEST_KEY'),'abc123');self.assertNotIn('EMPTY',os.environ)
+   case={'case_id':'X','question':'q','reference_answer':'5','task_type':'t','tier':'h','source':'S','seed_ready':False}
+   tmp=Path(tmp);(tmp/'cases.json').write_text(json.dumps([case]));(tmp/'cfg.json').write_text(json.dumps({'models':[{'label':'m1'},{'label':'m2'}]}))
+   for label,answers,f in [('m1',['5','4','5','4','4'],'a.jsonl'),('m2',['4','5','4','5','4'],'b.jsonl')]:
+    (tmp/f).write_text('\n'.join(json.dumps({'status':'success','phase':'calibrate','case_id':'X','model_label':label,'repeat':r,'logical_call_id':label+str(r),'response':'FINAL: '+a,'score':score('FINAL: '+a,case)}) for r,a in enumerate(answers,1)))
+   ns=type('A',(),{'log':[tmp/'a.jsonl',tmp/'b.jsonl'],'cases':tmp/'cases.json','config':tmp/'cfg.json','out':tmp/'sel.json','band':[.3,.7],'max_per_model':50})
+   arc_study.calibrate_select(ns)
+   self.assertEqual(json.loads((tmp/'sel.json').read_text())[0]['eligible_models'],['m1','m2'])
+
+ def test_streaming_response_is_rebuilt(self):
+  seen=[]
+  chunks=[{'id':'s1','model':'fixture','choices':[{'delta':{'reasoning_content':'think '},'finish_reason':None}]},
+          {'id':'s1','model':'fixture','choices':[{'delta':{'reasoning_content':'more'},'finish_reason':None}]},
+          {'id':'s1','model':'fixture','choices':[{'delta':{'content':'Two. '},'finish_reason':None}]},
+          {'id':'s1','model':'fixture','choices':[{'delta':{'content':'\nFINAL: 2'},'finish_reason':'stop'}]},
+          {'id':'s1','model':'fixture','choices':[],'usage':{'prompt_tokens':9,'completion_tokens':12,'completion_tokens_details':{'reasoning_tokens':5}}}]
+  cut=[0]
+  class Handler(BaseHTTPRequestHandler):
+   def do_POST(self):
+    seen.append(json.loads(self.rfile.read(int(self.headers['Content-Length']))))
+    self.send_response(200);self.send_header('Content-Type','text/event-stream');self.end_headers()
+    send=chunks if cut[0] else chunks[:2]          # first request: stream dies early, must be retried
+    cut[0]=1
+    for c in send:self.wfile.write(('data: '+json.dumps(c)+'\n\n').encode())
+    if send is chunks:self.wfile.write(b'data: [DONE]\n\n')
+   def log_message(self,*args):pass
+  server=HTTPServer(('127.0.0.1',0),Handler);thread=threading.Thread(target=server.serve_forever,daemon=True);thread.start()
+  try:
+   with tempfile.TemporaryDirectory() as tmp, patch.dict(os.environ,{'FIXTURE_KEY':'TEST_ONLY_NOT_A_SECRET'}), patch('arc_study.time.sleep'):
+    p=Path(tmp)/'calls.jsonl';m={'label':'fixture','model':'fixture','base_url':f'http://127.0.0.1:{server.server_port}/v1','key_env':'FIXTURE_KEY','stream':True,'max_tokens':16000}
+    r=Client(m,p,'ctx').call([{'role':'user','content':'1+1?'}],{'phase':'preflight'},{'reference_answer':'2'})
+    self.assertTrue(seen[0]['stream']);self.assertEqual(seen[0]['max_tokens'],16000);self.assertEqual(seen[0]['stream_options'],{'include_usage':True})
+    self.assertEqual(r['response'],'Two. \nFINAL: 2');self.assertTrue(r['score']['correct'])
+    self.assertEqual(r['finish_reason'],'stop');self.assertEqual(r['reasoning_fields'],{'reasoning_content':'think more'})
+    self.assertEqual((r['input_tokens'],r['completion_tokens'],r['reasoning_tokens'],r['visible_tokens']),(9,12,5,7))
+    self.assertEqual([x['status'] for x in map(json.loads,p.read_text().splitlines())],['error','success'])
+  finally:server.shutdown();server.server_close();thread.join()
+
+ def test_final_at_end_of_paragraph(self):
+  c={'reference_answer':'70000'}
+  s=score('So the profit is $70,000. FINAL: 70000',c);self.assertTrue(s['correct']);self.assertFalse(s['strict_format'])
+  self.assertIsNone(score('I will write FINAL: 5 later.\nThe answer is big.',c)['correct'])   # not at the end -> not taken
+  self.assertTrue(score('Work.\nFINAL: 70000',c)['strict_format'])
+
 if __name__=='__main__':unittest.main(verbosity=2)

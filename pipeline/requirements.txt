@@ -1,2 +1,4 @@
 # Pipeline, parser, bootstrap intervals and McNemar analysis use Python 3.11 standard library.
 # No pip packages are required for arc_study.py.
+# Optional: lets Python verify HTTPS with the Windows/macOS certificate store (fixes CERTIFICATE_VERIFY_FAILED on some networks/VPNs).
+truststore>=0.9

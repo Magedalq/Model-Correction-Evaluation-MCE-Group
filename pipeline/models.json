@@ -10,7 +10,8 @@
       "revision": null,
       "billing": "ARC-no-individual-charge",
       "status": "documented; live preflight pending",
-      "max_tokens": 8000
+      "max_tokens": 16000,
+      "stream": true
     },
     {
       "label": "gptoss_low",
@@ -21,7 +22,8 @@
       "revision": null,
       "billing": "ARC-no-individual-charge",
       "status": "base endpoint tested in prior pilot; low-setting preflight pending",
-      "max_tokens": 8000
+      "max_tokens": 16000,
+      "stream": true
     },
     {
       "label": "qwen7b",
@@ -32,7 +34,7 @@
       "revision": null,
       "billing": "ARC-self-hosted-no-individual-API-charge",
       "status": "requires ARC GPU deployment and local tunnel; live preflight pending",
-      "max_tokens": 4096
+      "max_tokens": 16000
     }
   ]
 }

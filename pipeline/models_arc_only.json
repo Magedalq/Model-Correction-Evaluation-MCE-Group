@@ -10,7 +10,8 @@
       "revision": null,
       "billing": "ARC-no-individual-charge",
       "status": "documented; live preflight pending",
-      "max_tokens": 8000
+      "max_tokens": 16000,
+      "stream": true
     },
     {
       "label": "gptoss_low",
@@ -21,7 +22,8 @@
       "revision": null,
       "billing": "ARC-no-individual-charge",
       "status": "base endpoint tested in prior pilot; low-setting preflight pending",
-      "max_tokens": 8000
+      "max_tokens": 16000,
+      "stream": true
     }
   ],
   "note": "Same as models.json minus Qwen, so you can run before the Qwen GPU server is set up."

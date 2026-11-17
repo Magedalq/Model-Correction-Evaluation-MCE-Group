@@ -221,7 +221,8 @@
   "team_reviewed": false,
   "calibration_selected": false,
   "variant": "original",
-  "seed_review_status": "Prepared and numerically checked; independent team review pending"
+  "seed_review_status": "Prepared and numerically checked; independent team review pending",
+  "exclude_reason": "Ambiguous answer key: \"start earning money\" supports 12 (break-even) or 13 (first profit); every GSM8K miss by gpt-oss and DeepSeek was this question answering 12. Excluded 2026-11-15."
  },
  {
   "case_id": "GSM8K-test-0014",

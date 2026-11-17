@@ -1,0 +1,17 @@
+{
+  "protocol_version": "part1-2.0",
+  "models": [
+    {
+      "label": "grok_nr",
+      "model": "grok-4.20-0309-non-reasoning",
+      "base_url": "https://api.x.ai/v1",
+      "key_env": "XAI_API_KEY",
+      "reasoning_effort": null,
+      "revision": null,
+      "max_tokens": 16000,
+      "billing": "xAI-paid",
+      "status": "candidate second model; max_tokens raised 8000->16000 on 2026-11-15 (xAI has no 8000 cap)"
+    }
+  ],
+  "note": "Grok non-reasoning via xAI API (outside ARC). No VPN needed. Paid per token."
+}

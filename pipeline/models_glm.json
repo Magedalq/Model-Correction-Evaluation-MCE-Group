@@ -1,0 +1,18 @@
+{
+  "protocol_version": "part1-2.0",
+  "models": [
+    {
+      "label": "glm",
+      "model": "GLM-5.3",
+      "base_url": "https://llm-api.arc.vt.edu/api/v1",
+      "key_env": "ARC_API_KEY",
+      "reasoning_effort": null,
+      "revision": null,
+      "max_tokens": 16000,
+      "stream": true,
+      "billing": "ARC-no-individual-charge",
+      "status": "candidate second model (ARC, free); listed by ARC /models 2026-11-15"
+    }
+  ],
+  "note": "GLM-5.3 (plain, no thinking variant) on ARC. Needs the VT VPN."
+}

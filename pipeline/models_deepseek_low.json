@@ -1,0 +1,18 @@
+{
+  "protocol_version": "part1-2.0",
+  "models": [
+    {
+      "label": "deepseek_low",
+      "model": "DeepSeek-V4.1-Flash",
+      "base_url": "https://llm-api.arc.vt.edu/api/v1",
+      "key_env": "ARC_API_KEY",
+      "reasoning_effort": "low",
+      "revision": null,
+      "billing": "ARC-no-individual-charge",
+      "status": "lower-effort setting added 2026-11-02 after deepseek_high calibration showed a ceiling",
+      "max_tokens": 16000,
+      "stream": true
+    }
+  ],
+  "note": "DeepSeek at low reasoning effort, for calibration on the hard questions."
+}

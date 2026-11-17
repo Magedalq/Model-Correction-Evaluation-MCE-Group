@@ -1,0 +1,29 @@
+{
+  "protocol_version": "part1-2.0",
+  "models": [
+    {
+      "label": "gptoss_low",
+      "model": "gpt-oss-120b",
+      "base_url": "https://llm-api.arc.vt.edu/api/v1",
+      "key_env": "ARC_API_KEY",
+      "reasoning_effort": "low",
+      "revision": null,
+      "billing": "ARC-no-individual-charge",
+      "status": "base endpoint tested in prior pilot; low-setting preflight pending",
+      "max_tokens": 16000,
+      "stream": true
+    },
+    {
+      "label": "grok_nr",
+      "model": "grok-4.20-0309-non-reasoning",
+      "base_url": "https://api.x.ai/v1",
+      "key_env": "XAI_API_KEY",
+      "reasoning_effort": null,
+      "revision": null,
+      "max_tokens": 16000,
+      "billing": "xAI-paid",
+      "status": "candidate second model; max_tokens raised 8000->16000 on 2026-11-15 (xAI has no 8000 cap)"
+    }
+  ],
+  "note": "Study models: gpt-oss-120b (low reasoning) on ARC + Grok 4.20 non-reasoning on xAI."
+}

@@ -1,0 +1,730 @@
+[
+ {
+  "case_id": "SIMPSON-001",
+  "question": "A study compared Treatment A and Treatment B. Results broken down by severity level:\n- mild: Treatment A: 23 of 24 patients recovered; Treatment B: 457 of 498 patients recovered.\n- moderate: Treatment A: 369 of 399 patients recovered; Treatment B: 23 of 27 patients recovered.\n- severe: Treatment A: 216 of 425 patients recovered; Treatment B: 30 of 64 patients recovered.\nAssume that within each severity level category, the patients given each option are otherwise comparable. If all 1437 patients in the table had been given Treatment A, versus if all of them had been given Treatment B, what would be the difference in the expected overall recovery rate (A minus B)? Give the answer in percentage points, rounded to two decimal places (negative if A's rate is lower).",
+  "reference_answer": "96764632943/19416364632",
+  "reference_decimal_places": 2,
+  "benchmark_solution": "Step 1: Category rates: mild: Treatment A 95.8333%, Treatment B 91.7671%; moderate: Treatment A 92.4812%, Treatment B 85.1852%; severe: Treatment A 50.8235%, Treatment B 46.8750%.\nStep 2: Weights = each category's share of all 1437 patients: mild 522/1437, moderate 426/1437, severe 489/1437.\nStep 3: Expected rate if everyone got Treatment A = 79.5231%.\nStep 4: Expected rate if everyone got Treatment B = 74.5394%.\nStep 5: Difference = 4.98 percentage points.\nFINAL: 4.98",
+  "source": "Simpson generator",
+  "source_index": 1,
+  "original_split": "generated",
+  "generator": {
+   "script": "generate_simpson.py",
+   "seed": 20261028,
+   "context": "hospital",
+   "strata": 3,
+   "question_type": "counterfactual",
+   "table": [
+    {
+     "nA": 24,
+     "sA": 23,
+     "nB": 498,
+     "sB": 457
+    },
+    {
+     "nA": 399,
+     "sA": 369,
+     "nB": 27,
+     "sB": 23
+    },
+    {
+     "nA": 425,
+     "sA": 216,
+     "nB": 64,
+     "sB": 30
+    }
+   ]
+  },
+  "task_type": "simpsons_paradox",
+  "tier": "very hard",
+  "benchmark_level": null,
+  "answer_unit": "percentage_points",
+  "correct_prior": "Step 1: Category rates: mild: Treatment A 95.8333%, Treatment B 91.7671%; moderate: Treatment A 92.4812%, Treatment B 85.1852%; severe: Treatment A 50.8235%, Treatment B 46.8750%.\nStep 2: Weights = each category's share of all 1437 patients: mild 522/1437, moderate 426/1437, severe 489/1437.\nStep 3: Expected rate if everyone got Treatment A = 79.5231%.\nStep 4: Expected rate if everyone got Treatment B = 74.5394%.\nStep 5: Difference = 4.98 percentage points.\nFINAL: 4.98",
+  "wrong_prior": "Step 1: Category rates: mild: Treatment A 95.8333%, Treatment B 91.7671%; moderate: Treatment A 92.4812%, Treatment B 85.1852%; severe: Treatment A 50.8235%, Treatment B 46.8750%.\nStep 2: Overall, Treatment A = 71.6981% and Treatment B = 86.5874%.\nStep 3: Difference = -14.89 percentage points.\nFINAL: -14.89",
+  "error_type": "conceptual: used pooled rates, ignoring the confounder (Simpson trap)",
+  "error_location": "early; of 3 steps",
+  "hint": "Check whether the comparison actually adjusts for severity level",
+  "seed_ready": true,
+  "team_reviewed": false,
+  "calibration_selected": false
+ },
+ {
+  "case_id": "SIMPSON-004",
+  "question": "A study compared Program A and Program B. Results broken down by school:\n- Lincoln High: Program A: 70 of 71 students passed; Program B: 490 of 527 students passed.\n- Roosevelt High: Program A: 34 of 35 students passed; Program B: 280 of 306 students passed.\n- Jefferson High: Program A: 499 of 555 students passed; Program B: 22 of 27 students passed.\n- Madison High: Program A: 166 of 423 students passed; Program B: 10 of 28 students passed.\nAssume that within each school category, the students given each option are otherwise comparable. If all 1972 students in the table had been given Program A, versus if all of them had been given Program B, what would be the difference in the expected overall pass rate (A minus B)? Give the answer in percentage points, rounded to two decimal places (negative if A's rate is lower).",
+  "reference_answer": "24137359601575/4041904149234",
+  "reference_decimal_places": 2,
+  "benchmark_solution": "Step 1: Category rates: Lincoln High: Program A 98.5915%, Program B 92.9791%; Roosevelt High: Program A 97.1429%, Program B 91.5033%; Jefferson High: Program A 89.9099%, Program B 81.4815%; Madison High: Program A 39.2435%, Program B 35.7143%.\nStep 2: Weights = each category's share of all 1972 students: Lincoln High 598/1972, Roosevelt High 341/1972, Jefferson High 582/1972, Madison High 451/1972.\nStep 3: Expected rate if everyone got Program A = 82.2058%.\nStep 4: Expected rate if everyone got Program B = 76.2340%.\nStep 5: Difference = 5.97 percentage points.\nFINAL: 5.97",
+  "source": "Simpson generator",
+  "source_index": 4,
+  "original_split": "generated",
+  "generator": {
+   "script": "generate_simpson.py",
+   "seed": 20261028,
+   "context": "tutoring",
+   "strata": 4,
+   "question_type": "counterfactual",
+   "table": [
+    {
+     "nA": 71,
+     "sA": 70,
+     "nB": 527,
+     "sB": 490
+    },
+    {
+     "nA": 35,
+     "sA": 34,
+     "nB": 306,
+     "sB": 280
+    },
+    {
+     "nA": 555,
+     "sA": 499,
+     "nB": 27,
+     "sB": 22
+    },
+    {
+     "nA": 423,
+     "sA": 166,
+     "nB": 28,
+     "sB": 10
+    }
+   ]
+  },
+  "task_type": "simpsons_paradox",
+  "tier": "very hard",
+  "benchmark_level": null,
+  "answer_unit": "percentage_points",
+  "correct_prior": "Step 1: Category rates: Lincoln High: Program A 98.5915%, Program B 92.9791%; Roosevelt High: Program A 97.1429%, Program B 91.5033%; Jefferson High: Program A 89.9099%, Program B 81.4815%; Madison High: Program A 39.2435%, Program B 35.7143%.\nStep 2: Weights = each category's share of all 1972 students: Lincoln High 598/1972, Roosevelt High 341/1972, Jefferson High 582/1972, Madison High 451/1972.\nStep 3: Expected rate if everyone got Program A = 82.2058%.\nStep 4: Expected rate if everyone got Program B = 76.2340%.\nStep 5: Difference = 5.97 percentage points.\nFINAL: 5.97",
+  "wrong_prior": "Step 1: Category rates: Lincoln High: Program A 98.5915%, Program B 92.9791%; Roosevelt High: Program A 97.1429%, Program B 91.5033%; Jefferson High: Program A 89.9099%, Program B 81.4815%; Madison High: Program A 39.2435%, Program B 35.7143%.\nStep 2: Weights = each category's share of Program A's 1084 students: Lincoln High 71/1084, Roosevelt High 35/1084, Jefferson High 555/1084, Madison High 423/1084.\nStep 3: Expected rate if everyone got Program A = 70.9410%.\nStep 4: Expected rate if everyone got Program B = 64.6988%.\nStep 5: Difference = 6.24 percentage points.\nFINAL: 6.24",
+  "error_type": "wrong weights: used Program A's own category mix instead of the combined population",
+  "error_location": "middle; of 5 steps",
+  "hint": "Check which population's school mix is used for the weights",
+  "seed_ready": true,
+  "team_reviewed": false,
+  "calibration_selected": false
+ },
+ {
+  "case_id": "SIMPSON-007",
+  "question": "A study compared Courier A and Courier B. Results broken down by route type:\n- downtown: Courier A: 65 of 69 deliveries arrived on time; Courier B: 179 of 199 deliveries arrived on time.\n- suburban: Courier A: 203 of 227 deliveries arrived on time; Courier B: 40 of 46 deliveries arrived on time.\n- rural: Courier A: 293 of 381 deliveries arrived on time; Courier B: 31 of 46 deliveries arrived on time.\nAssume that within each route type category, the deliveries given each option are otherwise comparable. If all 968 deliveries in the table had been given Courier A, versus if all of them had been given Courier B, what would be the difference in the expected overall on-time rate (A minus B)? Give the answer in percentage points, rounded to two decimal places (negative if A's rate is lower).",
+  "reference_answer": "387657935825/63863961172",
+  "reference_decimal_places": 2,
+  "benchmark_solution": "Step 1: Category rates: downtown: Courier A 94.2029%, Courier B 89.9497%; suburban: Courier A 89.4273%, Courier B 86.9565%; rural: Courier A 76.9029%, Courier B 67.3913%.\nStep 2: Weights = each category's share of all 968 deliveries: downtown 268/968, suburban 273/968, rural 427/968.\nStep 3: Expected rate if everyone got Courier A = 85.2248%.\nStep 4: Expected rate if everyone got Courier B = 79.1547%.\nStep 5: Difference = 6.07 percentage points.\nFINAL: 6.07",
+  "source": "Simpson generator",
+  "source_index": 7,
+  "original_split": "generated",
+  "generator": {
+   "script": "generate_simpson.py",
+   "seed": 20261028,
+   "context": "courier",
+   "strata": 3,
+   "question_type": "counterfactual",
+   "table": [
+    {
+     "nA": 69,
+     "sA": 65,
+     "nB": 199,
+     "sB": 179
+    },
+    {
+     "nA": 227,
+     "sA": 203,
+     "nB": 46,
+     "sB": 40
+    },
+    {
+     "nA": 381,
+     "sA": 293,
+     "nB": 46,
+     "sB": 31
+    }
+   ]
+  },
+  "task_type": "simpsons_paradox",
+  "tier": "very hard",
+  "benchmark_level": null,
+  "answer_unit": "percentage_points",
+  "correct_prior": "Step 1: Category rates: downtown: Courier A 94.2029%, Courier B 89.9497%; suburban: Courier A 89.4273%, Courier B 86.9565%; rural: Courier A 76.9029%, Courier B 67.3913%.\nStep 2: Weights = each category's share of all 968 deliveries: downtown 268/968, suburban 273/968, rural 427/968.\nStep 3: Expected rate if everyone got Courier A = 85.2248%.\nStep 4: Expected rate if everyone got Courier B = 79.1547%.\nStep 5: Difference = 6.07 percentage points.\nFINAL: 6.07",
+  "wrong_prior": "Step 1: Category rates: downtown: Courier A 94.2029%, Courier B 89.9497%; suburban: Courier A 89.4273%, Courier B 86.9565%; rural: Courier A 76.9029%, Courier B 67.3913%.\nStep 2: Weights = each category's share of all 968 deliveries: downtown 268/968, suburban 273/968, rural 427/968.\nStep 3: Expected rate if everyone got Courier A = 85.2248%.\nStep 4: Overall rate for Courier B = 85.9107%.\nStep 5: Difference = -0.69 percentage points.\nFINAL: -0.69",
+  "error_type": "mixed estimands: standardized A rate minus B's observed pooled rate",
+  "error_location": "final; of 5 steps",
+  "hint": "Check that both rates in the final subtraction are standardized the same way",
+  "seed_ready": true,
+  "team_reviewed": false,
+  "calibration_selected": false
+ },
+ {
+  "case_id": "SIMPSON-010",
+  "question": "A study compared Method A and Method B. Results broken down by stone size:\n- small: Method A: 79 of 83 operations succeeded; Method B: 144 of 160 operations succeeded.\n- medium: Method A: 70 of 78 operations succeeded; Method B: 350 of 412 operations succeeded.\n- large: Method A: 254 of 394 operations succeeded; Method B: 16 of 28 operations succeeded.\n- very large: Method A: 134 of 206 operations succeeded; Method B: 32 of 58 operations succeeded.\nAssume that within each stone size category, the operations given each option are otherwise comparable. If all 1419 operations in the table had been given Method A, versus if all of them had been given Method B, what would be the difference in the expected overall success rate (A minus B)? Give the answer in percentage points, rounded to two decimal places (negative if A's rate is lower).",
+  "reference_answer": "124069649581330/18920150368119",
+  "reference_decimal_places": 2,
+  "benchmark_solution": "Step 1: Category rates: small: Method A 95.1807%, Method B 90.0000%; medium: Method A 89.7436%, Method B 84.9515%; large: Method A 64.4670%, Method B 57.1429%; very large: Method A 65.0485%, Method B 55.1724%.\nStep 2: Weights = each category's share of all 1419 operations: small 243/1419, medium 490/1419, large 422/1419, very large 264/1419.\nStep 3: Expected rate if everyone got Method A = 78.5632%.\nStep 4: Expected rate if everyone got Method B = 72.0056%.\nStep 5: Difference = 6.56 percentage points.\nFINAL: 6.56",
+  "source": "Simpson generator",
+  "source_index": 10,
+  "original_split": "generated",
+  "generator": {
+   "script": "generate_simpson.py",
+   "seed": 20261028,
+   "context": "surgery",
+   "strata": 4,
+   "question_type": "counterfactual",
+   "table": [
+    {
+     "nA": 83,
+     "sA": 79,
+     "nB": 160,
+     "sB": 144
+    },
+    {
+     "nA": 78,
+     "sA": 70,
+     "nB": 412,
+     "sB": 350
+    },
+    {
+     "nA": 394,
+     "sA": 254,
+     "nB": 28,
+     "sB": 16
+    },
+    {
+     "nA": 206,
+     "sA": 134,
+     "nB": 58,
+     "sB": 32
+    }
+   ]
+  },
+  "task_type": "simpsons_paradox",
+  "tier": "very hard",
+  "benchmark_level": null,
+  "answer_unit": "percentage_points",
+  "correct_prior": "Step 1: Category rates: small: Method A 95.1807%, Method B 90.0000%; medium: Method A 89.7436%, Method B 84.9515%; large: Method A 64.4670%, Method B 57.1429%; very large: Method A 65.0485%, Method B 55.1724%.\nStep 2: Weights = each category's share of all 1419 operations: small 243/1419, medium 490/1419, large 422/1419, very large 264/1419.\nStep 3: Expected rate if everyone got Method A = 78.5632%.\nStep 4: Expected rate if everyone got Method B = 72.0056%.\nStep 5: Difference = 6.56 percentage points.\nFINAL: 6.56",
+  "wrong_prior": "Step 1: Category rates: small: Method A 95.1807%, Method B 90.0000%; medium: Method A 89.7436%, Method B 84.9515%; large: Method A 64.4670%, Method B 57.1429%; very large: Method A 65.0485%, Method B 55.1724%.\nStep 2: Overall, Method A = 70.5650% and Method B = 82.3708%.\nStep 3: Difference = -11.81 percentage points.\nFINAL: -11.81",
+  "error_type": "conceptual: used pooled rates, ignoring the confounder (Simpson trap)",
+  "error_location": "early; of 3 steps",
+  "hint": "Check whether the comparison actually adjusts for stone size",
+  "seed_ready": true,
+  "team_reviewed": false,
+  "calibration_selected": false
+ },
+ {
+  "case_id": "SIMPSON-012",
+  "question": "A study compared Rep A and Rep B. Results broken down by lead source:\n- referral: Rep A: 53 of 65 leads closed; Rep B: 281 of 388 leads closed.\n- web form: Rep A: 303 of 428 leads closed; Rep B: 35 of 55 leads closed.\n- trade show: Rep A: 281 of 464 leads closed; Rep B: 46 of 85 leads closed.\nAssume that within each lead source category, the leads given each option are otherwise comparable. If all 1485 leads in the table had been given Rep A, versus if all of them had been given Rep B, what would be the difference in the expected overall close rate (A minus B)? Give the answer in percentage points, rounded to two decimal places (negative if A's rate is lower).",
+  "reference_answer": "2170506400367/289756811916",
+  "reference_decimal_places": 2,
+  "benchmark_solution": "Step 1: Category rates: referral: Rep A 81.5385%, Rep B 72.4227%; web form: Rep A 70.7944%, Rep B 63.6364%; trade show: Rep A 60.5603%, Rep B 54.1176%.\nStep 2: Weights = each category's share of all 1485 leads: referral 453/1485, web form 483/1485, trade show 549/1485.\nStep 3: Expected rate if everyone got Rep A = 70.2884%.\nStep 4: Expected rate if everyone got Rep B = 62.7976%.\nStep 5: Difference = 7.49 percentage points.\nFINAL: 7.49",
+  "source": "Simpson generator",
+  "source_index": 12,
+  "original_split": "generated",
+  "generator": {
+   "script": "generate_simpson.py",
+   "seed": 20261028,
+   "context": "sales",
+   "strata": 3,
+   "question_type": "counterfactual",
+   "table": [
+    {
+     "nA": 65,
+     "sA": 53,
+     "nB": 388,
+     "sB": 281
+    },
+    {
+     "nA": 428,
+     "sA": 303,
+     "nB": 55,
+     "sB": 35
+    },
+    {
+     "nA": 464,
+     "sA": 281,
+     "nB": 85,
+     "sB": 46
+    }
+   ]
+  },
+  "task_type": "simpsons_paradox",
+  "tier": "very hard",
+  "benchmark_level": null,
+  "answer_unit": "percentage_points",
+  "correct_prior": "Step 1: Category rates: referral: Rep A 81.5385%, Rep B 72.4227%; web form: Rep A 70.7944%, Rep B 63.6364%; trade show: Rep A 60.5603%, Rep B 54.1176%.\nStep 2: Weights = each category's share of all 1485 leads: referral 453/1485, web form 483/1485, trade show 549/1485.\nStep 3: Expected rate if everyone got Rep A = 70.2884%.\nStep 4: Expected rate if everyone got Rep B = 62.7976%.\nStep 5: Difference = 7.49 percentage points.\nFINAL: 7.49",
+  "wrong_prior": "Step 1: Category rates: referral: Rep A 81.5385%, Rep B 72.4227%; web form: Rep A 70.7944%, Rep B 63.6364%; trade show: Rep A 60.5603%, Rep B 54.1176%.\nStep 2: Weights = each category's share of Rep A's 957 leads: referral 65/957, web form 428/957, trade show 464/957.\nStep 3: Expected rate if everyone got Rep A = 66.5622%.\nStep 4: Expected rate if everyone got Rep B = 59.6180%.\nStep 5: Difference = 6.94 percentage points.\nFINAL: 6.94",
+  "error_type": "wrong weights: used Rep A's own category mix instead of the combined population",
+  "error_location": "middle; of 5 steps",
+  "hint": "Check which population's lead source mix is used for the weights",
+  "seed_ready": true,
+  "team_reviewed": false,
+  "calibration_selected": false
+ },
+ {
+  "case_id": "SIMPSON-015",
+  "question": "A study compared Treatment A and Treatment B. Results broken down by severity level:\n- mild: Treatment A: 17 of 20 patients recovered; Treatment B: 369 of 484 patients recovered.\n- moderate: Treatment A: 44 of 61 patients recovered; Treatment B: 362 of 526 patients recovered.\n- severe: Treatment A: 97 of 157 patients recovered; Treatment B: 38 of 65 patients recovered.\n- critical: Treatment A: 318 of 513 patients recovered; Treatment B: 38 of 72 patients recovered.\nAssume that within each severity level category, the patients given each option are otherwise comparable. If all 1898 patients in the table had been given Treatment A, versus if all of them had been given Treatment B, what would be the difference in the expected overall recovery rate (A minus B)? Give the answer in percentage points, rounded to two decimal places (negative if A's rate is lower).",
+  "reference_answer": "939747708543825/142877475338026",
+  "reference_decimal_places": 2,
+  "benchmark_solution": "Step 1: Category rates: mild: Treatment A 85.0000%, Treatment B 76.2397%; moderate: Treatment A 72.1311%, Treatment B 68.8213%; severe: Treatment A 61.7834%, Treatment B 58.4615%; critical: Treatment A 61.9883%, Treatment B 52.7778%.\nStep 2: Weights = each category's share of all 1898 patients: mild 504/1898, moderate 587/1898, severe 222/1898, critical 585/1898.\nStep 3: Expected rate if everyone got Treatment A = 71.2118%.\nStep 4: Expected rate if everyone got Treatment B = 64.6345%.\nStep 5: Difference = 6.58 percentage points.\nFINAL: 6.58",
+  "source": "Simpson generator",
+  "source_index": 15,
+  "original_split": "generated",
+  "generator": {
+   "script": "generate_simpson.py",
+   "seed": 20261028,
+   "context": "hospital",
+   "strata": 4,
+   "question_type": "counterfactual",
+   "table": [
+    {
+     "nA": 20,
+     "sA": 17,
+     "nB": 484,
+     "sB": 369
+    },
+    {
+     "nA": 61,
+     "sA": 44,
+     "nB": 526,
+     "sB": 362
+    },
+    {
+     "nA": 157,
+     "sA": 97,
+     "nB": 65,
+     "sB": 38
+    },
+    {
+     "nA": 513,
+     "sA": 318,
+     "nB": 72,
+     "sB": 38
+    }
+   ]
+  },
+  "task_type": "simpsons_paradox",
+  "tier": "very hard",
+  "benchmark_level": null,
+  "answer_unit": "percentage_points",
+  "correct_prior": "Step 1: Category rates: mild: Treatment A 85.0000%, Treatment B 76.2397%; moderate: Treatment A 72.1311%, Treatment B 68.8213%; severe: Treatment A 61.7834%, Treatment B 58.4615%; critical: Treatment A 61.9883%, Treatment B 52.7778%.\nStep 2: Weights = each category's share of all 1898 patients: mild 504/1898, moderate 587/1898, severe 222/1898, critical 585/1898.\nStep 3: Expected rate if everyone got Treatment A = 71.2118%.\nStep 4: Expected rate if everyone got Treatment B = 64.6345%.\nStep 5: Difference = 6.58 percentage points.\nFINAL: 6.58",
+  "wrong_prior": "Step 1: Category rates: mild: Treatment A 85.0000%, Treatment B 76.2397%; moderate: Treatment A 72.1311%, Treatment B 68.8213%; severe: Treatment A 61.7834%, Treatment B 58.4615%; critical: Treatment A 61.9883%, Treatment B 52.7778%.\nStep 2: Weights = each category's share of all 1898 patients: mild 504/1898, moderate 587/1898, severe 222/1898, critical 585/1898.\nStep 3: Expected rate if everyone got Treatment A = 71.2118%.\nStep 4: Overall rate for Treatment B = 70.3575%.\nStep 5: Difference = 0.85 percentage points.\nFINAL: 0.85",
+  "error_type": "mixed estimands: standardized A rate minus B's observed pooled rate",
+  "error_location": "final; of 5 steps",
+  "hint": "Check that both rates in the final subtraction are standardized the same way",
+  "seed_ready": true,
+  "team_reviewed": false,
+  "calibration_selected": false
+ },
+ {
+  "case_id": "SIMPSON-018",
+  "question": "A study compared Program A and Program B. Results broken down by school:\n- Lincoln High: Program A: 50 of 55 students passed; Program B: 327 of 372 students passed.\n- Roosevelt High: Program A: 232 of 263 students passed; Program B: 32 of 40 students passed.\n- Jefferson High: Program A: 290 of 388 students passed; Program B: 64 of 89 students passed.\nAssume that within each school category, the students given each option are otherwise comparable. If all 1207 students in the table had been given Program A, versus if all of them had been given Program B, what would be the difference in the expected overall pass rate (A minus B)? Give the answer in percentage points, rounded to two decimal places (negative if A's rate is lower).",
+  "reference_answer": "3966366247715/934499640173",
+  "reference_decimal_places": 2,
+  "benchmark_solution": "Step 1: Category rates: Lincoln High: Program A 90.9091%, Program B 87.9032%; Roosevelt High: Program A 88.2129%, Program B 80.0000%; Jefferson High: Program A 74.7423%, Program B 71.9101%.\nStep 2: Weights = each category's share of all 1207 students: Lincoln High 427/1207, Roosevelt High 303/1207, Jefferson High 477/1207.\nStep 3: Expected rate if everyone got Program A = 83.8432%.\nStep 4: Expected rate if everyone got Program B = 79.5988%.\nStep 5: Difference = 4.24 percentage points.\nFINAL: 4.24",
+  "source": "Simpson generator",
+  "source_index": 18,
+  "original_split": "generated",
+  "generator": {
+   "script": "generate_simpson.py",
+   "seed": 20261028,
+   "context": "tutoring",
+   "strata": 3,
+   "question_type": "counterfactual",
+   "table": [
+    {
+     "nA": 55,
+     "sA": 50,
+     "nB": 372,
+     "sB": 327
+    },
+    {
+     "nA": 263,
+     "sA": 232,
+     "nB": 40,
+     "sB": 32
+    },
+    {
+     "nA": 388,
+     "sA": 290,
+     "nB": 89,
+     "sB": 64
+    }
+   ]
+  },
+  "task_type": "simpsons_paradox",
+  "tier": "very hard",
+  "benchmark_level": null,
+  "answer_unit": "percentage_points",
+  "correct_prior": "Step 1: Category rates: Lincoln High: Program A 90.9091%, Program B 87.9032%; Roosevelt High: Program A 88.2129%, Program B 80.0000%; Jefferson High: Program A 74.7423%, Program B 71.9101%.\nStep 2: Weights = each category's share of all 1207 students: Lincoln High 427/1207, Roosevelt High 303/1207, Jefferson High 477/1207.\nStep 3: Expected rate if everyone got Program A = 83.8432%.\nStep 4: Expected rate if everyone got Program B = 79.5988%.\nStep 5: Difference = 4.24 percentage points.\nFINAL: 4.24",
+  "wrong_prior": "Step 1: Category rates: Lincoln High: Program A 90.9091%, Program B 87.9032%; Roosevelt High: Program A 88.2129%, Program B 80.0000%; Jefferson High: Program A 74.7423%, Program B 71.9101%.\nStep 2: Overall, Program A = 81.0198% and Program B = 84.4311%.\nStep 3: Difference = -3.41 percentage points.\nFINAL: -3.41",
+  "error_type": "conceptual: used pooled rates, ignoring the confounder (Simpson trap)",
+  "error_location": "early; of 3 steps",
+  "hint": "Check whether the comparison actually adjusts for school",
+  "seed_ready": true,
+  "team_reviewed": false,
+  "calibration_selected": false
+ },
+ {
+  "case_id": "SIMPSON-021",
+  "question": "A study compared Courier A and Courier B. Results broken down by route type:\n- downtown: Courier A: 45 of 63 deliveries arrived on time; Courier B: 362 of 567 deliveries arrived on time.\n- suburban: Courier A: 42 of 63 deliveries arrived on time; Courier B: 211 of 372 deliveries arrived on time.\n- rural: Courier A: 282 of 504 deliveries arrived on time; Courier B: 23 of 43 deliveries arrived on time.\n- mountain: Courier A: 89 of 161 deliveries arrived on time; Courier B: 12 of 27 deliveries arrived on time.\nAssume that within each route type category, the deliveries given each option are otherwise comparable. If all 1800 deliveries in the table had been given Courier A, versus if all of them had been given Courier B, what would be the difference in the expected overall on-time rate (A minus B)? Give the answer in percentage points, rounded to two decimal places (negative if A's rate is lower).",
+  "reference_answer": "120615458/17383653",
+  "reference_decimal_places": 2,
+  "benchmark_solution": "Step 1: Category rates: downtown: Courier A 71.4286%, Courier B 63.8448%; suburban: Courier A 66.6667%, Courier B 56.7204%; rural: Courier A 55.9524%, Courier B 53.4884%; mountain: Courier A 55.2795%, Courier B 44.4444%.\nStep 2: Weights = each category's share of all 1800 deliveries: downtown 630/1800, suburban 435/1800, rural 547/1800, mountain 188/1800.\nStep 3: Expected rate if everyone got Courier A = 63.8881%.\nStep 4: Expected rate if everyone got Courier B = 56.9496%.\nStep 5: Difference = 6.94 percentage points.\nFINAL: 6.94",
+  "source": "Simpson generator",
+  "source_index": 21,
+  "original_split": "generated",
+  "generator": {
+   "script": "generate_simpson.py",
+   "seed": 20261028,
+   "context": "courier",
+   "strata": 4,
+   "question_type": "counterfactual",
+   "table": [
+    {
+     "nA": 63,
+     "sA": 45,
+     "nB": 567,
+     "sB": 362
+    },
+    {
+     "nA": 63,
+     "sA": 42,
+     "nB": 372,
+     "sB": 211
+    },
+    {
+     "nA": 504,
+     "sA": 282,
+     "nB": 43,
+     "sB": 23
+    },
+    {
+     "nA": 161,
+     "sA": 89,
+     "nB": 27,
+     "sB": 12
+    }
+   ]
+  },
+  "task_type": "simpsons_paradox",
+  "tier": "very hard",
+  "benchmark_level": null,
+  "answer_unit": "percentage_points",
+  "correct_prior": "Step 1: Category rates: downtown: Courier A 71.4286%, Courier B 63.8448%; suburban: Courier A 66.6667%, Courier B 56.7204%; rural: Courier A 55.9524%, Courier B 53.4884%; mountain: Courier A 55.2795%, Courier B 44.4444%.\nStep 2: Weights = each category's share of all 1800 deliveries: downtown 630/1800, suburban 435/1800, rural 547/1800, mountain 188/1800.\nStep 3: Expected rate if everyone got Courier A = 63.8881%.\nStep 4: Expected rate if everyone got Courier B = 56.9496%.\nStep 5: Difference = 6.94 percentage points.\nFINAL: 6.94",
+  "wrong_prior": "Step 1: Category rates: downtown: Courier A 71.4286%, Courier B 63.8448%; suburban: Courier A 66.6667%, Courier B 56.7204%; rural: Courier A 55.9524%, Courier B 53.4884%; mountain: Courier A 55.2795%, Courier B 44.4444%.\nStep 2: Weights = each category's share of Courier A's 791 deliveries: downtown 63/791, suburban 63/791, rural 504/791, mountain 161/791.\nStep 3: Expected rate if everyone got Courier A = 57.9014%.\nStep 4: Expected rate if everyone got Courier B = 52.7298%.\nStep 5: Difference = 5.17 percentage points.\nFINAL: 5.17",
+  "error_type": "wrong weights: used Courier A's own category mix instead of the combined population",
+  "error_location": "middle; of 5 steps",
+  "hint": "Check which population's route type mix is used for the weights",
+  "seed_ready": true,
+  "team_reviewed": false,
+  "calibration_selected": false
+ },
+ {
+  "case_id": "SIMPSON-024",
+  "question": "A study compared Method A and Method B. Results broken down by stone size:\n- small: Method A: 58 of 85 operations succeeded; Method B: 230 of 364 operations succeeded.\n- medium: Method A: 315 of 531 operations succeeded; Method B: 37 of 68 operations succeeded.\n- large: Method A: 97 of 202 operations succeeded; Method B: 32 of 79 operations succeeded.\nAssume that within each stone size category, the operations given each option are otherwise comparable. If all 1329 operations in the table had been given Method A, versus if all of them had been given Method B, what would be the difference in the expected overall success rate (A minus B)? Give the answer in percentage points, rounded to two decimal places (negative if A's rate is lower).",
+  "reference_answer": "104517848865/18977788193",
+  "reference_decimal_places": 2,
+  "benchmark_solution": "Step 1: Category rates: small: Method A 68.2353%, Method B 63.1868%; medium: Method A 59.3220%, Method B 54.4118%; large: Method A 48.0198%, Method B 40.5063%.\nStep 2: Weights = each category's share of all 1329 operations: small 449/1329, medium 599/1329, large 281/1329.\nStep 3: Expected rate if everyone got Method A = 59.9436%.\nStep 4: Expected rate if everyone got Method B = 54.4363%.\nStep 5: Difference = 5.51 percentage points.\nFINAL: 5.51",
+  "source": "Simpson generator",
+  "source_index": 24,
+  "original_split": "generated",
+  "generator": {
+   "script": "generate_simpson.py",
+   "seed": 20261028,
+   "context": "surgery",
+   "strata": 3,
+   "question_type": "counterfactual",
+   "table": [
+    {
+     "nA": 85,
+     "sA": 58,
+     "nB": 364,
+     "sB": 230
+    },
+    {
+     "nA": 531,
+     "sA": 315,
+     "nB": 68,
+     "sB": 37
+    },
+    {
+     "nA": 202,
+     "sA": 97,
+     "nB": 79,
+     "sB": 32
+    }
+   ]
+  },
+  "task_type": "simpsons_paradox",
+  "tier": "very hard",
+  "benchmark_level": null,
+  "answer_unit": "percentage_points",
+  "correct_prior": "Step 1: Category rates: small: Method A 68.2353%, Method B 63.1868%; medium: Method A 59.3220%, Method B 54.4118%; large: Method A 48.0198%, Method B 40.5063%.\nStep 2: Weights = each category's share of all 1329 operations: small 449/1329, medium 599/1329, large 281/1329.\nStep 3: Expected rate if everyone got Method A = 59.9436%.\nStep 4: Expected rate if everyone got Method B = 54.4363%.\nStep 5: Difference = 5.51 percentage points.\nFINAL: 5.51",
+  "wrong_prior": "Step 1: Category rates: small: Method A 68.2353%, Method B 63.1868%; medium: Method A 59.3220%, Method B 54.4118%; large: Method A 48.0198%, Method B 40.5063%.\nStep 2: Weights = each category's share of all 1329 operations: small 449/1329, medium 599/1329, large 281/1329.\nStep 3: Expected rate if everyone got Method A = 59.9436%.\nStep 4: Overall rate for Method B = 58.5127%.\nStep 5: Difference = 1.43 percentage points.\nFINAL: 1.43",
+  "error_type": "mixed estimands: standardized A rate minus B's observed pooled rate",
+  "error_location": "final; of 5 steps",
+  "hint": "Check that both rates in the final subtraction are standardized the same way",
+  "seed_ready": true,
+  "team_reviewed": false,
+  "calibration_selected": false
+ },
+ {
+  "case_id": "SIMPSON-027",
+  "question": "A study compared Rep A and Rep B. Results broken down by lead source:\n- referral: Rep A: 49 of 61 leads closed; Rep B: 370 of 521 leads closed.\n- web form: Rep A: 30 of 38 leads closed; Rep B: 139 of 203 leads closed.\n- trade show: Rep A: 221 of 338 leads closed; Rep B: 29 of 50 leads closed.\n- cold call: Rep A: 288 of 461 leads closed; Rep B: 25 of 46 leads closed.\nAssume that within each lead source category, the leads given each option are otherwise comparable. If all 1718 leads in the table had been given Rep A, versus if all of them had been given Rep B, what would be the difference in the expected overall close rate (A minus B)? Give the answer in percentage points, rounded to two decimal places (negative if A's rate is lower).",
+  "reference_answer": "126111177031383749/14513844798852217",
+  "reference_decimal_places": 2,
+  "benchmark_solution": "Step 1: Category rates: referral: Rep A 80.3279%, Rep B 71.0173%; web form: Rep A 78.9474%, Rep B 68.4729%; trade show: Rep A 65.3846%, Rep B 58.0000%; cold call: Rep A 62.4729%, Rep B 54.3478%.\nStep 2: Weights = each category's share of all 1718 leads: referral 582/1718, web form 241/1718, trade show 388/1718, cold call 507/1718.\nStep 3: Expected rate if everyone got Rep A = 71.4902%.\nStep 4: Expected rate if everyone got Rep B = 62.8011%.\nStep 5: Difference = 8.69 percentage points.\nFINAL: 8.69",
+  "source": "Simpson generator",
+  "source_index": 27,
+  "original_split": "generated",
+  "generator": {
+   "script": "generate_simpson.py",
+   "seed": 20261028,
+   "context": "sales",
+   "strata": 4,
+   "question_type": "counterfactual",
+   "table": [
+    {
+     "nA": 61,
+     "sA": 49,
+     "nB": 521,
+     "sB": 370
+    },
+    {
+     "nA": 38,
+     "sA": 30,
+     "nB": 203,
+     "sB": 139
+    },
+    {
+     "nA": 338,
+     "sA": 221,
+     "nB": 50,
+     "sB": 29
+    },
+    {
+     "nA": 461,
+     "sA": 288,
+     "nB": 46,
+     "sB": 25
+    }
+   ]
+  },
+  "task_type": "simpsons_paradox",
+  "tier": "very hard",
+  "benchmark_level": null,
+  "answer_unit": "percentage_points",
+  "correct_prior": "Step 1: Category rates: referral: Rep A 80.3279%, Rep B 71.0173%; web form: Rep A 78.9474%, Rep B 68.4729%; trade show: Rep A 65.3846%, Rep B 58.0000%; cold call: Rep A 62.4729%, Rep B 54.3478%.\nStep 2: Weights = each category's share of all 1718 leads: referral 582/1718, web form 241/1718, trade show 388/1718, cold call 507/1718.\nStep 3: Expected rate if everyone got Rep A = 71.4902%.\nStep 4: Expected rate if everyone got Rep B = 62.8011%.\nStep 5: Difference = 8.69 percentage points.\nFINAL: 8.69",
+  "wrong_prior": "Step 1: Category rates: referral: Rep A 80.3279%, Rep B 71.0173%; web form: Rep A 78.9474%, Rep B 68.4729%; trade show: Rep A 65.3846%, Rep B 58.0000%; cold call: Rep A 62.4729%, Rep B 54.3478%.\nStep 2: Overall, Rep A = 65.4788% and Rep B = 68.6585%.\nStep 3: Difference = -3.18 percentage points.\nFINAL: -3.18",
+  "error_type": "conceptual: used pooled rates, ignoring the confounder (Simpson trap)",
+  "error_location": "early; of 3 steps",
+  "hint": "Check whether the comparison actually adjusts for lead source",
+  "seed_ready": true,
+  "team_reviewed": false,
+  "calibration_selected": false
+ },
+ {
+  "case_id": "SIMPSON-032",
+  "question": "A study compared Program A and Program B. Results broken down by school:\n- Lincoln High: Program A: 32 of 34 students passed; Program B: 501 of 544 students passed.\n- Roosevelt High: Program A: 61 of 80 students passed; Program B: 309 of 455 students passed.\n- Jefferson High: Program A: 160 of 323 students passed; Program B: 9 of 21 students passed.\n- Madison High: Program A: 137 of 310 students passed; Program B: 35 of 87 students passed.\nAssume that within each school category, the students given each option are otherwise comparable. If all 1854 students in the table had been given Program A, versus if all of them had been given Program B, what would be the difference in the expected overall pass rate (A minus B)? Give the answer in percentage points, rounded to two decimal places (negative if A's rate is lower).",
+  "reference_answer": "1506264430105/293943991068",
+  "reference_decimal_places": 2,
+  "benchmark_solution": "Step 1: Category rates: Lincoln High: Program A 94.1176%, Program B 92.0956%; Roosevelt High: Program A 76.2500%, Program B 67.9121%; Jefferson High: Program A 49.5356%, Program B 42.8571%; Madison High: Program A 44.1935%, Program B 40.2299%.\nStep 2: Weights = each category's share of all 1854 students: Lincoln High 578/1854, Roosevelt High 535/1854, Jefferson High 344/1854, Madison High 397/1854.\nStep 3: Expected rate if everyone got Program A = 69.9994%.\nStep 4: Expected rate if everyone got Program B = 64.8750%.\nStep 5: Difference = 5.12 percentage points.\nFINAL: 5.12",
+  "source": "Simpson generator",
+  "source_index": 32,
+  "original_split": "generated",
+  "generator": {
+   "script": "generate_simpson.py",
+   "seed": 20261028,
+   "context": "tutoring",
+   "strata": 4,
+   "question_type": "counterfactual",
+   "table": [
+    {
+     "nA": 34,
+     "sA": 32,
+     "nB": 544,
+     "sB": 501
+    },
+    {
+     "nA": 80,
+     "sA": 61,
+     "nB": 455,
+     "sB": 309
+    },
+    {
+     "nA": 323,
+     "sA": 160,
+     "nB": 21,
+     "sB": 9
+    },
+    {
+     "nA": 310,
+     "sA": 137,
+     "nB": 87,
+     "sB": 35
+    }
+   ]
+  },
+  "task_type": "simpsons_paradox",
+  "tier": "very hard",
+  "benchmark_level": null,
+  "answer_unit": "percentage_points",
+  "correct_prior": "Step 1: Category rates: Lincoln High: Program A 94.1176%, Program B 92.0956%; Roosevelt High: Program A 76.2500%, Program B 67.9121%; Jefferson High: Program A 49.5356%, Program B 42.8571%; Madison High: Program A 44.1935%, Program B 40.2299%.\nStep 2: Weights = each category's share of all 1854 students: Lincoln High 578/1854, Roosevelt High 535/1854, Jefferson High 344/1854, Madison High 397/1854.\nStep 3: Expected rate if everyone got Program A = 69.9994%.\nStep 4: Expected rate if everyone got Program B = 64.8750%.\nStep 5: Difference = 5.12 percentage points.\nFINAL: 5.12",
+  "wrong_prior": "Step 1: Category rates: Lincoln High: Program A 94.1176%, Program B 92.0956%; Roosevelt High: Program A 76.2500%, Program B 67.9121%; Jefferson High: Program A 49.5356%, Program B 42.8571%; Madison High: Program A 44.1935%, Program B 40.2299%.\nStep 2: Weights = each category's share of all 1854 students: Lincoln High 578/1854, Roosevelt High 535/1854, Jefferson High 344/1854, Madison High 397/1854.\nStep 3: Expected rate if everyone got Program A = 69.9994%.\nStep 4: Overall rate for Program B = 77.1454%.\nStep 5: Difference = -7.15 percentage points.\nFINAL: -7.15",
+  "error_type": "mixed estimands: standardized A rate minus B's observed pooled rate",
+  "error_location": "final; of 5 steps",
+  "hint": "Check that both rates in the final subtraction are standardized the same way",
+  "seed_ready": true,
+  "team_reviewed": false,
+  "calibration_selected": false
+ },
+ {
+  "case_id": "SIMPSON-035",
+  "question": "A study compared Courier A and Courier B. Results broken down by route type:\n- downtown: Courier A: 61 of 89 deliveries arrived on time; Courier B: 282 of 451 deliveries arrived on time.\n- suburban: Courier A: 157 of 228 deliveries arrived on time; Courier B: 51 of 86 deliveries arrived on time.\n- rural: Courier A: 122 of 273 deliveries arrived on time; Courier B: 13 of 31 deliveries arrived on time.\nAssume that within each route type category, the deliveries given each option are otherwise comparable. If all 1158 deliveries in the table had been given Courier A, versus if all of them had been given Courier B, what would be the difference in the expected overall on-time rate (A minus B)? Give the answer in percentage points, rounded to two decimal places (negative if A's rate is lower).",
+  "reference_answer": "983049947491075/160690983804351",
+  "reference_decimal_places": 2,
+  "benchmark_solution": "Step 1: Category rates: downtown: Courier A 68.5393%, Courier B 62.5277%; suburban: Courier A 68.8596%, Courier B 59.3023%; rural: Courier A 44.6886%, Courier B 41.9355%.\nStep 2: Weights = each category's share of all 1158 deliveries: downtown 540/1158, suburban 314/1158, rural 304/1158.\nStep 3: Expected rate if everyone got Courier A = 62.3649%.\nStep 4: Expected rate if everyone got Courier B = 56.2472%.\nStep 5: Difference = 6.12 percentage points.\nFINAL: 6.12",
+  "source": "Simpson generator",
+  "source_index": 35,
+  "original_split": "generated",
+  "generator": {
+   "script": "generate_simpson.py",
+   "seed": 20261028,
+   "context": "courier",
+   "strata": 3,
+   "question_type": "counterfactual",
+   "table": [
+    {
+     "nA": 89,
+     "sA": 61,
+     "nB": 451,
+     "sB": 282
+    },
+    {
+     "nA": 228,
+     "sA": 157,
+     "nB": 86,
+     "sB": 51
+    },
+    {
+     "nA": 273,
+     "sA": 122,
+     "nB": 31,
+     "sB": 13
+    }
+   ]
+  },
+  "task_type": "simpsons_paradox",
+  "tier": "very hard",
+  "benchmark_level": null,
+  "answer_unit": "percentage_points",
+  "correct_prior": "Step 1: Category rates: downtown: Courier A 68.5393%, Courier B 62.5277%; suburban: Courier A 68.8596%, Courier B 59.3023%; rural: Courier A 44.6886%, Courier B 41.9355%.\nStep 2: Weights = each category's share of all 1158 deliveries: downtown 540/1158, suburban 314/1158, rural 304/1158.\nStep 3: Expected rate if everyone got Courier A = 62.3649%.\nStep 4: Expected rate if everyone got Courier B = 56.2472%.\nStep 5: Difference = 6.12 percentage points.\nFINAL: 6.12",
+  "wrong_prior": "Step 1: Category rates: downtown: Courier A 68.5393%, Courier B 62.5277%; suburban: Courier A 68.8596%, Courier B 59.3023%; rural: Courier A 44.6886%, Courier B 41.9355%.\nStep 2: Overall, Courier A = 57.6271% and Courier B = 60.9155%.\nStep 3: Difference = -3.29 percentage points.\nFINAL: -3.29",
+  "error_type": "conceptual: used pooled rates, ignoring the confounder (Simpson trap)",
+  "error_location": "early; of 3 steps",
+  "hint": "Check whether the comparison actually adjusts for route type",
+  "seed_ready": true,
+  "team_reviewed": false,
+  "calibration_selected": false
+ },
+ {
+  "case_id": "SIMPSON-038",
+  "question": "A study compared Method A and Method B. Results broken down by stone size:\n- small: Method A: 55 of 61 operations succeeded; Method B: 383 of 443 operations succeeded.\n- medium: Method A: 65 of 76 operations succeeded; Method B: 367 of 480 operations succeeded.\n- large: Method A: 180 of 376 operations succeeded; Method B: 30 of 71 operations succeeded.\n- very large: Method A: 233 of 513 operations succeeded; Method B: 30 of 75 operations succeeded.\nAssume that within each stone size category, the operations given each option are otherwise comparable. If all 2095 operations in the table had been given Method A, versus if all of them had been given Method B, what would be the difference in the expected overall success rate (A minus B)? Give the answer in percentage points, rounded to two decimal places (negative if A's rate is lower).",
+  "reference_answer": "77770430479201/12922004766798",
+  "reference_decimal_places": 2,
+  "benchmark_solution": "Step 1: Category rates: small: Method A 90.1639%, Method B 86.4560%; medium: Method A 85.5263%, Method B 76.4583%; large: Method A 47.8723%, Method B 42.2535%; very large: Method A 45.4191%, Method B 40.0000%.\nStep 2: Weights = each category's share of all 2095 operations: small 504/2095, medium 556/2095, large 447/2095, very large 588/2095.\nStep 3: Expected rate if everyone got Method A = 67.3511%.\nStep 4: Expected rate if everyone got Method B = 61.3327%.\nStep 5: Difference = 6.02 percentage points.\nFINAL: 6.02",
+  "source": "Simpson generator",
+  "source_index": 38,
+  "original_split": "generated",
+  "generator": {
+   "script": "generate_simpson.py",
+   "seed": 20261028,
+   "context": "surgery",
+   "strata": 4,
+   "question_type": "counterfactual",
+   "table": [
+    {
+     "nA": 61,
+     "sA": 55,
+     "nB": 443,
+     "sB": 383
+    },
+    {
+     "nA": 76,
+     "sA": 65,
+     "nB": 480,
+     "sB": 367
+    },
+    {
+     "nA": 376,
+     "sA": 180,
+     "nB": 71,
+     "sB": 30
+    },
+    {
+     "nA": 513,
+     "sA": 233,
+     "nB": 75,
+     "sB": 30
+    }
+   ]
+  },
+  "task_type": "simpsons_paradox",
+  "tier": "very hard",
+  "benchmark_level": null,
+  "answer_unit": "percentage_points",
+  "correct_prior": "Step 1: Category rates: small: Method A 90.1639%, Method B 86.4560%; medium: Method A 85.5263%, Method B 76.4583%; large: Method A 47.8723%, Method B 42.2535%; very large: Method A 45.4191%, Method B 40.0000%.\nStep 2: Weights = each category's share of all 2095 operations: small 504/2095, medium 556/2095, large 447/2095, very large 588/2095.\nStep 3: Expected rate if everyone got Method A = 67.3511%.\nStep 4: Expected rate if everyone got Method B = 61.3327%.\nStep 5: Difference = 6.02 percentage points.\nFINAL: 6.02",
+  "wrong_prior": "Step 1: Category rates: small: Method A 90.1639%, Method B 86.4560%; medium: Method A 85.5263%, Method B 76.4583%; large: Method A 47.8723%, Method B 42.2535%; very large: Method A 45.4191%, Method B 40.0000%.\nStep 2: Weights = each category's share of Method A's 1026 operations: small 61/1026, medium 76/1026, large 376/1026, very large 513/1026.\nStep 3: Expected rate if everyone got Method A = 51.9493%.\nStep 4: Expected rate if everyone got Method B = 46.2885%.\nStep 5: Difference = 5.66 percentage points.\nFINAL: 5.66",
+  "error_type": "wrong weights: used Method A's own category mix instead of the combined population",
+  "error_location": "middle; of 5 steps",
+  "hint": "Check which population's stone size mix is used for the weights",
+  "seed_ready": true,
+  "team_reviewed": false,
+  "calibration_selected": false
+ },
+ {
+  "case_id": "SIMPSON-039",
+  "question": "A study compared Rep A and Rep B. Results broken down by lead source:\n- referral: Rep A: 85 of 86 leads closed; Rep B: 424 of 466 leads closed.\n- web form: Rep A: 273 of 547 leads closed; Rep B: 22 of 54 leads closed.\n- trade show: Rep A: 68 of 152 leads closed; Rep B: 15 of 42 leads closed.\nAssume that within each lead source category, the leads given each option are otherwise comparable. If all 1347 leads in the table had been given Rep A, versus if all of them had been given Rep B, what would be the difference in the expected overall close rate (A minus B)? Give the answer in percentage points, rounded to two decimal places (negative if A's rate is lower).",
+  "reference_answer": "228161168976200/26509082931261",
+  "reference_decimal_places": 2,
+  "benchmark_solution": "Step 1: Category rates: referral: Rep A 98.8372%, Rep B 90.9871%; web form: Rep A 49.9086%, Rep B 40.7407%; trade show: Rep A 44.7368%, Rep B 35.7143%.\nStep 2: Weights = each category's share of all 1347 leads: referral 552/1347, web form 601/1347, trade show 194/1347.\nStep 3: Expected rate if everyone got Rep A = 69.2147%.\nStep 4: Expected rate if everyone got Rep B = 60.6078%.\nStep 5: Difference = 8.61 percentage points.\nFINAL: 8.61",
+  "source": "Simpson generator",
+  "source_index": 39,
+  "original_split": "generated",
+  "generator": {
+   "script": "generate_simpson.py",
+   "seed": 20261028,
+   "context": "sales",
+   "strata": 3,
+   "question_type": "counterfactual",
+   "table": [
+    {
+     "nA": 86,
+     "sA": 85,
+     "nB": 466,
+     "sB": 424
+    },
+    {
+     "nA": 547,
+     "sA": 273,
+     "nB": 54,
+     "sB": 22
+    },
+    {
+     "nA": 152,
+     "sA": 68,
+     "nB": 42,
+     "sB": 15
+    }
+   ]
+  },
+  "task_type": "simpsons_paradox",
+  "tier": "very hard",
+  "benchmark_level": null,
+  "answer_unit": "percentage_points",
+  "correct_prior": "Step 1: Category rates: referral: Rep A 98.8372%, Rep B 90.9871%; web form: Rep A 49.9086%, Rep B 40.7407%; trade show: Rep A 44.7368%, Rep B 35.7143%.\nStep 2: Weights = each category's share of all 1347 leads: referral 552/1347, web form 601/1347, trade show 194/1347.\nStep 3: Expected rate if everyone got Rep A = 69.2147%.\nStep 4: Expected rate if everyone got Rep B = 60.6078%.\nStep 5: Difference = 8.61 percentage points.\nFINAL: 8.61",
+  "wrong_prior": "Step 1: Category rates: referral: Rep A 98.8372%, Rep B 90.9871%; web form: Rep A 49.9086%, Rep B 40.7407%; trade show: Rep A 44.7368%, Rep B 35.7143%.\nStep 2: Weights = each category's share of all 1347 leads: referral 552/1347, web form 601/1347, trade show 194/1347.\nStep 3: Expected rate if everyone got Rep A = 69.2147%.\nStep 4: Overall rate for Rep B = 82.0285%.\nStep 5: Difference = -12.81 percentage points.\nFINAL: -12.81",
+  "error_type": "mixed estimands: standardized A rate minus B's observed pooled rate",
+  "error_location": "final; of 5 steps",
+  "hint": "Check that both rates in the final subtraction are standardized the same way",
+  "seed_ready": true,
+  "team_reviewed": false,
+  "calibration_selected": false
+ }
+]

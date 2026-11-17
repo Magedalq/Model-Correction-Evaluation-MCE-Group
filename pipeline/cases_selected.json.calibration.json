@@ -1,0 +1,1371 @@
+{
+  "summary": {
+    "band": [
+      0.2,
+      0.8
+    ],
+    "per_model_eligible": {
+      "gptoss_low": 32,
+      "grok_nr": 28
+    },
+    "capped_from": {},
+    "responses_rescored_differently_from_log": 23,
+    "excluded_cases": [
+      "GSM8K-test-0012"
+    ],
+    "eligible_for_all_models": 15,
+    "mean_accuracy_by_source": {
+      "gptoss_low": {
+        "GSM8K": 1.0,
+        "MATH": 1.0,
+        "Simpson generator": 0.705,
+        "AIME 2025": 0.471
+      },
+      "grok_nr": {
+        "GSM8K": 1.0,
+        "MATH": 0.94,
+        "Simpson generator": 0.61,
+        "AIME 2025": 0.779
+      }
+    }
+  },
+  "cases": [
+    {
+      "case_id": "GSM8K-test-0002",
+      "source": "GSM8K",
+      "tier": "moderate",
+      "task_type": "arithmetic_word",
+      "rates": {
+        "gptoss_low": 1.0,
+        "grok_nr": 1.0
+      },
+      "eligible_models": []
+    },
+    {
+      "case_id": "MATH-mirror-00040",
+      "source": "MATH",
+      "tier": "hard",
+      "task_type": "Algebra",
+      "rates": {
+        "gptoss_low": 1.0,
+        "grok_nr": 1.0
+      },
+      "eligible_models": []
+    },
+    {
+      "case_id": "MATH-mirror-01748",
+      "source": "MATH",
+      "tier": "hard",
+      "task_type": "Counting & Probability",
+      "rates": {
+        "gptoss_low": 1.0,
+        "grok_nr": 1.0
+      },
+      "eligible_models": []
+    },
+    {
+      "case_id": "GSM8K-test-0005",
+      "source": "GSM8K",
+      "tier": "moderate",
+      "task_type": "arithmetic_word",
+      "rates": {
+        "gptoss_low": 1.0,
+        "grok_nr": 1.0
+      },
+      "eligible_models": []
+    },
+    {
+      "case_id": "GSM8K-test-0007",
+      "source": "GSM8K",
+      "tier": "moderate",
+      "task_type": "arithmetic_word",
+      "rates": {
+        "gptoss_low": 1.0,
+        "grok_nr": 1.0
+      },
+      "eligible_models": []
+    },
+    {
+      "case_id": "GSM8K-test-0008",
+      "source": "GSM8K",
+      "tier": "moderate",
+      "task_type": "arithmetic_word",
+      "rates": {
+        "gptoss_low": 1.0,
+        "grok_nr": 1.0
+      },
+      "eligible_models": []
+    },
+    {
+      "case_id": "GSM8K-test-0009",
+      "source": "GSM8K",
+      "tier": "moderate",
+      "task_type": "arithmetic_word",
+      "rates": {
+        "gptoss_low": 1.0,
+        "grok_nr": 1.0
+      },
+      "eligible_models": []
+    },
+    {
+      "case_id": "GSM8K-test-0010",
+      "source": "GSM8K",
+      "tier": "moderate",
+      "task_type": "arithmetic_word",
+      "rates": {
+        "gptoss_low": 1.0,
+        "grok_nr": 1.0
+      },
+      "eligible_models": []
+    },
+    {
+      "case_id": "GSM8K-test-0011",
+      "source": "GSM8K",
+      "tier": "moderate",
+      "task_type": "arithmetic_word",
+      "rates": {
+        "gptoss_low": 1.0,
+        "grok_nr": 1.0
+      },
+      "eligible_models": []
+    },
+    {
+      "case_id": "GSM8K-test-0014",
+      "source": "GSM8K",
+      "tier": "moderate",
+      "task_type": "arithmetic_word",
+      "rates": {
+        "gptoss_low": 1.0,
+        "grok_nr": 1.0
+      },
+      "eligible_models": []
+    },
+    {
+      "case_id": "GSM8K-test-0016",
+      "source": "GSM8K",
+      "tier": "moderate",
+      "task_type": "arithmetic_word",
+      "rates": {
+        "gptoss_low": 1.0,
+        "grok_nr": 1.0
+      },
+      "eligible_models": []
+    },
+    {
+      "case_id": "GSM8K-test-0017",
+      "source": "GSM8K",
+      "tier": "tricky",
+      "task_type": "arithmetic_word",
+      "rates": {
+        "gptoss_low": 1.0,
+        "grok_nr": 1.0
+      },
+      "eligible_models": []
+    },
+    {
+      "case_id": "GSM8K-test-0019",
+      "source": "GSM8K",
+      "tier": "tricky",
+      "task_type": "arithmetic_word",
+      "rates": {
+        "gptoss_low": 1.0,
+        "grok_nr": 1.0
+      },
+      "eligible_models": []
+    },
+    {
+      "case_id": "GSM8K-test-0020",
+      "source": "GSM8K",
+      "tier": "tricky",
+      "task_type": "arithmetic_word",
+      "rates": {
+        "gptoss_low": 1.0,
+        "grok_nr": 1.0
+      },
+      "eligible_models": []
+    },
+    {
+      "case_id": "GSM8K-test-0025",
+      "source": "GSM8K",
+      "tier": "tricky",
+      "task_type": "arithmetic_word",
+      "rates": {
+        "gptoss_low": 1.0,
+        "grok_nr": 1.0
+      },
+      "eligible_models": []
+    },
+    {
+      "case_id": "GSM8K-test-0031",
+      "source": "GSM8K",
+      "tier": "tricky",
+      "task_type": "arithmetic_word",
+      "rates": {
+        "gptoss_low": 1.0,
+        "grok_nr": 1.0
+      },
+      "eligible_models": []
+    },
+    {
+      "case_id": "MATH-mirror-00002",
+      "source": "MATH",
+      "tier": "moderate",
+      "task_type": "Algebra",
+      "rates": {
+        "gptoss_low": 1.0,
+        "grok_nr": 1.0
+      },
+      "eligible_models": []
+    },
+    {
+      "case_id": "MATH-mirror-01768",
+      "source": "MATH",
+      "tier": "moderate",
+      "task_type": "Counting & Probability",
+      "rates": {
+        "gptoss_low": 1.0,
+        "grok_nr": 1.0
+      },
+      "eligible_models": []
+    },
+    {
+      "case_id": "MATH-mirror-04685",
+      "source": "MATH",
+      "tier": "moderate",
+      "task_type": "Number Theory",
+      "rates": {
+        "gptoss_low": 1.0,
+        "grok_nr": 0.0
+      },
+      "eligible_models": []
+    },
+    {
+      "case_id": "MATH-mirror-00004",
+      "source": "MATH",
+      "tier": "moderate",
+      "task_type": "Algebra",
+      "rates": {
+        "gptoss_low": 1.0,
+        "grok_nr": 1.0
+      },
+      "eligible_models": []
+    },
+    {
+      "case_id": "MATH-mirror-01749",
+      "source": "MATH",
+      "tier": "moderate",
+      "task_type": "Counting & Probability",
+      "rates": {
+        "gptoss_low": 1.0,
+        "grok_nr": 1.0
+      },
+      "eligible_models": []
+    },
+    {
+      "case_id": "MATH-mirror-04686",
+      "source": "MATH",
+      "tier": "moderate",
+      "task_type": "Number Theory",
+      "rates": {
+        "gptoss_low": 1.0,
+        "grok_nr": 0.8
+      },
+      "eligible_models": [
+        "grok_nr"
+      ]
+    },
+    {
+      "case_id": "MATH-mirror-00033",
+      "source": "MATH",
+      "tier": "moderate",
+      "task_type": "Algebra",
+      "rates": {
+        "gptoss_low": 1.0,
+        "grok_nr": 1.0
+      },
+      "eligible_models": []
+    },
+    {
+      "case_id": "MATH-mirror-01778",
+      "source": "MATH",
+      "tier": "moderate",
+      "task_type": "Counting & Probability",
+      "rates": {
+        "gptoss_low": 1.0,
+        "grok_nr": 1.0
+      },
+      "eligible_models": []
+    },
+    {
+      "case_id": "MATH-mirror-04690",
+      "source": "MATH",
+      "tier": "moderate",
+      "task_type": "Number Theory",
+      "rates": {
+        "gptoss_low": 1.0,
+        "grok_nr": 1.0
+      },
+      "eligible_models": []
+    },
+    {
+      "case_id": "MATH-mirror-00010",
+      "source": "MATH",
+      "tier": "moderate",
+      "task_type": "Algebra",
+      "rates": {
+        "gptoss_low": 1.0,
+        "grok_nr": 1.0
+      },
+      "eligible_models": []
+    },
+    {
+      "case_id": "MATH-mirror-00025",
+      "source": "MATH",
+      "tier": "hard",
+      "task_type": "Algebra",
+      "rates": {
+        "gptoss_low": 1.0,
+        "grok_nr": 1.0
+      },
+      "eligible_models": []
+    },
+    {
+      "case_id": "MATH-mirror-01752",
+      "source": "MATH",
+      "tier": "hard",
+      "task_type": "Counting & Probability",
+      "rates": {
+        "gptoss_low": 1.0,
+        "grok_nr": 1.0
+      },
+      "eligible_models": []
+    },
+    {
+      "case_id": "MATH-mirror-04680",
+      "source": "MATH",
+      "tier": "hard",
+      "task_type": "Number Theory",
+      "rates": {
+        "gptoss_low": 1.0,
+        "grok_nr": 0.8
+      },
+      "eligible_models": [
+        "grok_nr"
+      ]
+    },
+    {
+      "case_id": "MATH-mirror-00035",
+      "source": "MATH",
+      "tier": "hard",
+      "task_type": "Algebra",
+      "rates": {
+        "gptoss_low": 1.0,
+        "grok_nr": 1.0
+      },
+      "eligible_models": []
+    },
+    {
+      "case_id": "MATH-mirror-01754",
+      "source": "MATH",
+      "tier": "hard",
+      "task_type": "Counting & Probability",
+      "rates": {
+        "gptoss_low": 1.0,
+        "grok_nr": 1.0
+      },
+      "eligible_models": []
+    },
+    {
+      "case_id": "MATH-mirror-04702",
+      "source": "MATH",
+      "tier": "hard",
+      "task_type": "Number Theory",
+      "rates": {
+        "gptoss_low": 1.0,
+        "grok_nr": 1.0
+      },
+      "eligible_models": []
+    },
+    {
+      "case_id": "MATH-mirror-00046",
+      "source": "MATH",
+      "tier": "hard",
+      "task_type": "Algebra",
+      "rates": {
+        "gptoss_low": 1.0,
+        "grok_nr": 1.0
+      },
+      "eligible_models": []
+    },
+    {
+      "case_id": "MATH-mirror-01788",
+      "source": "MATH",
+      "tier": "hard",
+      "task_type": "Counting & Probability",
+      "rates": {
+        "gptoss_low": 1.0,
+        "grok_nr": 1.0
+      },
+      "eligible_models": []
+    },
+    {
+      "case_id": "MATH-mirror-04705",
+      "source": "MATH",
+      "tier": "hard",
+      "task_type": "Number Theory",
+      "rates": {
+        "gptoss_low": 1.0,
+        "grok_nr": 1.0
+      },
+      "eligible_models": []
+    },
+    {
+      "case_id": "MATH-mirror-00048",
+      "source": "MATH",
+      "tier": "hard",
+      "task_type": "Algebra",
+      "rates": {
+        "gptoss_low": 1.0,
+        "grok_nr": 1.0
+      },
+      "eligible_models": []
+    },
+    {
+      "case_id": "MATH-mirror-01790",
+      "source": "MATH",
+      "tier": "hard",
+      "task_type": "Counting & Probability",
+      "rates": {
+        "gptoss_low": 1.0,
+        "grok_nr": 1.0
+      },
+      "eligible_models": []
+    },
+    {
+      "case_id": "MATH-mirror-04712",
+      "source": "MATH",
+      "tier": "hard",
+      "task_type": "Number Theory",
+      "rates": {
+        "gptoss_low": 1.0,
+        "grok_nr": 1.0
+      },
+      "eligible_models": []
+    },
+    {
+      "case_id": "MATH-mirror-00057",
+      "source": "MATH",
+      "tier": "hard",
+      "task_type": "Algebra",
+      "rates": {
+        "gptoss_low": 1.0,
+        "grok_nr": 1.0
+      },
+      "eligible_models": []
+    },
+    {
+      "case_id": "MATH-mirror-00000",
+      "source": "MATH",
+      "tier": "very hard",
+      "task_type": "Algebra",
+      "rates": {
+        "gptoss_low": 1.0,
+        "grok_nr": 1.0
+      },
+      "eligible_models": []
+    },
+    {
+      "case_id": "MATH-mirror-01745",
+      "source": "MATH",
+      "tier": "very hard",
+      "task_type": "Counting & Probability",
+      "rates": {
+        "gptoss_low": 1.0,
+        "grok_nr": 1.0
+      },
+      "eligible_models": []
+    },
+    {
+      "case_id": "MATH-mirror-04681",
+      "source": "MATH",
+      "tier": "very hard",
+      "task_type": "Number Theory",
+      "rates": {
+        "gptoss_low": 1.0,
+        "grok_nr": 0.6
+      },
+      "eligible_models": [
+        "grok_nr"
+      ]
+    },
+    {
+      "case_id": "MATH-mirror-00001",
+      "source": "MATH",
+      "tier": "very hard",
+      "task_type": "Algebra",
+      "rates": {
+        "gptoss_low": 1.0,
+        "grok_nr": 1.0
+      },
+      "eligible_models": []
+    },
+    {
+      "case_id": "MATH-mirror-01759",
+      "source": "MATH",
+      "tier": "very hard",
+      "task_type": "Counting & Probability",
+      "rates": {
+        "gptoss_low": 1.0,
+        "grok_nr": 1.0
+      },
+      "eligible_models": []
+    },
+    {
+      "case_id": "SIMPSON-001",
+      "source": "Simpson generator",
+      "tier": "very hard",
+      "task_type": "simpsons_paradox",
+      "rates": {
+        "gptoss_low": 0.0,
+        "grok_nr": 1.0
+      },
+      "eligible_models": []
+    },
+    {
+      "case_id": "SIMPSON-002",
+      "source": "Simpson generator",
+      "tier": "moderate",
+      "task_type": "simpsons_paradox",
+      "rates": {
+        "gptoss_low": 1.0,
+        "grok_nr": 1.0
+      },
+      "eligible_models": []
+    },
+    {
+      "case_id": "SIMPSON-003",
+      "source": "Simpson generator",
+      "tier": "hard",
+      "task_type": "simpsons_paradox",
+      "rates": {
+        "gptoss_low": 1.0,
+        "grok_nr": 0.0
+      },
+      "eligible_models": []
+    },
+    {
+      "case_id": "SIMPSON-004",
+      "source": "Simpson generator",
+      "tier": "very hard",
+      "task_type": "simpsons_paradox",
+      "rates": {
+        "gptoss_low": 0.0,
+        "grok_nr": 0.0
+      },
+      "eligible_models": []
+    },
+    {
+      "case_id": "SIMPSON-005",
+      "source": "Simpson generator",
+      "tier": "moderate",
+      "task_type": "simpsons_paradox",
+      "rates": {
+        "gptoss_low": 1.0,
+        "grok_nr": 1.0
+      },
+      "eligible_models": []
+    },
+    {
+      "case_id": "SIMPSON-006",
+      "source": "Simpson generator",
+      "tier": "hard",
+      "task_type": "simpsons_paradox",
+      "rates": {
+        "gptoss_low": 1.0,
+        "grok_nr": 0.4
+      },
+      "eligible_models": [
+        "grok_nr"
+      ]
+    },
+    {
+      "case_id": "SIMPSON-007",
+      "source": "Simpson generator",
+      "tier": "very hard",
+      "task_type": "simpsons_paradox",
+      "rates": {
+        "gptoss_low": 0.4,
+        "grok_nr": 0.8
+      },
+      "eligible_models": [
+        "gptoss_low",
+        "grok_nr"
+      ]
+    },
+    {
+      "case_id": "SIMPSON-008",
+      "source": "Simpson generator",
+      "tier": "moderate",
+      "task_type": "simpsons_paradox",
+      "rates": {
+        "gptoss_low": 0.8,
+        "grok_nr": 1.0
+      },
+      "eligible_models": [
+        "gptoss_low"
+      ]
+    },
+    {
+      "case_id": "SIMPSON-009",
+      "source": "Simpson generator",
+      "tier": "hard",
+      "task_type": "simpsons_paradox",
+      "rates": {
+        "gptoss_low": 1.0,
+        "grok_nr": 0.0
+      },
+      "eligible_models": []
+    },
+    {
+      "case_id": "SIMPSON-010",
+      "source": "Simpson generator",
+      "tier": "very hard",
+      "task_type": "simpsons_paradox",
+      "rates": {
+        "gptoss_low": 0.0,
+        "grok_nr": 0.0
+      },
+      "eligible_models": []
+    },
+    {
+      "case_id": "SIMPSON-011",
+      "source": "Simpson generator",
+      "tier": "moderate",
+      "task_type": "simpsons_paradox",
+      "rates": {
+        "gptoss_low": 1.0,
+        "grok_nr": 1.0
+      },
+      "eligible_models": []
+    },
+    {
+      "case_id": "SIMPSON-012",
+      "source": "Simpson generator",
+      "tier": "very hard",
+      "task_type": "simpsons_paradox",
+      "rates": {
+        "gptoss_low": 0.4,
+        "grok_nr": 0.6
+      },
+      "eligible_models": [
+        "gptoss_low",
+        "grok_nr"
+      ]
+    },
+    {
+      "case_id": "SIMPSON-013",
+      "source": "Simpson generator",
+      "tier": "moderate",
+      "task_type": "simpsons_paradox",
+      "rates": {
+        "gptoss_low": 0.6,
+        "grok_nr": 1.0
+      },
+      "eligible_models": [
+        "gptoss_low"
+      ]
+    },
+    {
+      "case_id": "SIMPSON-014",
+      "source": "Simpson generator",
+      "tier": "hard",
+      "task_type": "simpsons_paradox",
+      "rates": {
+        "gptoss_low": 1.0,
+        "grok_nr": 0.4
+      },
+      "eligible_models": [
+        "grok_nr"
+      ]
+    },
+    {
+      "case_id": "SIMPSON-015",
+      "source": "Simpson generator",
+      "tier": "very hard",
+      "task_type": "simpsons_paradox",
+      "rates": {
+        "gptoss_low": 0.2,
+        "grok_nr": 1.0
+      },
+      "eligible_models": [
+        "gptoss_low"
+      ]
+    },
+    {
+      "case_id": "SIMPSON-016",
+      "source": "Simpson generator",
+      "tier": "moderate",
+      "task_type": "simpsons_paradox",
+      "rates": {
+        "gptoss_low": 1.0,
+        "grok_nr": 1.0
+      },
+      "eligible_models": []
+    },
+    {
+      "case_id": "SIMPSON-017",
+      "source": "Simpson generator",
+      "tier": "hard",
+      "task_type": "simpsons_paradox",
+      "rates": {
+        "gptoss_low": 1.0,
+        "grok_nr": 0.2
+      },
+      "eligible_models": [
+        "grok_nr"
+      ]
+    },
+    {
+      "case_id": "SIMPSON-018",
+      "source": "Simpson generator",
+      "tier": "very hard",
+      "task_type": "simpsons_paradox",
+      "rates": {
+        "gptoss_low": 0.2,
+        "grok_nr": 0.4
+      },
+      "eligible_models": [
+        "gptoss_low",
+        "grok_nr"
+      ]
+    },
+    {
+      "case_id": "SIMPSON-019",
+      "source": "Simpson generator",
+      "tier": "moderate",
+      "task_type": "simpsons_paradox",
+      "rates": {
+        "gptoss_low": 1.0,
+        "grok_nr": 1.0
+      },
+      "eligible_models": []
+    },
+    {
+      "case_id": "SIMPSON-020",
+      "source": "Simpson generator",
+      "tier": "hard",
+      "task_type": "simpsons_paradox",
+      "rates": {
+        "gptoss_low": 1.0,
+        "grok_nr": 1.0
+      },
+      "eligible_models": []
+    },
+    {
+      "case_id": "SIMPSON-021",
+      "source": "Simpson generator",
+      "tier": "very hard",
+      "task_type": "simpsons_paradox",
+      "rates": {
+        "gptoss_low": 0.4,
+        "grok_nr": 0.4
+      },
+      "eligible_models": [
+        "gptoss_low",
+        "grok_nr"
+      ]
+    },
+    {
+      "case_id": "SIMPSON-022",
+      "source": "Simpson generator",
+      "tier": "moderate",
+      "task_type": "simpsons_paradox",
+      "rates": {
+        "gptoss_low": 0.8,
+        "grok_nr": 1.0
+      },
+      "eligible_models": [
+        "gptoss_low"
+      ]
+    },
+    {
+      "case_id": "SIMPSON-023",
+      "source": "Simpson generator",
+      "tier": "hard",
+      "task_type": "simpsons_paradox",
+      "rates": {
+        "gptoss_low": 1.0,
+        "grok_nr": 0.6
+      },
+      "eligible_models": [
+        "grok_nr"
+      ]
+    },
+    {
+      "case_id": "SIMPSON-024",
+      "source": "Simpson generator",
+      "tier": "very hard",
+      "task_type": "simpsons_paradox",
+      "rates": {
+        "gptoss_low": 0.6,
+        "grok_nr": 0.2
+      },
+      "eligible_models": [
+        "gptoss_low",
+        "grok_nr"
+      ]
+    },
+    {
+      "case_id": "SIMPSON-025",
+      "source": "Simpson generator",
+      "tier": "moderate",
+      "task_type": "simpsons_paradox",
+      "rates": {
+        "gptoss_low": 1.0,
+        "grok_nr": 1.0
+      },
+      "eligible_models": []
+    },
+    {
+      "case_id": "SIMPSON-026",
+      "source": "Simpson generator",
+      "tier": "hard",
+      "task_type": "simpsons_paradox",
+      "rates": {
+        "gptoss_low": 1.0,
+        "grok_nr": 0.2
+      },
+      "eligible_models": [
+        "grok_nr"
+      ]
+    },
+    {
+      "case_id": "SIMPSON-027",
+      "source": "Simpson generator",
+      "tier": "very hard",
+      "task_type": "simpsons_paradox",
+      "rates": {
+        "gptoss_low": 0.2,
+        "grok_nr": 0.2
+      },
+      "eligible_models": [
+        "gptoss_low",
+        "grok_nr"
+      ]
+    },
+    {
+      "case_id": "SIMPSON-028",
+      "source": "Simpson generator",
+      "tier": "moderate",
+      "task_type": "simpsons_paradox",
+      "rates": {
+        "gptoss_low": 0.8,
+        "grok_nr": 1.0
+      },
+      "eligible_models": [
+        "gptoss_low"
+      ]
+    },
+    {
+      "case_id": "SIMPSON-029",
+      "source": "Simpson generator",
+      "tier": "hard",
+      "task_type": "simpsons_paradox",
+      "rates": {
+        "gptoss_low": 1.0,
+        "grok_nr": 0.6
+      },
+      "eligible_models": [
+        "grok_nr"
+      ]
+    },
+    {
+      "case_id": "SIMPSON-030",
+      "source": "Simpson generator",
+      "tier": "moderate",
+      "task_type": "simpsons_paradox",
+      "rates": {
+        "gptoss_low": 0.8,
+        "grok_nr": 1.0
+      },
+      "eligible_models": [
+        "gptoss_low"
+      ]
+    },
+    {
+      "case_id": "SIMPSON-031",
+      "source": "Simpson generator",
+      "tier": "hard",
+      "task_type": "simpsons_paradox",
+      "rates": {
+        "gptoss_low": 0.8,
+        "grok_nr": 0.2
+      },
+      "eligible_models": [
+        "gptoss_low",
+        "grok_nr"
+      ]
+    },
+    {
+      "case_id": "SIMPSON-032",
+      "source": "Simpson generator",
+      "tier": "very hard",
+      "task_type": "simpsons_paradox",
+      "rates": {
+        "gptoss_low": 0.4,
+        "grok_nr": 0.6
+      },
+      "eligible_models": [
+        "gptoss_low",
+        "grok_nr"
+      ]
+    },
+    {
+      "case_id": "SIMPSON-033",
+      "source": "Simpson generator",
+      "tier": "moderate",
+      "task_type": "simpsons_paradox",
+      "rates": {
+        "gptoss_low": 1.0,
+        "grok_nr": 1.0
+      },
+      "eligible_models": []
+    },
+    {
+      "case_id": "SIMPSON-034",
+      "source": "Simpson generator",
+      "tier": "hard",
+      "task_type": "simpsons_paradox",
+      "rates": {
+        "gptoss_low": 1.0,
+        "grok_nr": 0.0
+      },
+      "eligible_models": []
+    },
+    {
+      "case_id": "SIMPSON-035",
+      "source": "Simpson generator",
+      "tier": "very hard",
+      "task_type": "simpsons_paradox",
+      "rates": {
+        "gptoss_low": 0.2,
+        "grok_nr": 0.6
+      },
+      "eligible_models": [
+        "gptoss_low",
+        "grok_nr"
+      ]
+    },
+    {
+      "case_id": "SIMPSON-036",
+      "source": "Simpson generator",
+      "tier": "moderate",
+      "task_type": "simpsons_paradox",
+      "rates": {
+        "gptoss_low": 1.0,
+        "grok_nr": 1.0
+      },
+      "eligible_models": []
+    },
+    {
+      "case_id": "SIMPSON-037",
+      "source": "Simpson generator",
+      "tier": "hard",
+      "task_type": "simpsons_paradox",
+      "rates": {
+        "gptoss_low": 1.0,
+        "grok_nr": 0.0
+      },
+      "eligible_models": []
+    },
+    {
+      "case_id": "SIMPSON-038",
+      "source": "Simpson generator",
+      "tier": "very hard",
+      "task_type": "simpsons_paradox",
+      "rates": {
+        "gptoss_low": 0.6,
+        "grok_nr": 0.4
+      },
+      "eligible_models": [
+        "gptoss_low",
+        "grok_nr"
+      ]
+    },
+    {
+      "case_id": "SIMPSON-039",
+      "source": "Simpson generator",
+      "tier": "very hard",
+      "task_type": "simpsons_paradox",
+      "rates": {
+        "gptoss_low": 0.4,
+        "grok_nr": 0.6
+      },
+      "eligible_models": [
+        "gptoss_low",
+        "grok_nr"
+      ]
+    },
+    {
+      "case_id": "SIMPSON-040",
+      "source": "Simpson generator",
+      "tier": "moderate",
+      "task_type": "simpsons_paradox",
+      "rates": {
+        "gptoss_low": 0.6,
+        "grok_nr": 1.0
+      },
+      "eligible_models": [
+        "gptoss_low"
+      ]
+    },
+    {
+      "case_id": "AIME2025-I-01",
+      "source": "AIME 2025",
+      "tier": "very hard",
+      "task_type": "AIME",
+      "rates": {
+        "gptoss_low": 1.0,
+        "grok_nr": 1.0
+      },
+      "eligible_models": []
+    },
+    {
+      "case_id": "AIME2025-I-02",
+      "source": "AIME 2025",
+      "tier": "very hard",
+      "task_type": "AIME",
+      "rates": {
+        "gptoss_low": 0.8,
+        "grok_nr": 1.0
+      },
+      "eligible_models": [
+        "gptoss_low"
+      ]
+    },
+    {
+      "case_id": "AIME2025-I-03",
+      "source": "AIME 2025",
+      "tier": "very hard",
+      "task_type": "AIME",
+      "rates": {
+        "gptoss_low": 1.0,
+        "grok_nr": 1.0
+      },
+      "eligible_models": []
+    },
+    {
+      "case_id": "AIME2025-I-04",
+      "source": "AIME 2025",
+      "tier": "very hard",
+      "task_type": "AIME",
+      "rates": {
+        "gptoss_low": 1.0,
+        "grok_nr": 1.0
+      },
+      "eligible_models": []
+    },
+    {
+      "case_id": "AIME2025-I-05",
+      "source": "AIME 2025",
+      "tier": "very hard",
+      "task_type": "AIME",
+      "rates": {
+        "gptoss_low": 0.4,
+        "grok_nr": 0.4
+      },
+      "eligible_models": [
+        "gptoss_low",
+        "grok_nr"
+      ]
+    },
+    {
+      "case_id": "AIME2025-I-06",
+      "source": "AIME 2025",
+      "tier": "very hard",
+      "task_type": "AIME",
+      "rates": {
+        "gptoss_low": 1.0,
+        "grok_nr": 1.0
+      },
+      "eligible_models": []
+    },
+    {
+      "case_id": "AIME2025-I-07",
+      "source": "AIME 2025",
+      "tier": "very hard",
+      "task_type": "AIME",
+      "rates": {
+        "gptoss_low": 0.0,
+        "grok_nr": 0.6
+      },
+      "eligible_models": [
+        "grok_nr"
+      ]
+    },
+    {
+      "case_id": "AIME2025-I-08",
+      "source": "AIME 2025",
+      "tier": "very hard",
+      "task_type": "AIME",
+      "rates": {
+        "gptoss_low": 1.0,
+        "grok_nr": 0.8
+      },
+      "eligible_models": [
+        "grok_nr"
+      ]
+    },
+    {
+      "case_id": "AIME2025-I-09",
+      "source": "AIME 2025",
+      "tier": "very hard",
+      "task_type": "AIME",
+      "rates": {
+        "gptoss_low": 0.2,
+        "grok_nr": 0.6
+      },
+      "eligible_models": [
+        "gptoss_low",
+        "grok_nr"
+      ]
+    },
+    {
+      "case_id": "AIME2025-I-10",
+      "source": "AIME 2025",
+      "tier": "very hard",
+      "task_type": "AIME",
+      "rates": {
+        "gptoss_low": 0.0,
+        "grok_nr": 1.0
+      },
+      "eligible_models": []
+    },
+    {
+      "case_id": "AIME2025-I-11",
+      "source": "AIME 2025",
+      "tier": "very hard",
+      "task_type": "AIME",
+      "rates": {
+        "gptoss_low": 0.4,
+        "grok_nr": 1.0
+      },
+      "eligible_models": [
+        "gptoss_low"
+      ]
+    },
+    {
+      "case_id": "AIME2025-I-12",
+      "source": "AIME 2025",
+      "tier": "very hard",
+      "task_type": "AIME",
+      "rates": {
+        "gptoss_low": 0.0,
+        "grok_nr": 0.8
+      },
+      "eligible_models": [
+        "grok_nr"
+      ]
+    },
+    {
+      "case_id": "AIME2025-I-13",
+      "source": "AIME 2025",
+      "tier": "very hard",
+      "task_type": "AIME",
+      "rates": {
+        "gptoss_low": 0.0,
+        "grok_nr": 1.0
+      },
+      "eligible_models": []
+    },
+    {
+      "case_id": "AIME2025-I-14",
+      "source": "AIME 2025",
+      "tier": "very hard",
+      "task_type": "AIME",
+      "rates": {
+        "gptoss_low": 0.6,
+        "grok_nr": 0.0
+      },
+      "eligible_models": [
+        "gptoss_low"
+      ]
+    },
+    {
+      "case_id": "AIME2025-I-15",
+      "source": "AIME 2025",
+      "tier": "very hard",
+      "task_type": "AIME",
+      "rates": {
+        "gptoss_low": 0.0,
+        "grok_nr": 0.0
+      },
+      "eligible_models": []
+    },
+    {
+      "case_id": "AIME2025-II-01",
+      "source": "AIME 2025",
+      "tier": "very hard",
+      "task_type": "AIME",
+      "rates": {
+        "gptoss_low": 1.0,
+        "grok_nr": 1.0
+      },
+      "eligible_models": []
+    },
+    {
+      "case_id": "AIME2025-II-02",
+      "source": "AIME 2025",
+      "tier": "very hard",
+      "task_type": "AIME",
+      "rates": {
+        "gptoss_low": 1.0,
+        "grok_nr": 1.0
+      },
+      "eligible_models": []
+    },
+    {
+      "case_id": "AIME2025-II-03",
+      "source": "AIME 2025",
+      "tier": "very hard",
+      "task_type": "AIME",
+      "rates": {
+        "gptoss_low": 0.4,
+        "grok_nr": 0.8
+      },
+      "eligible_models": [
+        "gptoss_low",
+        "grok_nr"
+      ]
+    },
+    {
+      "case_id": "AIME2025-II-04",
+      "source": "AIME 2025",
+      "tier": "very hard",
+      "task_type": "AIME",
+      "rates": {
+        "gptoss_low": 0.4,
+        "grok_nr": 1.0
+      },
+      "eligible_models": [
+        "gptoss_low"
+      ]
+    },
+    {
+      "case_id": "AIME2025-II-07",
+      "source": "AIME 2025",
+      "tier": "very hard",
+      "task_type": "AIME",
+      "rates": {
+        "gptoss_low": 0.4,
+        "grok_nr": 1.0
+      },
+      "eligible_models": [
+        "gptoss_low"
+      ]
+    },
+    {
+      "case_id": "AIME2025-II-08",
+      "source": "AIME 2025",
+      "tier": "very hard",
+      "task_type": "AIME",
+      "rates": {
+        "gptoss_low": 0.2,
+        "grok_nr": 1.0
+      },
+      "eligible_models": [
+        "gptoss_low"
+      ]
+    },
+    {
+      "case_id": "AIME2025-II-09",
+      "source": "AIME 2025",
+      "tier": "very hard",
+      "task_type": "AIME",
+      "rates": {
+        "gptoss_low": 0.4,
+        "grok_nr": 0.2
+      },
+      "eligible_models": [
+        "gptoss_low",
+        "grok_nr"
+      ]
+    },
+    {
+      "case_id": "AIME2025-II-10",
+      "source": "AIME 2025",
+      "tier": "very hard",
+      "task_type": "AIME",
+      "rates": {
+        "gptoss_low": 0.6,
+        "grok_nr": 1.0
+      },
+      "eligible_models": [
+        "gptoss_low"
+      ]
+    },
+    {
+      "case_id": "AIME2025-II-11",
+      "source": "AIME 2025",
+      "tier": "very hard",
+      "task_type": "AIME",
+      "rates": {
+        "gptoss_low": 0.2,
+        "grok_nr": 1.0
+      },
+      "eligible_models": [
+        "gptoss_low"
+      ]
+    },
+    {
+      "case_id": "AIME2025-II-12",
+      "source": "AIME 2025",
+      "tier": "very hard",
+      "task_type": "AIME",
+      "rates": {
+        "gptoss_low": 0.6,
+        "grok_nr": 1.0
+      },
+      "eligible_models": [
+        "gptoss_low"
+      ]
+    },
+    {
+      "case_id": "AIME2025-II-13",
+      "source": "AIME 2025",
+      "tier": "very hard",
+      "task_type": "AIME",
+      "rates": {
+        "gptoss_low": 0.0,
+        "grok_nr": 0.0
+      },
+      "eligible_models": []
+    },
+    {
+      "case_id": "AIME2025-II-14",
+      "source": "AIME 2025",
+      "tier": "very hard",
+      "task_type": "AIME",
+      "rates": {
+        "gptoss_low": 0.6,
+        "grok_nr": 1.0
+      },
+      "eligible_models": [
+        "gptoss_low"
+      ]
+    },
+    {
+      "case_id": "AIME2025-II-15",
+      "source": "AIME 2025",
+      "tier": "very hard",
+      "task_type": "AIME",
+      "rates": {
+        "gptoss_low": 0.0,
+        "grok_nr": 0.6
+      },
+      "eligible_models": [
+        "grok_nr"
+      ]
+    }
+  ]
+}

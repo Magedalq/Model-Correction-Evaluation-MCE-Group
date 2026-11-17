@@ -1,0 +1,18 @@
+{
+  "protocol_version": "part1-2.0",
+  "models": [
+    {
+      "label": "gptoss_low",
+      "model": "gpt-oss-120b",
+      "base_url": "https://llm-api.arc.vt.edu/api/v1",
+      "key_env": "ARC_API_KEY",
+      "reasoning_effort": "low",
+      "revision": null,
+      "billing": "ARC-no-individual-charge",
+      "status": "base endpoint tested in prior pilot; low-setting preflight pending",
+      "max_tokens": 16000,
+      "stream": true
+    }
+  ],
+  "note": "gpt-oss-120b (low) only, ARC, for running the study one model at a time. Needs the VT VPN."
+}
