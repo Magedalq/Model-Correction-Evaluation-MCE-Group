@@ -188,4 +188,15 @@ class Tests(unittest.TestCase):
   self.assertIsNone(score('I will write FINAL: 5 later.\nThe answer is big.',c)['correct'])   # not at the end -> not taken
   self.assertTrue(score('Work.\nFINAL: 70000',c)['strict_format'])
 
+ def test_full_study_needs_review_or_ai_double_check(self):
+  base=json.loads((ROOT/'cases_selected.json').read_text(encoding='utf-8'))
+  for c in base:c.pop('team_reviewed',None);c.pop('ai_verified',None)
+  with self.assertRaises(ValueError):validate(base,True)                  # nothing reviewed -> blocked
+  for c in base:
+   if c.get('seed_ready'):c['ai_verified']={'by':'test','passes':1}
+  with self.assertRaises(ValueError):validate(base,True)                  # one AI pass is not enough
+  for c in base:
+   if c.get('seed_ready'):c['ai_verified']['passes']=2
+  validate(base,True)                                                     # two independent passes unlock it
+
 if __name__=='__main__':unittest.main(verbosity=2)

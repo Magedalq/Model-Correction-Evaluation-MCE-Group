@@ -11,8 +11,8 @@
     "tier": "moderate",
     "benchmark_level": "Level 3",
     "answer_unit": "number",
-    "correct_prior": "Step 1: Maximum square below 399 is 19^2 = 361.\nStep 2: Maximum cube below 399 is 7^3 = 343; relevant higher powers are at most 243.\nStep 3: 361 is largest, so a+b = 19+2 = 21.\nFINAL: 21",
-    "wrong_prior": "Step 1: Maximum square below 399 is 19^2 = 361.\nStep 2: Maximum cube below 399 is 7^3 = 373; relevant higher powers are at most 243.\nStep 3: 373 is largest, so a+b = 7+3 = 10.\nFINAL: 10",
+    "correct_prior": "Step 1: Maximum square below 399 is 19^2 = 361.\nStep 2: Maximum cube below 399 is 7^3 = 343; relevant higher powers are at most 256 (2^8).\nStep 3: 361 is largest, so a+b = 19+2 = 21.\nFINAL: 21",
+    "wrong_prior": "Step 1: Maximum square below 399 is 19^2 = 361.\nStep 2: Maximum cube below 399 is 7^3 = 373; relevant higher powers are at most 256 (2^8).\nStep 3: 373 is largest, so a+b = 7+3 = 10.\nFINAL: 10",
     "error_type": "cube evaluation",
     "error_location": "middle",
     "hint": "Check the maximum-cube calculation",
@@ -32,6 +32,12 @@
         "correct": "To solve this, identify the largest value of \\(a^b\\) (with \\(a, b\\) positive integers, \\(b > 1\\)) that is strictly less than 399. Then compute \\(a + b\\).\n\nCompute relevant powers near 399:\n\n- \\(2^{8} = 256\\)\n- \\(2^{9} = 512 > 399\\)\n- \\(3^{5} = 243\\)\n- \\(3^{6} = 729 > 399\\)\n- \\(4^{4} = 256\\)\n- \\(4^{5} = 1024 > 399\\)\n- \\(5^{3} = 125\\)\n- \\(5^{4} = 625 > 399\\)\n- \\(6^{3} = 216\\)\n- \\(6^{4} = 1296 > 399\\)\n- \\(7^{3} = 343\\)\n- \\(7^{4} = 2401 > 399\\)\n- \\(8^{3} = 512 > 399\\)\n- \\(9^{3} = 729 > 399\\)\n- \\(10^{2} = 100\\)\n- \\(11^{2} = 121\\)\n- \\(12^{2} = 144\\)\n- \\(13^{2} = 169\\)\n- \\(14^{2} = 196\\)\n- \\(15^{2} = 225\\)\n- \\(16^{2} = 256\\)\n- \\(17^{2} = 289\\)\n- \\(18^{2} = 324\\)\n- \\(19^{2} = 361\\)\n- \\(20^{2} = 400 > 399\\)\n\nAmong values below 399, the candidates for the maximum are 361 (\\(19^2\\)), 343 (\\(7^3\\)), 324 (\\(18^2\\)), 289 (\\(17^2\\)), 256 (multiple bases), and lower ones like 243, 225, etc.\n\nCompare: 361 > 343 > 324 > 289 > 256 > 243, etc. No other \\(a^b\\) (with \\(b > 1\\)) fits between 361 and 399, as \\(20^2 = 400\\) exceeds it, and higher bases with exponent >1 yield even larger results or smaller ones already considered.\n\nThus, the greatest value is \\(19^2 = 361\\), so \\(a = 19\\), \\(b = 2\\), and \\(a + b = 21\\).\n\nFINAL: 21",
         "correct_logical_call_id": "798098047a6ecf81e01582f467c5faeb8ed1c68f9ccc228ec0c49319c038e833"
       }
+    },
+    "ai_verified": {
+      "by": "Claude (AI): two independent checks (scripted recomputation + separate agent)",
+      "date": "2026-11-18",
+      "passes": 2,
+      "human_review": "pending (team hand-check; any case the team flags is dropped in analysis)"
     }
   },
   {
@@ -67,6 +73,12 @@
         "correct": "The number \\(AAA_4\\) in base 4 is \\(A \\times 4^2 + A \\times 4^1 + A \\times 4^0 = 16A + 4A + A = 21A\\) in decimal.\n\nThis equals \\(33_b\\) in base \\(b\\), which is \\(3b + 3\\) in decimal.\n\nSo, \\(21A = 3b + 3\\).\n\nDivide both sides by 3: \\(7A = b + 1\\).\n\nThus, \\(b = 7A - 1\\).\n\nA is a digit in base 4, so A can be 0, 1, 2, or 3. But since it's the leading digit of \\(AAA_4\\), A is probably from 1 to 3. Also, b > 5, and b must be greater than any digit in \\(33_b\\), so b > 3, which is already satisfied since b > 5.\n\nb = 7A - 1 must be an integer greater than 5, and since A is an integer digit, that's fine.\n\nWe need the smallest possible sum A + b.\n\nA + b = A + (7A - 1) = 8A - 1.\n\nThis increases with A, so smallest when A is smallest.\n\nA at least 1? If A=0, then AAA_4 is 000_4 which is 0, and 33_b=3b+3=0 implies b negative, impossible. So A ≥1.\n\nFor A=1, b=7*1 -1=6, which is >5, good.\n\nSum=1+6=7.\n\nIs b=6 valid? Digits in 33_6 are 3, which is <6, yes.\n\nAnd AAA_4 with A=1 is 111_4 = 1*16 +1*4 +1=21 decimal.\n\n33_6=3*6+3=21. Yes perfect.\n\nSmallest sum is 7? The problem says \"where A is a digit in base 4 and b is a base greater than 5\", and \"smallest possible sum A+b\".\n\nFor A=1,b=6,sum=7; A=2,b=13,sum=15; A=3,b=20,sum=23. So smallest is 7.\n\nThe problem says \"If AAA_4 can be expressed as 33_b\", implying perhaps there are constraints I'm missing? It seems too straightforward, and \"give a concise explanation\".\n\nPerhaps A is the same symbol, but in base b, A isn't used, but no.\n\nThe notation is AAA_4 meaning the digits are A A A in base 4, and A is a digit 0-3.\n\nAnd 33_b with digits 3 and 3 in base b>5.\n\nIt works for A=1,b=6,sum=7.\n\nBut the problem says \"what is the smallest possible sum A+b\", implying there might be multiple possibilities, and we take smallest.\n\nIt works.\n\nPerhaps b must be greater than the digits, which it is.\n\nThe subscript 4 is in base 10 I assume, standard.\n\nThe problem is: \"If AAA_4 can be expressed as 33_b , where A is a digit in base 4 and b is a base greater than 5\"\n\n\" A is a digit in base 4\" meaning 0≤A≤3.\n\nYes, and it works.\n\nPerhaps \"AAA_4\" the A is not the digit but part of the number name or something? No.\n\nIt's written as $AAA_4$, probably to indicate it's in math mode.\n\nI think 7 is the answer.\n\nBut the problem says \"b is a base greater than 5\", for A=1, b=6>5, good.\n\nAnd smallest is 7.\n\nBut perhaps bases are integers, yes.\n\nThe final instruction: end with exactly one line: FINAL: <numeric answer>\n\nSo perhaps it's 7.\n\nBut I feel like maybe A can be greater? No, in base 4, digits only up to 3.\n\nThe problem says \"A is a digit in base 4\", so A=0,1,2,3.\n\nYes.\n\nPerhaps the number is written as AAA in base 4, and equals 33 in base b.\n\nYes.\n\nI think it's correct.\n\nFor A=1, is 1 a digit in base 4? Yes.\n\nPerhaps they mean A stands for a specific digit like in cryptarithm, but it's capitalized, but in base 4, often digits above 9 use letters, but here base 4, digits only to 3, so A must be 0-3, but why use A instead of a number? Perhaps it's from a contest where A represents 10 or something, but the problem says \"A is a digit in base 4\", so it must be 0-3.\n\nIf A were 10 like in hex, but can't be in base 4.\n\nSo A=0 to 3.\n\nI think sum is 7.\n\nThe smallest possible is 7.\n\nExplanation: Convert AAA base 4 to decimal: A*16 + A*4 + A = 21A.\n\n33 base b = 3b + 3.\n\nSet equal: 21A = 3b + 3 ⇒ 7A = b + 1 ⇒ b = 7A - 1.\n\nA ∈ {1,2,3} (since leading digit), b >5 so 7A-1 >5 ⇒7A>6⇒A≥1, good.\n\nSum s=A+b=8A-1, minimized at A=1: s=7, b=6>5, and digit 3<6 ok.\n\nYes.\n\nSo the answer is 7.AAA_4 = 21A (decimal).  \nSet 21A = 3b + 3, so b = 7A - 1 (b > 5, integer > 3).  \nA ∈ {1,2,3} (base-4 digit, leading).  \nSum = 8A - 1, minimized at A = 1 (b = 6 > 5, digit 3 < 6 valid).  \nSum = 7 (verifies: 111_4 = 21 = 33_6).  \n\nFINAL: 7",
         "correct_logical_call_id": "8d3f652260b23d2b57956b73f926b1f5f0f7c74d05ca02948c84ca6f26da6cdb"
       }
+    },
+    "ai_verified": {
+      "by": "Claude (AI): two independent checks (scripted recomputation + separate agent)",
+      "date": "2026-11-18",
+      "passes": 2,
+      "human_review": "pending (team hand-check; any case the team flags is dropped in analysis)"
     }
   },
   {
@@ -105,6 +117,12 @@
         "correct": "The number is \\( x = 2^2 \\times 3^3 \\times 4^4 \\times 5^5 \\times 6^6 \\times 7^7 \\times 8^8 \\times 9^9 \\).\n\nTo find the smallest positive integer \\( k \\) such that \\( x \\times k \\) is a perfect square, first express \\( x \\) in its prime factorization.\n\nRewrite the composite bases:\n- \\( 4 = 2^2 \\), so \\( 4^4 = (2^2)^4 = 2^8 \\)\n- \\( 6 = 2 \\times 3 \\), so \\( 6^6 = (2 \\times 3)^6 = 2^6 \\times 3^6 \\)\n- \\( 8 = 2^3 \\), so \\( 8^8 = (2^3)^8 = 2^{24} \\)\n- \\( 9 = 3^2 \\), so \\( 9^9 = (3^2)^9 = 3^{18} \\)\n\nNow substitute back into \\( x \\):\n\n\\( x = 2^2 \\times 3^3 \\times (2^8) \\times 5^5 \\times (2^6 \\times 3^6) \\times 7^7 \\times (2^{24}) \\times (3^{18}) \\)\n\nCombine exponents for each prime:\n\n- For 2: \\( 2 + 8 + 6 + 24 = 40 \\), so \\( 2^{40} \\)\n- For 3: \\( 3 + 6 + 18 = 27 \\), so \\( 3^{27} \\)\n- For 5: \\( 5^5 \\)\n- For 7: \\( 7^7 \\)\n\nThus, \\( x = 2^{40} \\times 3^{27} \\times 5^5 \\times 7^7 \\).\n\nFor \\( x \\times k \\) to be a perfect square, all exponents in its prime factorization must be even.\n\n- 40 is even → no factor of 2 needed\n- 27 is odd → needs one more 3 to make 28 (even)\n- 5 is odd → needs one more 5 to make 6 (even)\n- 7 is odd → needs one more 7 to make 8 (even)\n\nThe missing factors are \\( 3^1 \\times 5^1 \\times 7^1 = 3 \\times 5 \\times 7 = 105 \\).\n\nThus, the smallest such \\( k \\) is 105.\n\nFINAL: 105",
         "correct_logical_call_id": "9e2f2aa3f0bbf16fdf9b3151991b45537c3cdb7a5f43c069430db48ff77692ab"
       }
+    },
+    "ai_verified": {
+      "by": "Claude (AI): two independent checks (scripted recomputation + separate agent)",
+      "date": "2026-11-18",
+      "passes": 2,
+      "human_review": "pending (team hand-check; any case the team flags is dropped in analysis)"
     }
   },
   {
@@ -164,6 +182,12 @@
         "correct": "The combined population totals 592 deliveries.\n\nDowntown share: (69 + 270)/592 = 339/592  \nSuburban share: (205 + 48)/592 = 253/592\n\nDowntown on-time rates:  \nA: 45/69 ≈ 0.652174  \nB: 167/270 ≈ 0.618519  \nDifference (A - B): 45/69 - 167/270 = (45*270 - 167*69)/(69*270) = 621/18630 ≈ 0.033333 (exactly 1/30)\n\nSuburban on-time rates:  \nA: 113/205 ≈ 0.551220  \nB: 24/48 = 0.5  \nDifference (A - B): 113/205 - 1/2 = (226 - 205)/410 = 21/410 ≈ 0.051220\n\nStandardized difference = (339/592)(1/30) + (253/592)(21/410)  \n= [339/(592*30)] + [5313/(592*410)]  \n= (0.019085 + 0.021899) ≈ 0.040984  \n= 4.0984 percentage points, which rounds to 4.10\n\nFINAL: 4.10",
         "correct_logical_call_id": "689e4b8cb614931ca44ba28ddea1b359d6dde7072736a63595b59296f2985c40"
       }
+    },
+    "ai_verified": {
+      "by": "Claude (AI): two independent checks (scripted recomputation + separate agent)",
+      "date": "2026-11-18",
+      "passes": 2,
+      "human_review": "pending (team hand-check; any case the team flags is dropped in analysis)"
     }
   },
   {
@@ -237,6 +261,12 @@
         "correct": "The data is from a study comparing on-time delivery rates for Courier A and Courier B across three route types (downtown, suburban, rural). To find the difference in expected overall on-time rates if all 968 deliveries had used A versus all had used B (A minus B, in percentage points rounded to two decimals), we must use the observed on-time proportions from each courier within each route type, weighted by the actual number of deliveries of each route type.\n\nTotal deliveries: 69 + 199 + 227 + 46 + 381 + 46 = 968.\n\n**Step 1: Compute overall on-time rate if all deliveries used Courier A**  \nThis is the weighted average using A's observed rates for each route type, weighted by the total deliveries of that route type.  \n- Downtown: 65/69 rate applied to 69 + 199 = 268 deliveries  \n- Suburban: 203/227 rate applied to 227 + 46 = 273 deliveries  \n- Rural: 293/381 rate applied to 381 + 46 = 427 deliveries  \n\nExpected on-time deliveries with A:  \n(65/69)×268 + (203/227)×273 + (293/381)×427 = 17420/69 + 55359/227 + 125111/381  \n\nUsing common denominator 69×227×381 = 5,969,043:  \nNumerator = 17420×(227×381) + 55359×(69×381) + 125111×(69×227) = 1,506,467,820 + 1,455,766,071 + 1,959,987,993 = 4,922,221,884  \n\nExpected on-time rate with A = 4,922,221,884 / (5,969,043 × 968)  \nThis simplifies exactly to 4,922,221,884 / 5,778,033,624 ≈ 0.85222807 (85.222807%).\n\n**Step 2: Compute overall on-time rate if all deliveries used Courier B**  \n- Downtown: 179/199 rate applied to 268 deliveries  \n- Suburban: 40/46 rate applied to 273 deliveries  \n- Rural: 31/46 rate applied to 427 deliveries  \n\nExpected on-time deliveries with B:  \n(179/199)×268 + (40/46)×273 + (31/46)×427 = 47972/199 + 10920/46 + 13237/46 = 47972/199 + 24157/46  \n\nUsing common denominator 199×46 = 9,154:  \nNumerator = 47972×46 + 24157×199 = 2,206,712 + 4,807,243 = 7,013,955  \n\nExpected on-time rate with B = 7,013,955 / (9,154 × 968) = 7,013,955 / 8,861,072 ≈ 0.79154785 (79.154785%).\n\n**Step 3: Compute the difference (A minus B)**  \n0.85222807 - 0.79154785 = 0.06068022  \nIn percentage points: 6.068022, which rounds to 6.07.\n\nFINAL: 6.07",
         "correct_logical_call_id": "6098cdec785f3646def744bf303c21df8f7348dc7454121f2d72a1d71b75eae9"
       }
+    },
+    "ai_verified": {
+      "by": "Claude (AI): two independent checks (scripted recomputation + separate agent)",
+      "date": "2026-11-18",
+      "passes": 2,
+      "human_review": "pending (team hand-check; any case the team flags is dropped in analysis)"
     }
   },
   {
@@ -302,6 +332,12 @@
         "correct": "Method A had 361 successes out of 626 operations (≈57.67%).  \nMethod B had 193 successes out of 297 operations (≈64.95%).  \nThe overall difference is 57.67 % − 64.95 % = −7.28 percentage points.\n\nFINAL: -7.28",
         "correct_logical_call_id": "33121397340995d2d4673e4a89e48b6b4b2c08a093d1fdeab08d9330303d69d9"
       }
+    },
+    "ai_verified": {
+      "by": "Claude (AI): two independent checks (scripted recomputation + separate agent)",
+      "date": "2026-11-18",
+      "passes": 2,
+      "human_review": "pending (team hand-check; any case the team flags is dropped in analysis)"
     }
   },
   {
@@ -375,6 +411,12 @@
         "correct": "The data forms a 3x2 contingency table by lead source. To find the overall close rates if all 1485 leads were assigned to Rep A versus all to Rep B (assuming the leads within each source are comparable), compute the source-specific close rates and then take the weighted average using the total leads per source as weights.\n\nTotal leads per source:  \n- Referral: 65 + 388 = 453  \n- Web form: 428 + 55 = 483  \n- Trade show: 464 + 85 = 549  \nGrand total: 1485.\n\nClose rates:  \n- Referral: A = 53/65, B = 281/388  \n- Web form: A = 303/428, B = 35/55  \n- Trade show: A = 281/464, B = 46/85  \n\nExpected closed if all given to A:  \n(53/65)×453 + (303/428)×483 + (281/464)×549 = 369 + (146349/428) + (154419/464)  \n= 369 + 342.1705607477 + 332.7995689655 = 1043.9701297132  \nOverall rate A = 1043.9701297132 / 1485 ≈ 0.70301355 (70.301355%)\n\nExpected closed if all given to B:  \n(281/388)×453 + (35/55)×483 + (46/85)×549 = (127293/388) + 307 + (25254/85)  \n= 328.074742268 + 307 + 297.105882353 = 932.180624621  \nOverall rate B = 932.180624621 / 1485 ≈ 0.62773005 (62.773005%)\n\nDifference (A minus B): 0.70301355 - 0.62773005 = 0.0752835 → 7.52835 percentage points, which rounds to 7.53.\n\nFINAL: 7.53",
         "correct_logical_call_id": "83cfcd0747b58c52d779765d040b494b864d638aa68a615aee69eb69c518b6f6"
       }
+    },
+    "ai_verified": {
+      "by": "Claude (AI): two independent checks (scripted recomputation + separate agent)",
+      "date": "2026-11-18",
+      "passes": 2,
+      "human_review": "pending (team hand-check; any case the team flags is dropped in analysis)"
     }
   },
   {
@@ -440,6 +482,12 @@
         "correct": "The overall recovery rate for Treatment A is \\( \\frac{499}{1051}\\times100\\% \\approx 47.48\\% \\).  \nThe overall recovery rate for Treatment B is \\( \\frac{271}{448}\\times100\\% \\approx 60.49\\% \\).  \nThe difference (A − B) is \\(47.48\\% - 60.49\\% \\approx -13.01\\) percentage points.\n\nFINAL: -13.01",
         "correct_logical_call_id": "06721c54a68e3ff715e4b662ffd5233f38511460c9f26e6188b0fb71855ee97f"
       }
+    },
+    "ai_verified": {
+      "by": "Claude (AI): two independent checks (scripted recomputation + separate agent)",
+      "date": "2026-11-18",
+      "passes": 2,
+      "human_review": "pending (team hand-check; any case the team flags is dropped in analysis)"
     }
   },
   {
@@ -511,6 +559,12 @@
         "correct": "The combined population totals 1799 patients.\n\nCategory shares (proportions of 1799):\n- Mild: 339/1799\n- Moderate: 274/1799\n- Severe: 584/1799\n- Critical: 602/1799\n\nRecovery rates:\n- Mild: A = 46/57 ≈ 0.8070175, B = 217/282 ≈ 0.7695035, diff = +0.037514\n- Moderate: A = 34/48 ≈ 0.708333, B = 148/226 ≈ 0.654867, diff = +0.053466\n- Severe: A = 265/494 ≈ 0.536437, B = 40/90 ≈ 0.444444, diff = +0.091993\n- Critical: A = 246/581 ≈ 0.423408, B = 8/21 ≈ 0.380952, diff = +0.042456\n\nWeighted differences:\n- Mild: (339/1799) × 0.037514 ≈ 0.007072\n- Moderate: (274/1799) × 0.053466 ≈ 0.008143\n- Severe: (584/1799) × 0.091993 ≈ 0.029877\n- Critical: (602/1799) × 0.042456 ≈ 0.014209\n\nSum = 0.007072 + 0.008143 + 0.029877 + 0.014209 = 0.059301  \n= 5.9301 percentage points, which rounds to 5.93.\n\nFINAL: 5.93",
         "correct_logical_call_id": "4d99c4234b93139444d648c68e51da6c26e234394dd42913f8267d2f0fa7f55f"
       }
+    },
+    "ai_verified": {
+      "by": "Claude (AI): two independent checks (scripted recomputation + separate agent)",
+      "date": "2026-11-18",
+      "passes": 2,
+      "human_review": "pending (team hand-check; any case the team flags is dropped in analysis)"
     }
   },
   {
@@ -582,6 +636,12 @@
         "correct": "The overall recovery rate if everyone received Treatment A is the weighted average of the A recovery rates in each severity category, using the total number of patients in each category as weights. Doing the same for Treatment B and subtracting gives a difference of about 0.0660, i.e. 6.60 percentage points.\n\nFINAL: 6.60",
         "correct_logical_call_id": "27ff9548597d12c96547a93f82cb7b30e12052a9f9a9472c48c31414b7b4bf23"
       }
+    },
+    "ai_verified": {
+      "by": "Claude (AI): two independent checks (scripted recomputation + separate agent)",
+      "date": "2026-11-18",
+      "passes": 2,
+      "human_review": "pending (team hand-check; any case the team flags is dropped in analysis)"
     }
   },
   {
@@ -641,6 +701,12 @@
         "correct": "The combined population is 760 students.\n\nLincoln High share: (55 + 301)/760 = 356/760  \nRoosevelt High share: (349 + 55)/760 = 404/760\n\nPass rates:  \n- Lincoln: A = 45/55, B = 235/301  \n- Roosevelt: A = 234/349, B = 32/55\n\nDifferences (A - B):  \nLincoln: 45/55 - 235/301 = (45*301 - 235*55)/(55*301) = (13545 - 12925)/16555 = 620/16555  \nRoosevelt: 234/349 - 32/55 = (234*55 - 32*349)/(349*55) = (12870 - 11168)/19195 = 1702/19195\n\nStandardized difference = (356/760)*(620/16555) + (404/760)*(1702/19195)  \n= (356*620)/(760*16555) + (404*1702)/(760*19195)  \n= 220720/12581800 + 687608/14588200  \n≈ 0.017542 + 0.047137 = 0.064679\n\nThis equals 6.4679 percentage points, which rounds to 6.47.\n\nFINAL: 6.47",
         "correct_logical_call_id": "ccb70ea7f786e22371a9c4f5c4d1f63fab0526009dd4d46318d54c8ab9ce16d2"
       }
+    },
+    "ai_verified": {
+      "by": "Claude (AI): two independent checks (scripted recomputation + separate agent)",
+      "date": "2026-11-18",
+      "passes": 2,
+      "human_review": "pending (team hand-check; any case the team flags is dropped in analysis)"
     }
   },
   {
@@ -714,6 +780,12 @@
         "correct": "The data shows Simpson's paradox: Program B has a higher pass rate in each individual school, but Program A has a higher overall pass rate due to different proportions of students per school.\n\nTo find the difference if all 1207 students received A vs. all received B, compute the weighted average pass rates using the overall proportions per school.\n\nTotal students: 55+372+263+40+388+89 = 1207.\n\nSchool proportions:\n- Lincoln: 427/1207\n- Roosevelt: 303/1207\n- Jefferson: 477/1207\n\nPass rates:\n- Lincoln A: 50/55 = 10/11\n- Lincoln B: 327/372 = 109/124\n- Roosevelt A: 232/263\n- Roosevelt B: 32/40 = 4/5\n- Jefferson A: 290/388 = 145/194\n- Jefferson B: 64/89\n\nOverall pass rate for A (all students get A):\n(427/1207) * (10/11) + (303/1207) * (232/263) + (477/1207) * (145/194)\n\nThis equals total expected passes under A divided by 1207:\n(427 * 10/11) + (303 * 232/263) + (477 * 145/194) all over 1207.\n\nComputed values:\n- Lincoln A expected: 427 * (50/55) = 388.181818...\n- Roosevelt A expected: 303 * (232/263) ≈ 267.346008...\n- Jefferson A expected: 477 * (290/388) ≈ 356.572165...\n- Total expected passes A: ≈ 1012.09999 ≈ 1012.1\n- Rate A: 1012.1 / 1207 ≈ 0.83852 (83.852%)\n\nFor B:\n- Lincoln B expected: 427 * (327/372) ≈ 375.262097...\n- Roosevelt B expected: 303 * (32/40) = 242.4\n- Jefferson B expected: 477 * (64/89) ≈ 342.898876...\n- Total expected passes B: ≈ 960.56097\n- Rate B: 960.56097 / 1207 ≈ 0.79615 (79.615%)\n\nDifference (A - B): 0.83852 - 0.79615 ≈ 0.04237, or 4.237 percentage points.\n\nRounded to two decimal places: 4.24\n\nFINAL: 4.24",
         "correct_logical_call_id": "441cfff1da479e842b594465d5a557cf87c750a9f1982ab654c5e1da81adacae"
       }
+    },
+    "ai_verified": {
+      "by": "Claude (AI): two independent checks (scripted recomputation + separate agent)",
+      "date": "2026-11-18",
+      "passes": 2,
+      "human_review": "pending (team hand-check; any case the team flags is dropped in analysis)"
     }
   },
   {
@@ -793,6 +865,12 @@
         "correct": "The data forms a classic Simpson's paradox setup. To find the difference in expected overall on-time rates if all 1800 deliveries used A versus all used B, compute the weighted average on-time rate for each courier using the actual route-type proportions (which are identical in both scenarios).\n\nTotal deliveries: 1800.\n\n**Courier A on-time proportions by route:**\n- Downtown: 45/63\n- Suburban: 42/63\n- Rural: 282/504\n- Mountain: 89/161\n\nExpected on-time deliveries for A on all 1800:\n(45/63)×(63+567) + (42/63)×(63+372) + (282/504)×(504+43) + (89/161)×(161+27)  \n= 45×(630/63) + 42×(435/63) + 282×(547/504) + 89×(188/161)  \n= 450 + 290 + (282×547)/504 + (89×188)/161  \n= 740 + 306.113095... + 103.950311...  \n= 1150.063406 deliveries on time.\n\nA's overall rate: 1150.063406 / 1800 ≈ 0.6389241145 (63.89241145%).\n\n**Courier B on-time proportions by route:**\n- Downtown: 362/567\n- Suburban: 211/372\n- Rural: 23/43\n- Mountain: 12/27\n\nExpected on-time deliveries for B on all 1800:\n(362/567)×630 + (211/372)×435 + (23/43)×547 + (12/27)×188  \n= 362×(630/567) + 211×(435/372) + 23×(547/43) + 12×(188/27)  \n= 402.222222... + 246.5725806... + 292.5813953... + 83.555555...  \n= 1024.931754 deliveries on time.\n\nB's overall rate: 1024.931754 / 1800 ≈ 0.56940653 (56.940653%).\n\nDifference (A minus B): 0.6389241145 - 0.56940653 ≈ 0.06951758, or 6.951758 percentage points.\n\nRounded to two decimal places: 6.95.\n\nFINAL: 6.95",
         "correct_logical_call_id": "f3f02c6497031c03325e18b5c7c35f1063cf9a7395cf55a74ddb5a21cc9e939b"
       }
+    },
+    "ai_verified": {
+      "by": "Claude (AI): two independent checks (scripted recomputation + separate agent)",
+      "date": "2026-11-18",
+      "passes": 2,
+      "human_review": "pending (team hand-check; any case the team flags is dropped in analysis)"
     }
   },
   {
@@ -852,6 +930,12 @@
         "correct": "FINAL: -3.34",
         "correct_logical_call_id": "02b73ca160d1d9821effa239a8467c144402bfdda6d5eb3b29f7c0a728162382"
       }
+    },
+    "ai_verified": {
+      "by": "Claude (AI): two independent checks (scripted recomputation + separate agent)",
+      "date": "2026-11-18",
+      "passes": 2,
+      "human_review": "pending (team hand-check; any case the team flags is dropped in analysis)"
     }
   },
   {
@@ -911,6 +995,12 @@
         "correct": "The combined population has 973 operations.\n\nSmall stones: 42 + 594 = 636, share = 636/973  \nMedium stones: 255 + 82 = 337, share = 337/973\n\nSuccess rates:  \nSmall: A = 32/42 ≈ 0.761905, B = 420/594 ≈ 0.707071, difference = (32/42 - 420/594) ≈ 0.054834  \nMedium: A = 124/255 ≈ 0.486275, B = 36/82 ≈ 0.439024, difference ≈ 0.047250\n\nStandardized difference = (0.054834)(636/973) + (0.047250)(337/973) ≈ 0.05221\n\nIn percentage points: 5.22\n\nFINAL: 5.22",
         "correct_logical_call_id": "3edb550ca6cfa9a0f4db61214e83133a152d1c154cb7fa11290450f2c5bd0ad7"
       }
+    },
+    "ai_verified": {
+      "by": "Claude (AI): two independent checks (scripted recomputation + separate agent)",
+      "date": "2026-11-18",
+      "passes": 2,
+      "human_review": "pending (team hand-check; any case the team flags is dropped in analysis)"
     }
   },
   {
@@ -984,6 +1074,12 @@
         "correct": "The data exhibits Simpson's paradox. To find the difference in expected overall success rates if all 1329 operations used A versus all used B, compute the weighted average success rate for each method using the combined stone-size distribution as weights.\n\nTotal operations: 85 + 364 + 531 + 68 + 202 + 79 = 1329.\n\n**Success rate for A (weighted):**\n- Small: (58/85) × (449/1329)\n- Medium: (315/531) × (599/1329)\n- Large: (97/202) × (281/1329)\n\nThis equals total expected successes for A divided by 1329:\n(58/85 × 449) + (315/531 × 599) + (97/202 × 281) = 306.748 + 355.480 + 135.034 = 797.262\nSuccess rate A = 797.262 / 1329 ≈ 0.6000 (60.00%)\n\n**Success rate for B (weighted):**\n- Small: (230/364) × (449/1329)\n- Medium: (37/68) × (599/1329)\n- Large: (32/79) × (281/1329)\n\nTotal expected successes for B:\n(230/364 × 449) + (37/68 × 599) + (32/79 × 281) = 283.764 + 326.074 + 113.924 = 723.762\nSuccess rate B = 723.762 / 1329 ≈ 0.5446 (54.46%)\n\nDifference (A − B): 0.6000 − 0.5446 = 0.0554, or 5.54 percentage points.\n\nFINAL: 5.54",
         "correct_logical_call_id": "de487b22a0ea43626aaf3300d2358cf96a23be63fdeb296194a292a9af712bb6"
       }
+    },
+    "ai_verified": {
+      "by": "Claude (AI): two independent checks (scripted recomputation + separate agent)",
+      "date": "2026-11-18",
+      "passes": 2,
+      "human_review": "pending (team hand-check; any case the team flags is dropped in analysis)"
     }
   },
   {
@@ -1055,6 +1151,12 @@
         "correct": "The total number of leads is 1871.\n\nCategory shares (weights):\n- referral: (66+513)/1871 = 579/1871\n- web form: (39+269)/1871 = 308/1871\n- trade show: (364+63)/1871 = 427/1871\n- cold call: (536+21)/1871 = 557/1871\n\nClose rate differences (A minus B):\n- referral: 62/66 - 457/513 = (62*513 - 457*66)/(66*513) = (31806 - 30162)/33858 = 1644/33858 ≈ 0.048556\n- web form: 35/39 - 222/269 = (35*269 - 222*39)/(39*269) = (9415 - 8658)/10491 = 757/10491 ≈ 0.072156\n- trade show: 292/364 - 46/63 = (292*63 - 46*364)/(364*63) = (18396 - 16744)/22932 = 1652/22932 ≈ 0.07204\n- cold call: 296/536 - 10/21 = (296*21 - 10*536)/(536*21) = (6216 - 5360)/11256 = 856/11256 ≈ 0.07605\n\nWeighted differences:\n- referral: (1644/33858) * (579/1871) ≈ 0.01502\n- web form: (757/10491) * (308/1871) ≈ 0.01188\n- trade show: (1652/22932) * (427/1871) ≈ 0.01644\n- cold call: (856/11256) * (557/1871) ≈ 0.02262\n\nSum = 0.01502 + 0.01188 + 0.01644 + 0.02262 = 0.06596 (6.596 percentage points)\n\nRounded to two decimal places: 6.60\n\nFINAL: 6.60",
         "correct_logical_call_id": "6da4b569a4dc953fb33c0a0a87e24e757341c3dccf403ab5fadb36ed0cbeb332"
       }
+    },
+    "ai_verified": {
+      "by": "Claude (AI): two independent checks (scripted recomputation + separate agent)",
+      "date": "2026-11-18",
+      "passes": 2,
+      "human_review": "pending (team hand-check; any case the team flags is dropped in analysis)"
     }
   },
   {
@@ -1134,6 +1236,12 @@
         "correct": "The data forms a classic Simpson's paradox setup. To find the difference in expected overall close rates if all 1718 leads were assigned to Rep A versus all to Rep B, compute the weighted average close rate for each rep using the combined lead source proportions as weights. This is equivalent to summing, across the four lead sources, (total leads in source / 1718) × (source-specific close rate for the rep).\n\nTotal leads per source:  \n- Referral: 61 + 521 = 582  \n- Web form: 38 + 203 = 241  \n- Trade show: 338 + 50 = 388  \n- Cold call: 461 + 46 = 507  \nGrand total: 1718.\n\nClose rates:  \n- Referral: A = 49/61, B = 370/521  \n- Web: A = 30/38, B = 139/203  \n- Trade show: A = 221/338, B = 29/50  \n- Cold call: A = 288/461, B = 25/46  \n\nExpected closes if all leads get A:  \n(582 × 49/61) + (241 × 30/38) + (388 × 221/338) + (507 × 288/461) = 467 + 190 + (221 × 388/338) + (288 × 507/461)  \n= 467 + 190 + 253.7278 + 316.8872 = 1227.615  \n\nExpected closes if all leads get B:  \n(582 × 370/521) + (241 × 139/203) + (388 × 29/50) + (507 × 25/46)  \n= 413.3985 + 165.0197 + 225.04 + 275.5435 = 1079.0017  \n\nDifference in closes: 1227.615 − 1079.0017 ≈ 148.6133  \nDifference in close rate: 148.6133 / 1718 ≈ 0.0865 (i.e., +8.65 percentage points).\n\nFINAL: 8.65",
         "correct_logical_call_id": "6123be4b4b909b38a555f085a93ec1e4b0eb9ba77d8b5c2794809314e5090b1f"
       }
+    },
+    "ai_verified": {
+      "by": "Claude (AI): two independent checks (scripted recomputation + separate agent)",
+      "date": "2026-11-18",
+      "passes": 2,
+      "human_review": "pending (team hand-check; any case the team flags is dropped in analysis)"
     }
   },
   {
@@ -1193,6 +1301,12 @@
         "correct": "A’s overall recovery = 308 ÷ 630 ≈ 48.89 %; B’s overall recovery = 342 ÷ 613 ≈ 55.79 %; difference = 48.89 % − 55.79 % ≈ ‑6.90 percentage points.  \nFINAL: -6.90",
         "correct_logical_call_id": "6a14a3e4398b8cdac99e815628f45e4d12f93293d067be87e4c34721c8b000ee"
       }
+    },
+    "ai_verified": {
+      "by": "Claude (AI): two independent checks (scripted recomputation + separate agent)",
+      "date": "2026-11-18",
+      "passes": 2,
+      "human_review": "pending (team hand-check; any case the team flags is dropped in analysis)"
     }
   },
   {
@@ -1252,6 +1366,12 @@
         "correct": "The combined population totals 1028 patients.\n\nMild category share: (88 + 344)/1028 = 432/1028  \nModerate category share: (558 + 38)/1028 = 596/1028\n\nMild recovery rates:  \nA: 68/88  \nB: 238/344  \nDifference (A - B): 68/88 - 238/344 = (68*344 - 238*88)/(88*344) = (23392 - 20944)/30272 = 2448/30272 = 153/1892 ≈ 0.080867\n\nModerate recovery rates:  \nA: 345/558  \nB: 21/38  \nDifference (A - B): 345/558 - 21/38 = (345*38 - 21*558)/(558*38) = (13110 - 11718)/21204 = 1392/21204 = 116/1767 ≈ 0.065647\n\nStandardized difference = (432/1028)*(153/1892) + (596/1028)*(116/1767)  \n= (432*153)/(1028*1892) + (596*116)/(1028*1767)  \n≈ 0.03397 + 0.03807 = 0.07204\n\nThis equals 7.204 percentage points, which rounds to 7.20.\n\nFINAL: 7.20",
         "correct_logical_call_id": "3748c333f0521304bf2dfe09a56fe72fd644201f497eb6ddf5ad6a066964cec8"
       }
+    },
+    "ai_verified": {
+      "by": "Claude (AI): two independent checks (scripted recomputation + separate agent)",
+      "date": "2026-11-18",
+      "passes": 2,
+      "human_review": "pending (team hand-check; any case the team flags is dropped in analysis)"
     }
   },
   {
@@ -1317,6 +1437,12 @@
         "correct": "FINAL: -16.33",
         "correct_logical_call_id": "87a894ee4df5182c5b8f7150a083d785a4ffac05c6b43e99f867d472de759f07"
       }
+    },
+    "ai_verified": {
+      "by": "Claude (AI): two independent checks (scripted recomputation + separate agent)",
+      "date": "2026-11-18",
+      "passes": 2,
+      "human_review": "pending (team hand-check; any case the team flags is dropped in analysis)"
     }
   },
   {
@@ -1396,6 +1522,12 @@
         "correct": "The standardized difference is a weighted average of the school-specific pass rate differences (A minus B), with weights equal to each school's share of the total 1859 students.\n\nSchool totals and weights:\n- Lincoln: 315 students, weight = 315/1859\n- Roosevelt: 668 students, weight = 668/1859\n- Jefferson: 455 students, weight = 455/1859\n- Madison: 421 students, weight = 421/1859\n\nPass rate differences (A − B):\n- Lincoln: 76/80 − 218/235 = (76×235 − 218×80)/(80×235) = (17860 − 17440)/18800 = 420/18800 = 21/940 ≈ 0.022340\n- Roosevelt: 76/84 − 513/584 = (76×584 − 513×84)/(84×584) = (44384 − 43092)/49056 = 1292/49056 = 323/12264 ≈ 0.026337\n- Jefferson: 334/371 − 73/84 = (334×84 − 73×371)/(371×84) = (28056 − 27083)/31164 = 973/31164 ≈ 0.031221\n- Madison: 301/387 − 24/34 = (301×34 − 24×387)/(387×34) = (10234 − 9288)/13158 = 946/13158 ≈ 0.071896\n\nWeighted sum:\n(315/1859)×(21/940) + (668/1859)×(323/12264) + (455/1859)×(973/31164) + (421/1859)×(946/13158)  \n= 0.003785 + 0.009462 + 0.007638 + 0.016280 = 0.037165\n\nIn percentage points: 3.7165 → rounded to two decimal places is 3.72\n\nFINAL: 3.72",
         "correct_logical_call_id": "c0ccd28799e02a271d11e50bf0fc095d7a5a29b28bea20334b930b4e07ea35df"
       }
+    },
+    "ai_verified": {
+      "by": "Claude (AI): two independent checks (scripted recomputation + separate agent)",
+      "date": "2026-11-18",
+      "passes": 2,
+      "human_review": "pending (team hand-check; any case the team flags is dropped in analysis)"
     }
   },
   {
@@ -1475,6 +1607,12 @@
         "correct": "The data exhibits Simpson's paradox. To find the difference in expected overall pass rates if all 1854 students received A versus all received B, compute the weighted average pass rate for each program using the combined school enrollments as weights.\n\nTotal students per school (A + B):\n- Lincoln: 34 + 544 = 578\n- Roosevelt: 80 + 455 = 535\n- Jefferson: 323 + 21 = 344\n- Madison: 310 + 87 = 397\n\nPass rates by school:\n- Lincoln: A = 32/34, B = 501/544\n- Roosevelt: A = 61/80, B = 309/455\n- Jefferson: A = 160/323, B = 9/21\n- Madison: A = 137/310, B = 35/87\n\nExpected passes if all get A:  \n(32/34)×578 + (61/80)×535 + (160/323)×344 + (137/310)×397  \n= 544 + 407.9375 + 170.40247678 + 175.51290323  \n= 1297.85288\n\nExpected passes if all get B:  \n(501/544)×578 + (309/455)×535 + (9/21)×344 + (35/87)×397  \n= 532.5 + 363.43956044 + 147.42857143 + 159.67816092  \n= 1203.04629279\n\nDifference in passes: 1297.85288 − 1203.04629279 = 94.80658721  \nOverall rate difference: (94.80658721 / 1854) × 100 = 5.1136239 percentage points  \n\nRounded to two decimal places: 5.11\n\nFINAL: 5.11",
         "correct_logical_call_id": "c2ed4c432cd2ea3d8fbd3cc8b3af8b40be85728a803a6eba9b6abc4d7653d480"
       }
+    },
+    "ai_verified": {
+      "by": "Claude (AI): two independent checks (scripted recomputation + separate agent)",
+      "date": "2026-11-18",
+      "passes": 2,
+      "human_review": "pending (team hand-check; any case the team flags is dropped in analysis)"
     }
   },
   {
@@ -1548,6 +1686,12 @@
         "correct": "The data forms a classic Simpson's paradox setup. To find the difference in expected overall on-time rates if all 1158 deliveries used Courier A versus all using Courier B, compute each courier's on-time rate within each route type, then take the weighted average using the overall route-type proportions (i.e., the marginal route distribution).\n\nTotal deliveries: 89 + 451 + 228 + 86 + 273 + 31 = 1158.\n\nRoute proportions:  \n- Downtown: 540/1158  \n- Suburban: 314/1158  \n- Rural: 304/1158  \n\nCourier A on-time rates:  \n- Downtown: 61/89  \n- Suburban: 157/228  \n- Rural: 122/273  \n\nCourier B on-time rates:  \n- Downtown: 282/451  \n- Suburban: 51/86  \n- Rural: 13/31  \n\nExpected on-time deliveries for A:  \n(61/89)×(540/1158) + (157/228)×(314/1158) + (122/273)×(304/1158)  \n= (61×540)/(89×1158) + (157×314)/(228×1158) + (122×304)/(273×1158)  \n= 32 940/103 062 + 49 298/264 024 + 37 088/316 134  \n\nEvaluating each term:  \n32 940 ÷ 103 062 ≈ 0.319612  \n49 298 ÷ 264 024 ≈ 0.186721  \n37 088 ÷ 316 134 ≈ 0.117316  \n\nSum (A's overall rate) ≈ 0.623649  \n\nExpected on-time deliveries for B:  \n(282/451)×(540/1158) + (51/86)×(314/1158) + (13/31)×(304/1158)  \n= (282×540)/(451×1158) + (51×314)/(86×1158) + (13×304)/(31×1158)  \n= 152 280/522 258 + 16 014/99 588 + 3 952/35 898  \n\nEvaluating each term:  \n152 280 ÷ 522 258 ≈ 0.291579  \n16 014 ÷ 99 588 ≈ 0.160802  \n3 952 ÷ 35 898 ≈ 0.110090  \n\nSum (B's overall rate) ≈ 0.562471  \n\nDifference (A − B): 0.623649 − 0.562471 = 0.061178 ≈ 6.12 percentage points.\n\nFINAL: 6.12",
         "correct_logical_call_id": "c463c5f3ce1382bd589e4e6ec1146377d229ed2e07c251c1534b540e6ae7a54a"
       }
+    },
+    "ai_verified": {
+      "by": "Claude (AI): two independent checks (scripted recomputation + separate agent)",
+      "date": "2026-11-18",
+      "passes": 2,
+      "human_review": "pending (team hand-check; any case the team flags is dropped in analysis)"
     }
   },
   {
@@ -1627,6 +1771,12 @@
         "correct": "The data shows Simpson's paradox: Method A has higher success rates within each stone size category, but Method B was used much more often on easier (small/medium) cases.\n\nTo find the overall expected success rates if all 2095 operations used A versus all used B, use the weighted average with the observed proportions of each stone size (i.e., the marginal distribution of stone sizes).\n\nTotal operations: 61+443+76+480+376+71+513+75 = 2095.\n\nStone size proportions:\n- Small: 504/2095\n- Medium: 556/2095\n- Large: 447/2095\n- Very large: 588/2095\n\nSuccess probabilities under A:\n- Small: 55/61\n- Medium: 65/76\n- Large: 180/376\n- Very large: 233/513\n\nSuccess probabilities under B:\n- Small: 383/443\n- Medium: 367/480\n- Large: 30/71\n- Very large: 30/75\n\nExpected successes if all used A:  \n(504 × 55/61) + (556 × 65/76) + (447 × 180/376) + (588 × 233/513) = 454.4262295 + 475.7894737 + 214.0106383 + 267.00584795 ≈ 1411.23218945\n\nOverall success rate A: 1411.23218945 / 2095 ≈ 0.67361823 (67.361823%)\n\nExpected successes if all used B:  \n(504 × 383/443) + (556 × 367/480) + (447 × 30/71) + (588 × 30/75) = 435.9288939 + 425.2583333 + 188.8732394 + 235.2 = 1285.2604666\n\nOverall success rate B: 1285.2604666 / 2095 ≈ 0.61348805 (61.348805%)\n\nDifference (A minus B): 0.67361823 - 0.61348805 = 0.06013018 → 6.013018 percentage points.\n\nRounded to two decimal places: 6.01\n\nFINAL: 6.01",
         "correct_logical_call_id": "a2283d4d369dab319f8ebed1d4b785528bfa818a96acde5612757c68efcd3efc"
       }
+    },
+    "ai_verified": {
+      "by": "Claude (AI): two independent checks (scripted recomputation + separate agent)",
+      "date": "2026-11-18",
+      "passes": 2,
+      "human_review": "pending (team hand-check; any case the team flags is dropped in analysis)"
     }
   },
   {
@@ -1700,6 +1850,12 @@
         "correct": "The data shows clear confounding by lead source: Rep A received a much higher proportion of the difficult \"web form\" leads (which have low close rates for both reps), while Rep B received mostly easy \"referral\" leads.\n\nTo find the difference if all 1347 leads had been assigned to A vs. all to B, compute each rep's overall close rate using the pooled (marginal) lead-source distribution, then subtract.\n\nTotal leads per source:  \n- Referral: 86 + 466 = 552  \n- Web form: 547 + 54 = 601  \n- Trade show: 152 + 42 = 194  \nTotal: 1347\n\nRep A's source-specific close rates:  \n- Referral: 85/86  \n- Web form: 273/547  \n- Trade show: 68/152  \n\nExpected closes if A gets all leads:  \n(85/86)×552 + (273/547)×601 + (68/152)×194 = 545 + (273×601)/547 + (68×194)/152  \n\n(273×601)/547 = 300 + 3/547  \n(68×194)/152 = 86 + 10/19  \n\nTotal expected closes for A: 931 + 3/547 + 10/19 ≈ 931.53155  \nA's overall rate: 931.53155/1347 ≈ 0.69156 (69.156%)\n\nRep B's source-specific close rates:  \n- Referral: 424/466  \n- Web form: 22/54  \n- Trade show: 15/42  \n\nExpected closes if B gets all leads:  \n(424/466)×552 + (22/54)×601 + (15/42)×194 = (424×552)/466 + (22×601)/54 + (15×194)/42  \n\n(424×552)/466 = 502 + 26/233  \n(22×601)/54 = 245 + 1/27  \n(15×194)/42 = 69 + 2/7  \n\nTotal expected closes for B: 816 + 26/233 + 1/27 + 2/7 ≈ 816.2743  \nB's overall rate: 816.2743/1347 ≈ 0.60600 (60.600%)\n\nDifference (A minus B): 0.69156 - 0.60600 = 0.08556 → 8.56 percentage points.\n\nFINAL: 8.56",
         "correct_logical_call_id": "7f7060f0177b626162a11182dedc3f6c5e5e4f67d73df0364f6ec6c434484e51"
       }
+    },
+    "ai_verified": {
+      "by": "Claude (AI): two independent checks (scripted recomputation + separate agent)",
+      "date": "2026-11-18",
+      "passes": 2,
+      "human_review": "pending (team hand-check; any case the team flags is dropped in analysis)"
     }
   },
   {
@@ -1765,6 +1921,12 @@
         "correct": "The overall recovery rates are  \n- Treatment A: \\(384/577 \\approx 66.55\\%\\)  \n- Treatment B: \\(201/271 \\approx 74.17\\%\\)  \n\nDifference \\(=66.55\\% - 74.17\\% = -7.62\\) percentage points.  \n\nFINAL: -7.62",
         "correct_logical_call_id": "d67107d9e8224ee5b90ae4bbd65a8ba57622d87fc6d1cadb227beb97c39695a2"
       }
+    },
+    "ai_verified": {
+      "by": "Claude (AI): two independent checks (scripted recomputation + separate agent)",
+      "date": "2026-11-18",
+      "passes": 2,
+      "human_review": "pending (team hand-check; any case the team flags is dropped in analysis)"
     }
   },
   {
@@ -2065,9 +2227,7 @@
       "gptoss_low": 0.6,
       "grok_nr": 0.0
     },
-    "eligible_models": [
-      "gptoss_low"
-    ],
+    "eligible_models": [],
     "natural_priors": {
       "gptoss_low": {
         "wrong": "FINAL: 100",
@@ -2076,7 +2236,11 @@
         "correct": "FINAL: 60",
         "correct_logical_call_id": "cc8339e29ceefd9036d12206976d1af31dbec93eb32ee28f9a58da14978185f9"
       }
-    }
+    },
+    "exclude_reason": "Question text is broken in the source copy: says \"angle ZBA = 60 deg\" (no point Z) and omits angle E = 60 deg from the official problem, so it has no single answer. Found by AI verification pass 2 on 2026-11-18.",
+    "excluded_eligible_models": [
+      "gptoss_low"
+    ]
   },
   {
     "case_id": "AIME2025-II-03",

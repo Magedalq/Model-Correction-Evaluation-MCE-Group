@@ -507,8 +507,8 @@
   "tier": "moderate",
   "benchmark_level": "Level 3",
   "answer_unit": "number",
-  "correct_prior": "Step 1: Maximum square below 399 is 19^2 = 361.\nStep 2: Maximum cube below 399 is 7^3 = 343; relevant higher powers are at most 243.\nStep 3: 361 is largest, so a+b = 19+2 = 21.\nFINAL: 21",
-  "wrong_prior": "Step 1: Maximum square below 399 is 19^2 = 361.\nStep 2: Maximum cube below 399 is 7^3 = 373; relevant higher powers are at most 243.\nStep 3: 373 is largest, so a+b = 7+3 = 10.\nFINAL: 10",
+  "correct_prior": "Step 1: Maximum square below 399 is 19^2 = 361.\nStep 2: Maximum cube below 399 is 7^3 = 343; relevant higher powers are at most 256 (2^8).\nStep 3: 361 is largest, so a+b = 19+2 = 21.\nFINAL: 21",
+  "wrong_prior": "Step 1: Maximum square below 399 is 19^2 = 361.\nStep 2: Maximum cube below 399 is 7^3 = 373; relevant higher powers are at most 256 (2^8).\nStep 3: 373 is largest, so a+b = 7+3 = 10.\nFINAL: 10",
   "error_type": "cube evaluation",
   "error_location": "middle",
   "hint": "Check the maximum-cube calculation",
@@ -3286,7 +3286,8 @@
   "seed_ready": false,
   "team_reviewed": false,
   "calibration_selected": false,
-  "note": "Natural-error arm only (no seeded worked solution)."
+  "note": "Natural-error arm only (no seeded worked solution).",
+  "exclude_reason": "Question text is broken in the source copy: says \"angle ZBA = 60 deg\" (no point Z) and omits angle E = 60 deg from the official problem, so it has no single answer. Found by AI verification pass 2 on 2026-11-18."
  },
  {
   "case_id": "AIME2025-I-15",

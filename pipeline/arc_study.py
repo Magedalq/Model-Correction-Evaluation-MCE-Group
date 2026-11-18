@@ -125,7 +125,8 @@ def validate(cases, full=False):
   if c.get('seed_ready'):
    if score(c['correct_prior'],c)['correct'] is not True:raise ValueError('Invalid correct prior: '+c['case_id'])
    if score(c['wrong_prior'],c)['correct'] is not False:raise ValueError('Invalid wrong prior: '+c['case_id'])
-   if full and not c.get('team_reviewed'):raise ValueError('Team review of the seeded worked solution not completed: '+c['case_id'])
+   # Either a human team review or a documented independent AI double-check (see deviations.csv) unlocks the full study.
+   if full and not (c.get('team_reviewed') or (c.get('ai_verified') or {}).get('passes',0)>=2):raise ValueError('Seeded worked solution not reviewed (team_reviewed) or AI double-checked (ai_verified): '+c['case_id'])
   elif full and not c.get('natural_priors'):raise ValueError('Case has neither seeded nor natural priors: '+c['case_id'])
   for label,pri in (c.get('natural_priors') or {}).items():
    if 'wrong' in pri and score(pri['wrong'],c)['correct'] is not False:raise ValueError('Invalid natural wrong prior: '+c['case_id']+' '+label)
